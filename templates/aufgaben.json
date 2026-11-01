@@ -1,5 +1,5 @@
 { "aufgaben": [
-  { "id": "a1", "typ": "auswahl", "frage": "Frage mit Antwortauswahl?", "optionen": ["Richtig", "Falsch A", "Falsch B"], "richtig": 0, "hinweis": "Optionaler Tipp", "erklaerung": "Optionale Begründung" },
+  { "id": "a1", "typ": "auswahl", "frage": "Frage mit Antwortauswahl?", "optionen": ["Richtig", "Falsch A", "Falsch B"], "richtig": 0, "hinweis": "Optionaler Tipp, auch mit Formel: $a^2+b^2=c^2$", "erklaerung": "Optionale Begründung" },
   { "id": "a2", "typ": "zahl", "frage": "Wie viel ist 3,5 · 100?", "richtig": 350, "toleranz": 0, "einheit": "cm" },
   { "id": "a3", "typ": "text", "frage": "Hauptstadt von Bayern?", "richtig": ["München", "Muenchen"] }
 ] }

@@ -1,12 +1,114 @@
-{ "aufgaben": [
-  { "id": "l1", "typ": "zahl", "frage": "Wie viele Zentimeter sind 3,5 m?", "richtig": 350, "einheit": "cm", "hinweis": "1 m = 100 cm", "erklaerung": "3,5 · 100 = 350" },
-  { "id": "l2", "typ": "zahl", "frage": "Wie viele Meter sind 2 km?", "richtig": 2000, "einheit": "m", "hinweis": "1 km = 1000 m" },
-  { "id": "l3", "typ": "zahl", "frage": "Wie viele Gramm sind 0,75 kg?", "richtig": 750, "einheit": "g", "erklaerung": "0,75 · 1000 = 750" },
-  { "id": "l4", "typ": "zahl", "frage": "Wie viele Minuten sind 2,5 Stunden?", "richtig": 150, "einheit": "min", "hinweis": "1 h = 60 min", "erklaerung": "2,5 · 60 = 150" },
-  { "id": "l5", "typ": "auswahl", "frage": "Welche Länge ist die größte?", "optionen": ["1,2 m", "110 cm", "1 100 mm", "0,001 km"], "richtig": 0, "erklaerung": "Alles in cm: 120, 110, 110 und 100." },
-  { "id": "l6", "typ": "auswahl", "frage": "Wie viele Millimeter hat ein Zentimeter?", "optionen": ["10", "100", "1000"], "richtig": 0 },
-  { "id": "l7", "typ": "zahl", "frage": "Wie viele Sekunden sind 3 Minuten?", "richtig": 180, "einheit": "s" },
-  { "id": "l8", "typ": "text", "frage": "Wie heißt die Einheit mit 1000 g?", "richtig": ["Kilogramm", "kg"] },
-  { "id": "l9", "typ": "zahl", "frage": "Wie viele Kilogramm sind 4 500 g?", "richtig": 4.5, "einheit": "kg", "hinweis": "Teile durch 1000." },
-  { "id": "l10", "typ": "auswahl", "frage": "Welche Einheit passt zur Höhe einer Tür?", "optionen": ["2 m", "2 mm", "2 km"], "richtig": 0 }
-] }
+{
+ "aufgaben": [
+  {
+   "id": "l1",
+   "typ": "zahl",
+   "frage": "Wie viele Zentimeter sind 3,5 m?",
+   "richtig": 350,
+   "einheit": "cm",
+   "hinweis": "1 m = 100 cm",
+   "erklaerung": "$3{,}5 \\cdot 100 = 350$"
+  },
+  {
+   "id": "l2",
+   "typ": "zahl",
+   "frage": "Wie viele Meter sind 2 km?",
+   "richtig": 2000,
+   "einheit": "m",
+   "hinweis": "1 km = 1000 m"
+  },
+  {
+   "id": "l3",
+   "typ": "zahl",
+   "frage": "Wie viele Gramm sind 0,75 kg?",
+   "richtig": 750,
+   "einheit": "g",
+   "erklaerung": "0,75 · 1000 = 750"
+  },
+  {
+   "id": "l4",
+   "typ": "zahl",
+   "frage": "Wie viele Minuten sind 2,5 Stunden?",
+   "richtig": 150,
+   "einheit": "min",
+   "hinweis": "1 h = 60 min",
+   "erklaerung": "2,5 · 60 = 150"
+  },
+  {
+   "id": "l5",
+   "typ": "auswahl",
+   "frage": "Welche Länge ist die größte?",
+   "optionen": [
+    "1,2 m",
+    "110 cm",
+    "1 100 mm",
+    "0,001 km"
+   ],
+   "richtig": 0,
+   "erklaerung": "Alles in cm: 120, 110, 110 und 100."
+  },
+  {
+   "id": "l6",
+   "typ": "auswahl",
+   "frage": "Wie viele Millimeter hat ein Zentimeter?",
+   "optionen": [
+    "10",
+    "100",
+    "1000"
+   ],
+   "richtig": 0
+  },
+  {
+   "id": "l7",
+   "typ": "zahl",
+   "frage": "Wie viele Sekunden sind 3 Minuten?",
+   "richtig": 180,
+   "einheit": "s"
+  },
+  {
+   "id": "l8",
+   "typ": "text",
+   "frage": "Wie heißt die Einheit mit 1000 g?",
+   "richtig": [
+    "Kilogramm",
+    "kg"
+   ]
+  },
+  {
+   "id": "l9",
+   "typ": "zahl",
+   "frage": "Wie viele Kilogramm sind 4 500 g?",
+   "richtig": 4.5,
+   "einheit": "kg",
+   "hinweis": "Teile durch 1000."
+  },
+  {
+   "id": "l10",
+   "typ": "auswahl",
+   "frage": "Welche Einheit passt zur Höhe einer Tür?",
+   "optionen": [
+    "2 m",
+    "2 mm",
+    "2 km"
+   ],
+   "richtig": 0
+  },
+  {
+   "id": "l11",
+   "typ": "zahl",
+   "frage": "Wie lang ist der Stift? Lies die Länge am Lineal ab.",
+   "bild": "lineal.svg",
+   "bildAlt": "Ein Lineal in Zentimetern. Der Stift beginnt bei 0 und endet bei 7,5.",
+   "richtig": 7.5,
+   "einheit": "cm",
+   "hinweis": "Die Spitze liegt genau zwischen 7 und 8."
+  },
+  {
+   "id": "l12",
+   "typ": "zahl",
+   "frage": "Berechne: $0{,}25 \\cdot 4$",
+   "richtig": 1,
+   "erklaerung": "$\\frac{1}{4} \\cdot 4 = 1$"
+  }
+ ]
+}

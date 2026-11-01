@@ -1,0 +1,13 @@
+/* Arbeitsblätter und Ausdrucke: immer hell, ohne Bedienelemente. */
+:root{color-scheme:light!important}
+body{background:#fff!important;color:#000!important;font-size:11pt;display:block}
+.site-head,.site-foot,.skip,.filters,.back,.icon-btn,.btn,aside,.noprint,.hint{display:none!important}
+.wrap{width:100%}
+.app-layout{display:block}
+.panel{border:0!important;box-shadow:none!important;background:none!important;padding:0!important}
+a{color:inherit;text-decoration:none}
+h1{font-size:20pt}.muted,.app-head p{color:#333!important}
+.app-head::after{content:"Online: " attr(data-url);display:block;font-size:9pt;color:#333}
+.ab li{break-inside:avoid;margin-bottom:.9cm}
+.ab-line{min-width:7cm}
+.fig img{max-height:5cm}

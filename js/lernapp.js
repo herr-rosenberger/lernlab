@@ -1,6 +1,7 @@
 // LernLab Mini-Framework für Lern-Apps. Aufgaben stehen in aufgaben.json neben der index.html.
 // Typen: "auswahl" {optionen[], richtig:Index} · "zahl" {richtig:Zahl, toleranz?, einheit?} · "text" {richtig:[Strings]}
-// Optional je Aufgabe: hinweis, erklaerung. Lernstand: Leitner-Boxen (0–3), nur lokal im Browser.
+// Optional je Aufgabe: hinweis, erklaerung, bild + bildAlt (Alternativtext Pflicht). Formeln: $…$ (KaTeX). Arbeitsblatt: ?arbeitsblatt bzw. ?arbeitsblatt&loesung.
+// Lernstand: Leitner-Boxen (0–3), nur lokal im Browser.
 (() => {
   const root = document.getElementById('quiz'), side = document.getElementById('side');
   const KEY = 'lernapp:' + location.pathname, RUNDE = 10, GEMEISTERT = 3, mem = {};
@@ -12,6 +13,9 @@
   const norm = s => String(s).trim().toLowerCase().replace(/\s+/g, ' ');
   const num = s => parseFloat(String(s).replace(/\s/g, '').replace(',', '.'));
   const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const mathe = el => (window.LernLab && LernLab.mathe) ? LernLab.mathe(el) : null;
+  const bild = t => t.bild ? `<figure class="fig"><img src="${esc(t.bild)}" alt="${esc(t.bildAlt || '')}"></figure>` : '';
+  const q = new URLSearchParams(location.search);
   let tasks = [], prog = { box: {} }, run = null;
   prog = Object.assign(prog, store.get());
 
@@ -37,11 +41,11 @@
     } else {
       eingabe = `<label class="visually-hidden" for="a">Deine Antwort</label><div class="row"><input id="a" name="a" type="text" ${t.typ === 'zahl' ? 'inputmode="decimal"' : ''} autocomplete="off">${t.einheit ? `<span>${esc(t.einheit)}</span>` : ''}</div>`;
     }
-    root.innerHTML = `<p class="muted">Aufgabe ${run.i + 1} von ${n}</p><h2 id="f-titel" tabindex="-1">${esc(t.frage)}</h2>
+    root.innerHTML = `<p class="muted">Aufgabe ${run.i + 1} von ${n}</p><h2 id="f-titel" tabindex="-1">${esc(t.frage)}</h2>${bild(t)}
       <form id="f" novalidate>${eingabe}<div class="row"><button class="btn" id="ok" type="submit">Prüfen</button>
       ${t.hinweis ? '<button class="btn ghost" id="hint" type="button">Hinweis</button>' : ''}</div></form>
       <p class="hint" id="hinweis" hidden>${esc(t.hinweis || '')}</p><div id="fb" aria-live="polite"></div>`;
-    document.getElementById('f-titel').focus();
+    document.getElementById('f-titel').focus(); mathe(root);
     if (t.hinweis) document.getElementById('hint').onclick = () => document.getElementById('hinweis').hidden = false;
     document.getElementById('f').onsubmit = e => { e.preventDefault(); run.beantwortet ? weiter() : pruefen(t); };
   }
@@ -58,7 +62,7 @@
     f.querySelectorAll('input').forEach(i => i.disabled = true);
     fb.innerHTML = `<p class="feedback ${ok ? 'ok' : 'nok'}"><strong>${ok ? 'Richtig.' : 'Nicht ganz.'}</strong>${ok ? '' : ' Richtig ist: ' + esc(loesung(t)) + '.'}</p>${t.erklaerung ? `<p class="muted">${esc(t.erklaerung)}</p>` : ''}`;
     const b = document.getElementById('ok'); b.textContent = run.i + 1 < run.liste.length ? 'Weiter' : 'Ergebnis'; b.focus();
-    run.beantwortet = true; seite();
+    run.beantwortet = true; seite(); mathe(fb);
   }
 
   function weiter() { run.i++; run.i < run.liste.length ? frage() : ergebnis(); }
@@ -68,7 +72,15 @@
     root.innerHTML = `<h2 id="f-titel" tabindex="-1">Runde geschafft</h2><p class="readout">${run.punkte} von ${n} richtig</p>
       ${run.falsch.length ? '<h3>Das üben wir weiter</h3><ul>' + run.falsch.map(t => `<li>${esc(t.frage)} <span class="muted">Lösung: ${esc(loesung(t))}</span></li>`).join('') + '</ul>' : '<p>Alles richtig. Stark!</p>'}
       <button class="btn" id="neu" type="button">Neue Runde</button>`;
-    document.getElementById('f-titel').focus(); document.getElementById('neu').onclick = neueRunde; seite();
+    document.getElementById('f-titel').focus(); document.getElementById('neu').onclick = neueRunde; seite(); mathe(root);
+  }
+
+  function arbeitsblatt(mitLoesung) {
+    document.querySelector('.app-layout').classList.add('einspaltig'); side.parentElement.hidden = true;
+    root.innerHTML = `<div class="row noprint"><button class="btn" type="button" onclick="print()">Drucken</button></div>
+      <h2>${mitLoesung ? 'Lösungen' : 'Arbeitsblatt'}</h2><p>Name: ______________________ Datum: ____________</p>
+      <ol class="ab">${tasks.map(t => `<li>${esc(t.frage)}${bild(t)}${t.typ === 'auswahl' ? '<ul class="ab-opt">' + t.optionen.map(o => `<li>${esc(o)}</li>`).join('') + '</ul>' : '<br><span class="ab-line"></span> ' + esc(t.einheit || '')}${mitLoesung ? `<div class="ab-lsg">Lösung: ${esc(loesung(t))}</div>` : ''}</li>`).join('')}</ol>`;
+    mathe(root);
   }
 
   function seite() {
@@ -77,6 +89,7 @@
     side.innerHTML = `<div class="readout">${g} / ${tasks.length}</div><p class="muted">Aufgaben sicher gelernt</p>
       <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${p}"><span style="width:${p}%"></span></div>
       <p class="muted">Falsche Aufgaben kommen früher wieder. Dein Lernstand bleibt nur in diesem Browser.</p>
+      <p class="muted">Für den Unterricht:<br><a href="?arbeitsblatt">Arbeitsblatt drucken</a><br><a href="?arbeitsblatt&loesung">Arbeitsblatt mit Lösungen</a></p>
       <div class="row"><button class="btn ghost" id="exp" type="button">Lernstand speichern</button><button class="btn ghost" id="rst" type="button">Zurücksetzen</button></div>`;
     document.getElementById('exp').onclick = () => {
       const a = document.createElement('a'); a.download = 'lernstand.json';
@@ -85,6 +98,6 @@
     document.getElementById('rst').onclick = () => { if (confirm('Lernstand wirklich löschen?')) { prog = { box: {} }; store.set(prog); neueRunde(); } };
   }
 
-  fetch('aufgaben.json').then(r => r.json()).then(d => { tasks = d.aufgaben; seite(); neueRunde(); })
+  fetch('aufgaben.json').then(r => r.json()).then(d => { tasks = d.aufgaben; if (q.has('arbeitsblatt')) return arbeitsblatt(q.has('loesung')); seite(); neueRunde(); })
     .catch(() => { root.innerHTML = '<p class="feedback nok">Die Aufgaben konnten nicht geladen werden. Lade die Seite neu.</p>'; });
 })();
