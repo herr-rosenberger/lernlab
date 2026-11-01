@@ -117,3 +117,5 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .ab-opt{list-style:none;padding-left:0;margin:.4rem 0 0}.ab-opt li::before{content:"\2610\00a0"}
 .ab-line{display:inline-block;min-width:10rem;border-bottom:1px solid var(--muted);margin-top:.4rem}
 .ab-lsg{margin-top:.3rem;font-weight:700;color:var(--accent)}
+
+.qr{display:none}

@@ -11,3 +11,6 @@ h1{font-size:20pt}.muted,.app-head p{color:#333!important}
 .ab li{break-inside:avoid;margin-bottom:.9cm}
 .ab-line{min-width:7cm}
 .fig img{max-height:5cm}
+.qr{display:block!important;position:absolute;top:0;right:0;width:2.6cm;background:#fff}
+.qr svg{width:100%;height:auto}
+.app-head{position:relative}

@@ -1,0 +1,21 @@
+name: Fehler melden
+description: Etwas funktioniert nicht oder ist inhaltlich falsch.
+labels: [fehler]
+body:
+  - type: input
+    id: app
+    attributes: { label: Welche App oder Seite?, placeholder: "z. B. Fadenpendel, Klasse 7" }
+    validations: { required: true }
+  - type: dropdown
+    id: art
+    attributes:
+      label: Art des Problems
+      options: [Inhaltlicher Fehler, Technischer Fehler, Darstellung oder Barrierefreiheit, Sonstiges]
+    validations: { required: true }
+  - type: textarea
+    id: beschreibung
+    attributes: { label: Was ist passiert?, description: Was hast du erwartet, was hast du gesehen? }
+    validations: { required: true }
+  - type: input
+    id: umgebung
+    attributes: { label: Gerät und Browser, placeholder: "z. B. iPad, Safari" }

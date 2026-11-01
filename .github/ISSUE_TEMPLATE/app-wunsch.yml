@@ -1,0 +1,23 @@
+name: App-Wunsch
+description: Eine neue Simulation oder Lern-App vorschlagen.
+labels: [wunsch]
+body:
+  - type: dropdown
+    id: typ
+    attributes: { label: Art, options: [Simulation, Lern-App] }
+    validations: { required: true }
+  - type: input
+    id: klasse
+    attributes: { label: Jahrgangsstufe, placeholder: "z. B. 8" }
+    validations: { required: true }
+  - type: input
+    id: fach
+    attributes: { label: Fach }
+    validations: { required: true }
+  - type: input
+    id: lehrplan
+    attributes: { label: Lehrplanbezug, placeholder: LehrplanPLUS Gymnasium, Lernbereich }
+  - type: textarea
+    id: idee
+    attributes: { label: Was soll man damit tun können? }
+    validations: { required: true }

@@ -1,5 +1,6 @@
 // Theme-Umschalter: Systemeinstellung als Standard, manuelle Wahl wird lokal gemerkt.
 (function(){
+  const SRC=document.currentScript&&document.currentScript.src;
   const root=document.documentElement;
   try{const t=localStorage.getItem('theme');if(t)root.dataset.theme=t}catch(e){}
   document.addEventListener('DOMContentLoaded',()=>{
@@ -11,4 +12,5 @@
       try{localStorage.setItem('theme',next)}catch(e){}
     });
   });
+  if('serviceWorker' in navigator&&SRC)addEventListener('load',()=>navigator.serviceWorker.register(new URL('../sw.js',SRC)).catch(()=>{}));
 })();
