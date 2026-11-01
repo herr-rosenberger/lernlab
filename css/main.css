@@ -95,3 +95,17 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .site-foot .wrap{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem}.site-foot a{color:var(--muted)}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* Lern-Apps */
+.muted{color:var(--muted)}
+.row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-top:1rem}
+.opts{border:0;padding:0;margin:0;display:grid;gap:.6rem}
+.opt{display:flex;gap:.75rem;align-items:center;padding:.75rem 1rem;border:1px solid var(--line);border-radius:var(--radius-s);background:var(--bg);cursor:pointer}
+.opt:hover{border-color:var(--accent)}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.opt input{accent-color:var(--accent);width:1.2rem;height:1.2rem}
+#quiz input[type=text]{font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-s);padding:.7rem .9rem;width:min(16rem,100%)}
+.hint{padding:.6rem .9rem;border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 var(--radius-s) var(--radius-s) 0}
+.bar{height:.6rem;border-radius:99px;background:var(--surface-2);overflow:hidden;margin:.5rem 0 1rem}
+.bar span{display:block;height:100%;background:var(--accent);border-radius:inherit}
+.btn:disabled{opacity:.5}

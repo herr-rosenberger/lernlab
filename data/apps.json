@@ -12,5 +12,19 @@
     "typ": "simulationen",
     "klasse": 7,
     "pfad": "simulationen/7/fadenpendel/"
+  },
+  {
+    "titel": "Größen umrechnen",
+    "fach": "Mathematik",
+    "lehrplanBezug": "Größen und Messen",
+    "kurzbeschreibung": "Längen, Massen und Zeiten in andere Einheiten umrechnen.",
+    "tags": [
+      "Einheiten",
+      "Dezimalzahlen"
+    ],
+    "dauerMin": 10,
+    "typ": "lernapps",
+    "klasse": 5,
+    "pfad": "lernapps/5/groessen-umrechnen/"
   }
 ]
