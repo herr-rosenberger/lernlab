@@ -1,0 +1,12 @@
+{
+ "titel": "Stammfunktionen und Integrale üben",
+ "fach": "Mathematik",
+ "lehrplanBezug": "Integralrechnung: Stammfunktionen, bestimmtes Integral, Integrationsregeln",
+ "kurzbeschreibung": "Stammfunktionen selbst eintippen, bestimmte Integrale berechnen, Logarithmus-, Exponential- und Verkettungsregel anwenden.",
+ "tags": [
+  "Integral",
+  "Stammfunktion",
+  "Substitution"
+ ],
+ "dauerMin": 25
+}

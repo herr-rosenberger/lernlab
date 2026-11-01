@@ -9,3 +9,5 @@ Simulationen: `templates/app.js` als Ausgangspunkt mitkopieren.
 Druck: Jede App zeigt beim Drucken automatisch einen QR-Code zur Seite (data-qr in `.app-head`).
 Offline: `sw.js` speichert das Grundgerüst vorab und jede besuchte App beim ersten Aufruf. Die Cache-Version setzt `scripts/build.mjs`.
 Prüfung vor dem Veröffentlichen: `node scripts/check.mjs`.
+Typ `term`: Schüler tippen eine Stammfunktion ein. `richtig` ist eine Stammfunktion als Text, `f` die Funktion (zur Prüfung in check.mjs), optional `punkte` (Testpunkte ohne Definitionslücken). `ln` ist streng: negative Argumente brauchen Betragsstriche.
+Typ `zahl` mit `"exakt": true` akzeptiert auch Terme wie `ln(2)` oder `e-1`. Mit `loesungTeX` überschreibst du die angezeigte Lösung.

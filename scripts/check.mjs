@@ -1,6 +1,8 @@
 // Qualitätsprüfung ohne Abhängigkeiten. Aufruf: node scripts/check.mjs (Exit-Code 1 bei Fehlern)
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
+import { createRequire } from 'node:module';
+const term = createRequire(import.meta.url)('../js/term.js');
 let fehler = 0;
 const err = (f, m) => { console.error(`✗ ${f}: ${m}`); fehler++; };
 const walk = (d, out = []) => { for (const e of readdirSync(d, { withFileTypes: true })) {
@@ -23,6 +25,14 @@ for (const f of dateien.filter(f => f.endsWith('aufgaben.json'))) {
     if (!t.frage) err(w, 'frage fehlt');
     if (t.typ === 'auswahl') { if (!Array.isArray(t.optionen) || t.optionen.length < 2) err(w, 'optionen fehlen'); else if (!Number.isInteger(t.richtig) || t.richtig < 0 || t.richtig >= t.optionen.length) err(w, '"richtig" ist kein gültiger Index'); }
     else if (t.typ === 'zahl') { if (typeof t.richtig !== 'number') err(w, '"richtig" muss eine Zahl sein'); }
+    else if (t.typ === 'term') {
+      if (typeof t.richtig !== 'string' || typeof t.f !== 'string') err(w, '"richtig" und "f" müssen Terme (Text) sein');
+      else try {
+        const r = term.parse(t.richtig), f = term.parse(t.f);
+        for (const x of t.punkte || term.STANDARD) { const h = 1e-5, d = (r(x + h) - r(x - h)) / (2 * h), v = f(x);
+          if (!Number.isFinite(d) || !Number.isFinite(v) || Math.abs(d - v) > 1e-5 * (1 + Math.abs(v))) err(w, `Ableitung von "richtig" passt bei x=${x} nicht zu f (${d} statt ${v})`); }
+      } catch (e) { err(w, 'Term nicht lesbar: ' + e.message); }
+    }
     else if (t.typ === 'text') { if (!Array.isArray(t.richtig) || !t.richtig.length) err(w, '"richtig" muss eine Liste sein'); }
     else err(w, `Unbekannter typ "${t.typ}"`);
     if (t.bild) { if (!t.bildAlt) err(w, 'bildAlt (Alternativtext) fehlt'); if (!existsSync(join(dirname(f), t.bild))) err(w, `Bild fehlt: ${t.bild}`); }

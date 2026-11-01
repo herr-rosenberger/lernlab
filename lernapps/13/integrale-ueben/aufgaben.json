@@ -1,0 +1,411 @@
+{
+ "aufgaben": [
+  {
+   "id": "g1",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=4x^3-6x+2$.",
+   "f": "4x^3-6x+2",
+   "richtig": "x^4-3x^2+2x",
+   "loesungTeX": "F(x)=x^4-3x^2+2x",
+   "hinweis": "Integriere jeden Summanden einzeln: $\\int x^n\\,dx=\\frac{x^{n+1}}{n+1}$.",
+   "erklaerung": "Ein konstanter Summand $c$ wird zu $cx$."
+  },
+  {
+   "id": "g2",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\frac{5}{x^2}$.",
+   "f": "5/x^2",
+   "richtig": "-5/x",
+   "loesungTeX": "F(x)=-\\frac{5}{x}",
+   "hinweis": "Schreibe $\\frac{5}{x^2}$ als Potenz: $5x^{-2}$.",
+   "erklaerung": "$5x^{-2}\\to 5\\cdot\\frac{x^{-1}}{-1}=-\\frac5x$"
+  },
+  {
+   "id": "g3",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=3\\sqrt{x}$.",
+   "f": "3*sqrt(x)",
+   "richtig": "2*x^(3/2)",
+   "loesungTeX": "F(x)=2x^{3/2}=2x\\sqrt{x}",
+   "hinweis": "$\\sqrt{x}=x^{1/2}$",
+   "erklaerung": "$3x^{1/2}\\to 3\\cdot\\frac{x^{3/2}}{3/2}=2x^{3/2}$",
+   "punkte": [
+    0.4,
+    0.9,
+    1.5,
+    2.1,
+    2.8,
+    3.5
+   ]
+  },
+  {
+   "id": "g4",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=2e^x-\\cos x$.",
+   "f": "2*e^x-cos(x)",
+   "richtig": "2*e^x-sin(x)",
+   "loesungTeX": "F(x)=2e^x-\\sin x",
+   "hinweis": "Die e-Funktion bleibt beim Integrieren unverändert.",
+   "erklaerung": "$\\int\\cos x\\,dx=\\sin x$"
+  },
+  {
+   "id": "g5",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\frac1x+4\\sin x$.",
+   "f": "1/x+4*sin(x)",
+   "richtig": "ln|x|-4*cos(x)",
+   "loesungTeX": "F(x)=\\ln|x|-4\\cos x",
+   "hinweis": "Für $\\frac1x$ gilt $\\int\\frac1x\\,dx=\\ln|x|$ mit Betragsstrichen, auch für $x<0$.",
+   "erklaerung": "$\\int\\sin x\\,dx=-\\cos x$, also $4\\sin x\\to-4\\cos x$."
+  },
+  {
+   "id": "v1",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\sin(3x)$.",
+   "f": "sin(3x)",
+   "richtig": "-1/3*cos(3x)",
+   "loesungTeX": "F(x)=-\\frac13\\cos(3x)",
+   "hinweis": "Lineare Verkettung: $\\int f(ax+b)\\,dx=\\frac1a F(ax+b)+C$. Bilde zuerst die Stammfunktion $F$ und teile dann durch $a$.",
+   "erklaerung": "$\\int\\sin u\\,du=-\\cos u$ und $a=3$."
+  },
+  {
+   "id": "v2",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=e^{2x+1}$.",
+   "f": "e^(2x+1)",
+   "richtig": "1/2*e^(2x+1)",
+   "loesungTeX": "F(x)=\\frac12e^{2x+1}",
+   "hinweis": "Lineare Verkettung: $\\int f(ax+b)\\,dx=\\frac1a F(ax+b)+C$. Bilde zuerst die Stammfunktion $F$ und teile dann durch $a$.",
+   "erklaerung": "$a=2$, die e-Funktion bleibt $e^{2x+1}$."
+  },
+  {
+   "id": "v3",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=(2x-1)^3$.",
+   "f": "(2x-1)^3",
+   "richtig": "(2x-1)^4/8",
+   "loesungTeX": "F(x)=\\frac{(2x-1)^4}{8}",
+   "hinweis": "Lineare Verkettung: $\\int f(ax+b)\\,dx=\\frac1a F(ax+b)+C$. Bilde zuerst die Stammfunktion $F$ und teile dann durch $a$.",
+   "erklaerung": "$F(u)=\\frac{u^4}{4}$ und $a=2$: $\\frac12\\cdot\\frac{(2x-1)^4}{4}$."
+  },
+  {
+   "id": "v4",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\frac{1}{3x+2}$.",
+   "f": "1/(3x+2)",
+   "richtig": "1/3*ln|3x+2|",
+   "loesungTeX": "F(x)=\\frac13\\ln|3x+2|",
+   "hinweis": "Lineare Verkettung: $\\int f(ax+b)\\,dx=\\frac1a F(ax+b)+C$. Bilde zuerst die Stammfunktion $F$ und teile dann durch $a$.",
+   "erklaerung": "$\\int\\frac1u\\,du=\\ln|u|$ und $a=3$. Der Betrag ist nötig, da $3x+2$ negativ werden kann.",
+   "punkte": [
+    -3,
+    -1.5,
+    -0.9,
+    -0.4,
+    0.5,
+    2
+   ]
+  },
+  {
+   "id": "v5",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\sqrt{4x+1}$.",
+   "f": "sqrt(4x+1)",
+   "richtig": "1/6*(4x+1)^(3/2)",
+   "loesungTeX": "F(x)=\\frac16(4x+1)^{3/2}",
+   "hinweis": "Lineare Verkettung: $\\int f(ax+b)\\,dx=\\frac1a F(ax+b)+C$. Bilde zuerst die Stammfunktion $F$ und teile dann durch $a$.",
+   "erklaerung": "$F(u)=\\frac23u^{3/2}$ und $a=4$: $\\frac14\\cdot\\frac23=\\frac16$.",
+   "punkte": [
+    0.4,
+    0.9,
+    1.5,
+    2.1,
+    2.8,
+    3.5
+   ]
+  },
+  {
+   "id": "v6",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=5e^{-0{,}5x}$.",
+   "f": "5*e^(-0.5x)",
+   "richtig": "-10*e^(-0.5x)",
+   "loesungTeX": "F(x)=-10e^{-0{,}5x}",
+   "hinweis": "Lineare Verkettung: $\\int f(ax+b)\\,dx=\\frac1a F(ax+b)+C$. Bilde zuerst die Stammfunktion $F$ und teile dann durch $a$.",
+   "erklaerung": "Hier ist $a=-0{,}5$, der Faktor ist $\\frac1{-0{,}5}=-2$, mal 5 ergibt $-10$."
+  },
+  {
+   "id": "l1",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\frac{2x}{x^2+1}$.",
+   "f": "2x/(x^2+1)",
+   "richtig": "ln(x^2+1)",
+   "loesungTeX": "F(x)=\\ln(x^2+1)",
+   "hinweis": "Logarithmusregel: $\\int\\frac{f'(x)}{f(x)}\\,dx=\\ln|f(x)|+C$. Ist der Zähler die Ableitung des Nenners, oder ein Vielfaches davon?",
+   "erklaerung": "$(x^2+1)'=2x$ steht im Zähler. Wegen $x^2+1>0$ sind Betragsstriche hier nicht nötig."
+  },
+  {
+   "id": "l2",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\frac{3x^2}{x^3-2}$.",
+   "f": "3x^2/(x^3-2)",
+   "richtig": "ln|x^3-2|",
+   "loesungTeX": "F(x)=\\ln|x^3-2|",
+   "hinweis": "Logarithmusregel: $\\int\\frac{f'(x)}{f(x)}\\,dx=\\ln|f(x)|+C$. Ist der Zähler die Ableitung des Nenners, oder ein Vielfaches davon?",
+   "erklaerung": "$(x^3-2)'=3x^2$. Der Nenner wird auch negativ, daher die Betragsstriche.",
+   "punkte": [
+    -1.5,
+    -0.5,
+    0.5,
+    1,
+    1.6,
+    2.4
+   ]
+  },
+  {
+   "id": "l3",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\frac{\\cos x}{\\sin x}$.",
+   "f": "cos(x)/sin(x)",
+   "richtig": "ln|sin(x)|",
+   "loesungTeX": "F(x)=\\ln|\\sin x|",
+   "hinweis": "Logarithmusregel: $\\int\\frac{f'(x)}{f(x)}\\,dx=\\ln|f(x)|+C$. Ist der Zähler die Ableitung des Nenners, oder ein Vielfaches davon?",
+   "erklaerung": "$(\\sin x)'=\\cos x$.",
+   "punkte": [
+    0.4,
+    1,
+    1.5,
+    2,
+    2.8,
+    3.5,
+    4.5,
+    -0.5
+   ]
+  },
+  {
+   "id": "l4",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\frac{2x+4}{x^2+4x+1}$.",
+   "f": "(2x+4)/(x^2+4x+1)",
+   "richtig": "ln|x^2+4x+1|",
+   "loesungTeX": "F(x)=\\ln|x^2+4x+1|",
+   "hinweis": "Logarithmusregel: $\\int\\frac{f'(x)}{f(x)}\\,dx=\\ln|f(x)|+C$. Ist der Zähler die Ableitung des Nenners, oder ein Vielfaches davon?",
+   "erklaerung": "$(x^2+4x+1)'=2x+4$.",
+   "punkte": [
+    -5,
+    -4,
+    -2,
+    -1,
+    0.5,
+    2
+   ]
+  },
+  {
+   "id": "l5",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\frac{x}{x^2+3}$.",
+   "f": "x/(x^2+3)",
+   "richtig": "1/2*ln(x^2+3)",
+   "loesungTeX": "F(x)=\\frac12\\ln(x^2+3)",
+   "hinweis": "Logarithmusregel: $\\int\\frac{f'(x)}{f(x)}\\,dx=\\ln|f(x)|+C$. Ist der Zähler die Ableitung des Nenners, oder ein Vielfaches davon?",
+   "erklaerung": "$(x^2+3)'=2x$, im Zähler steht nur $x$, also die Hälfte. Deshalb der Faktor $\\frac12$."
+  },
+  {
+   "id": "l6",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\frac{e^x}{e^x+1}$.",
+   "f": "e^x/(e^x+1)",
+   "richtig": "ln(e^x+1)",
+   "loesungTeX": "F(x)=\\ln(e^x+1)",
+   "hinweis": "Logarithmusregel: $\\int\\frac{f'(x)}{f(x)}\\,dx=\\ln|f(x)|+C$. Ist der Zähler die Ableitung des Nenners, oder ein Vielfaches davon?",
+   "erklaerung": "$(e^x+1)'=e^x$."
+  },
+  {
+   "id": "e1",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=2x\\,e^{x^2}$.",
+   "f": "2x*e^(x^2)",
+   "richtig": "e^(x^2)",
+   "loesungTeX": "F(x)=e^{x^2}",
+   "hinweis": "Exponentialregel: $\\int f'(x)\\,e^{f(x)}\\,dx=e^{f(x)}+C$. Steht vor der e-Funktion die Ableitung des Exponenten (ggf. bis auf einen Faktor)?",
+   "erklaerung": "Der Exponent $x^2$ hat die Ableitung $2x$."
+  },
+  {
+   "id": "e2",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=3x^2\\,e^{x^3}$.",
+   "f": "3x^2*e^(x^3)",
+   "richtig": "e^(x^3)",
+   "loesungTeX": "F(x)=e^{x^3}",
+   "hinweis": "Exponentialregel: $\\int f'(x)\\,e^{f(x)}\\,dx=e^{f(x)}+C$. Steht vor der e-Funktion die Ableitung des Exponenten (ggf. bis auf einen Faktor)?",
+   "erklaerung": "$(x^3)'=3x^2$.",
+   "punkte": [
+    -1.5,
+    -1,
+    -0.5,
+    0.3,
+    0.8,
+    1.2
+   ]
+  },
+  {
+   "id": "e3",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=\\cos x\\cdot e^{\\sin x}$.",
+   "f": "cos(x)*e^(sin(x))",
+   "richtig": "e^(sin(x))",
+   "loesungTeX": "F(x)=e^{\\sin x}",
+   "hinweis": "Exponentialregel: $\\int f'(x)\\,e^{f(x)}\\,dx=e^{f(x)}+C$. Steht vor der e-Funktion die Ableitung des Exponenten (ggf. bis auf einen Faktor)?",
+   "erklaerung": "$(\\sin x)'=\\cos x$."
+  },
+  {
+   "id": "e4",
+   "typ": "term",
+   "frage": "Bestimme eine Stammfunktion von $f(x)=x\\,e^{-x^2}$.",
+   "f": "x*e^(-x^2)",
+   "richtig": "-1/2*e^(-x^2)",
+   "loesungTeX": "F(x)=-\\frac12e^{-x^2}",
+   "hinweis": "Exponentialregel: $\\int f'(x)\\,e^{f(x)}\\,dx=e^{f(x)}+C$. Steht vor der e-Funktion die Ableitung des Exponenten (ggf. bis auf einen Faktor)?",
+   "erklaerung": "$(-x^2)'=-2x$, im Integranden steht $x$. Der Faktor ist also $-\\frac12$."
+  },
+  {
+   "id": "b1",
+   "typ": "zahl",
+   "frage": "Berechne $\\int_0^2 (3x^2+1)\\,dx$.",
+   "richtig": 10,
+   "toleranz": 0.001,
+   "erklaerung": "$F(x)=x^3+x$, also $F(2)-F(0)=10-0=10$.",
+   "exakt": true
+  },
+  {
+   "id": "b2",
+   "typ": "zahl",
+   "frage": "Berechne $\\int_1^e \\frac1x\\,dx$.",
+   "richtig": 1,
+   "toleranz": 0.001,
+   "erklaerung": "$\\left[\\ln|x|\\right]_1^e=\\ln e-\\ln 1=1$.",
+   "exakt": true
+  },
+  {
+   "id": "b3",
+   "typ": "zahl",
+   "frage": "Berechne $\\int_0^1 2x\\,e^{x^2}\\,dx$.",
+   "richtig": 1.71828,
+   "toleranz": 0.005,
+   "erklaerung": "Exponentialregel: $F(x)=e^{x^2}$, also $e^1-e^0=e-1$.",
+   "exakt": true,
+   "loesungTeX": "e-1\\approx1{,}72"
+  },
+  {
+   "id": "b4",
+   "typ": "zahl",
+   "frage": "Berechne $\\int_0^1 (2x+1)^3\\,dx$.",
+   "richtig": 10,
+   "toleranz": 0.001,
+   "erklaerung": "$F(x)=\\frac{(2x+1)^4}{8}$, also $\\frac{81}{8}-\\frac18=10$.",
+   "exakt": true
+  },
+  {
+   "id": "b5",
+   "typ": "zahl",
+   "frage": "Berechne $\\int_1^2 \\frac{2x}{x^2+1}\\,dx$.",
+   "richtig": 0.916291,
+   "toleranz": 0.005,
+   "erklaerung": "Logarithmusregel: $\\left[\\ln(x^2+1)\\right]_1^2=\\ln5-\\ln2=\\ln\\frac52$.",
+   "exakt": true,
+   "loesungTeX": "\\ln\\frac52\\approx0{,}92"
+  },
+  {
+   "id": "b6",
+   "typ": "zahl",
+   "frage": "Berechne $\\int_0^{\\pi/2} \\sin(2x)\\,dx$.",
+   "richtig": 1,
+   "toleranz": 0.001,
+   "erklaerung": "$F(x)=-\\frac12\\cos(2x)$, also $-\\frac12(\\cos\\pi-\\cos0)=-\\frac12(-1-1)=1$.",
+   "exakt": true,
+   "hinweis": "Du kannst pi eingeben, z. B. pi/2."
+  },
+  {
+   "id": "b7",
+   "typ": "zahl",
+   "frage": "Berechne $\\int_{-1}^{1} x\\,e^{x^2}\\,dx$.",
+   "richtig": 0,
+   "toleranz": 0.005,
+   "erklaerung": "$F(x)=\\frac12e^{x^2}$ ist gerade, also $F(1)-F(-1)=0$. Der Integrand ist punktsymmetrisch zum Ursprung.",
+   "exakt": true
+  },
+  {
+   "id": "b8",
+   "typ": "zahl",
+   "frage": "$F$ ist eine Stammfunktion von $f(x)=2x+1$ mit $F(1)=3$. Berechne $F(2)$.",
+   "richtig": 7,
+   "toleranz": 0.001,
+   "erklaerung": "$F(x)=x^2+x+C$. Aus $F(1)=2+C=3$ folgt $C=1$, also $F(2)=6+1=7$."
+  },
+  {
+   "id": "k1",
+   "typ": "auswahl",
+   "frage": "Welche Regel passt am besten zu $\\int\\frac{2x}{x^2+1}\\,dx$?",
+   "optionen": [
+    "Logarithmusregel: Der Zähler ist die Ableitung des Nenners",
+    "Lineare Verkettung $f(ax+b)$",
+    "Potenzregel für jeden Summanden einzeln",
+    "Exponentialregel"
+   ],
+   "richtig": 0,
+   "erklaerung": "$(x^2+1)'=2x$, daher $\\ln(x^2+1)$."
+  },
+  {
+   "id": "k2",
+   "typ": "auswahl",
+   "frage": "Welche Stammfunktion hat $f(x)=e^{3x}$?",
+   "optionen": [
+    "$e^{3x}$",
+    "$3e^{3x}$",
+    "$\\frac13e^{3x}$",
+    "$\\frac{e^{3x+1}}{3x+1}$"
+   ],
+   "richtig": 2,
+   "erklaerung": "Probe durch Ableiten: $\\left(\\frac13e^{3x}\\right)'=\\frac13\\cdot3e^{3x}=e^{3x}$."
+  },
+  {
+   "id": "k3",
+   "typ": "auswahl",
+   "frage": "Warum ist $\\frac13(x^2+1)^3$ keine Stammfunktion von $(x^2+1)^2$?",
+   "optionen": [
+    "Die innere Funktion $x^2+1$ ist nicht linear. Die Regel mit dem Faktor $\\frac1a$ gilt nur für $ax+b$",
+    "Eine Stammfunktion braucht immer +C",
+    "Potenzen darf man nicht integrieren",
+    "Der Exponent muss um 2 steigen"
+   ],
+   "richtig": 0,
+   "erklaerung": "Die Ableitung ist $(x^2+1)^2\\cdot2x$, es bleibt der Faktor $2x$ übrig."
+  },
+  {
+   "id": "k4",
+   "typ": "auswahl",
+   "frage": "Was ist an $\\int x\\,e^{x^2}\\,dx=e^{x^2}+C$ falsch?",
+   "optionen": [
+    "Es fehlt der Faktor $\\frac12$, denn $\\left(e^{x^2}\\right)'=2x\\,e^{x^2}$",
+    "Es fehlen Betragsstriche",
+    "Es muss ln statt e stehen",
+    "Nichts, die Rechnung stimmt"
+   ],
+   "richtig": 0,
+   "erklaerung": "Richtig ist $\\frac12e^{x^2}+C$."
+  },
+  {
+   "id": "k5",
+   "typ": "auswahl",
+   "frage": "Wie viele Stammfunktionen hat $f(x)=2x$?",
+   "optionen": [
+    "Genau eine",
+    "Unendlich viele, sie unterscheiden sich um eine Konstante",
+    "Keine",
+    "Genau zwei"
+   ],
+   "richtig": 1,
+   "erklaerung": "Mit $F(x)=x^2$ ist auch $x^2+C$ für jedes $C$ eine Stammfunktion."
+  }
+ ]
+}

@@ -20,5 +20,11 @@ Gesamtübersicht mit Suche und Filtern: **[Zur Startseite](https://BENUTZERNAME.
 |---|---|---|
 | [Größen umrechnen](https://BENUTZERNAME.github.io/REPO/lernapps/5/groessen-umrechnen/) | Mathematik | Größen und Messen |
 
+### Klasse 13
+
+| App | Fach | Lehrplanbezug |
+|---|---|---|
+| [Stammfunktionen und Integrale üben](https://BENUTZERNAME.github.io/REPO/lernapps/13/integrale-ueben/) | Mathematik | Integralrechnung: Stammfunktionen, bestimmtes Integral, Integrationsregeln |
+
 ---
 Inhalte: CC BY-SA 4.0 · Code: MIT. Neue App anlegen: siehe `templates/`. README und `data/apps.json` werden mit `node scripts/build.mjs` erzeugt.
