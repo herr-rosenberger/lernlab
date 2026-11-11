@@ -14,6 +14,37 @@
     "pfad": "simulationen/7/fadenpendel/"
   },
   {
+    "titel": "Fläche und Integralfunktion",
+    "fach": "Mathematik",
+    "lehrplanBezug": "Integralrechnung: bestimmtes Integral, Integralfunktion, Hauptsatz",
+    "kurzbeschreibung": "Grenzen verschieben, Integral und Flächeninhalt vergleichen, die Integralfunktion samt Tangente beobachten und eine eigene Stammfunktion prüfen.",
+    "tags": [
+      "Integral",
+      "Integralfunktion",
+      "Hauptsatz",
+      "Stammfunktion"
+    ],
+    "dauerMin": 25,
+    "typ": "simulationen",
+    "klasse": 13,
+    "pfad": "simulationen/13/integralfunktion/"
+  },
+  {
+    "titel": "Ober- und Untersummen",
+    "fach": "Mathematik",
+    "lehrplanBezug": "Integralrechnung: Näherung durch Rechtecke, Einführung des Integrals",
+    "kurzbeschreibung": "Fläche unter einem Graphen durch Rechtecke einschließen und beobachten, wie Ober- und Untersumme zusammenrücken.",
+    "tags": [
+      "Integral",
+      "Obersumme",
+      "Untersumme"
+    ],
+    "dauerMin": 20,
+    "typ": "simulationen",
+    "klasse": 13,
+    "pfad": "simulationen/13/ober-untersumme/"
+  },
+  {
     "titel": "Größen umrechnen",
     "fach": "Mathematik",
     "lehrplanBezug": "Größen und Messen",

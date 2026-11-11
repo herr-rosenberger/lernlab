@@ -12,6 +12,13 @@ Gesamtübersicht mit Suche und Filtern: **[Zur Startseite](https://BENUTZERNAME.
 |---|---|---|
 | [Fadenpendel](https://BENUTZERNAME.github.io/REPO/simulationen/7/fadenpendel/) | Physik | Kräfte und Bewegung |
 
+### Klasse 13
+
+| App | Fach | Lehrplanbezug |
+|---|---|---|
+| [Fläche und Integralfunktion](https://BENUTZERNAME.github.io/REPO/simulationen/13/integralfunktion/) | Mathematik | Integralrechnung: bestimmtes Integral, Integralfunktion, Hauptsatz |
+| [Ober- und Untersummen](https://BENUTZERNAME.github.io/REPO/simulationen/13/ober-untersumme/) | Mathematik | Integralrechnung: Näherung durch Rechtecke, Einführung des Integrals |
+
 ## Lern-Apps
 
 ### Klasse 5

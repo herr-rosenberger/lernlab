@@ -1,7 +1,8 @@
 const cv=document.getElementById('c'),ctx=cv.getContext('2d'),g=9.81;
 const len=document.getElementById('len'),ang=document.getElementById('ang');
 let th,om,last=performance.now();
-const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n);
+const probe=document.createElement('span');probe.style.display='none';document.documentElement.append(probe);
+const css=n=>{probe.style.color='var('+n+')';return getComputedStyle(probe).color};
 function reset(){th=ang.value*Math.PI/180;om=0;
   document.getElementById('olen').textContent=(+len.value).toFixed(2)+' m';
   document.getElementById('oang').textContent=ang.value+'°';

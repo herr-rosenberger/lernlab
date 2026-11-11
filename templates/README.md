@@ -11,3 +11,5 @@ Offline: `sw.js` speichert das Grundgerüst vorab und jede besuchte App beim ers
 Prüfung vor dem Veröffentlichen: `node scripts/check.mjs`.
 Typ `term`: Schüler tippen eine Stammfunktion ein. `richtig` ist eine Stammfunktion als Text, `f` die Funktion (zur Prüfung in check.mjs), optional `punkte` (Testpunkte ohne Definitionslücken). `ln` ist streng: negative Argumente brauchen Betragsstriche.
 Typ `zahl` mit `"exakt": true` akzeptiert auch Terme wie `ln(2)` oder `e-1`. Mit `loesungTeX` überschreibst du die angezeigte Lösung.
+Diagramme in Simulationen: `js/plot.js` (Koordinatensystem, Kurven, Flächen, Theme-Farben) und `js/term.js` (Funktionseingabe) einbinden. Beispiele: `simulationen/13/…`.
+Canvas-Farben nie direkt aus `getPropertyValue` lesen (liefert `light-dark(…)` als Text), sondern `P.farbe('--accent')` nutzen.
