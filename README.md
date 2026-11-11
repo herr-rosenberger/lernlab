@@ -27,6 +27,12 @@ Gesamtübersicht mit Suche und Filtern: **[Zur Startseite](https://BENUTZERNAME.
 |---|---|---|
 | [Größen umrechnen](https://BENUTZERNAME.github.io/REPO/lernapps/5/groessen-umrechnen/) | Mathematik | Größen und Messen |
 
+### Klasse 8
+
+| App | Fach | Lehrplanbezug |
+|---|---|---|
+| [Sicherheit im Haushaltsstromkreis](https://BENUTZERNAME.github.io/REPO/lernapps/8/haushaltsschaltkreise/) | Physik | Schaltkreise im Haushalt und Sicherheit: recherchieren, als Schaltbild und Fachtext darstellen |
+
 ### Klasse 13
 
 | App | Fach | Lehrplanbezug |

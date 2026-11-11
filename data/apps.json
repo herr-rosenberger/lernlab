@@ -59,6 +59,22 @@
     "pfad": "lernapps/5/groessen-umrechnen/"
   },
   {
+    "titel": "Sicherheit im Haushaltsstromkreis",
+    "fach": "Physik",
+    "lehrplanBezug": "Schaltkreise im Haushalt und Sicherheit: recherchieren, als Schaltbild und Fachtext darstellen",
+    "kurzbeschreibung": "In vorgegebenen Quellen recherchieren, Haushaltsschaltbilder mit Sicherung, Schalter, Schutzleiter und FI vervollständigen und einen Fachtext schreiben.",
+    "tags": [
+      "Stromkreis",
+      "Sicherheit",
+      "Schaltbild",
+      "Recherche"
+    ],
+    "dauerMin": 45,
+    "typ": "lernapps",
+    "klasse": 8,
+    "pfad": "lernapps/8/haushaltsschaltkreise/"
+  },
+  {
     "titel": "Stammfunktionen und Integrale üben",
     "fach": "Mathematik",
     "lehrplanBezug": "Integralrechnung: Stammfunktionen, bestimmtes Integral, Integrationsregeln",
