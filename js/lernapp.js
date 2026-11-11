@@ -2,14 +2,10 @@
 // Typen: "auswahl" {optionen[], richtig:Index} · "zahl" {richtig:Zahl, toleranz?, einheit?, exakt?} · "text" {richtig:[Strings]}
 // · "term" {richtig:"x^2/2", f:"x", punkte?[]}: Stammfunktion eintippen, geprüft bis auf +C (braucht js/term.js). loesungTeX? überschreibt die angezeigte Lösung.
 // Optional je Aufgabe: hinweis, erklaerung, bild + bildAlt (Alternativtext Pflicht). Formeln: $…$ (KaTeX). Arbeitsblatt: ?arbeitsblatt bzw. ?arbeitsblatt&loesung.
-// Lernstand: Leitner-Boxen (0–3), nur lokal im Browser.
+// Falsch beantwortete Aufgaben kommen in der nächsten Runde bevorzugt wieder (nur im Speicher, es wird nichts gespeichert).
 (() => {
-  const root = document.getElementById('quiz'), side = document.getElementById('side');
-  const KEY = 'lernapp:' + location.pathname, RUNDE = 10, GEMEISTERT = 3, mem = {};
-  const store = {
-    get() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return mem.d || {}; } },
-    set(d) { try { localStorage.setItem(KEY, JSON.stringify(d)); } catch (e) { mem.d = d; } }
-  };
+  const root = document.getElementById('quiz');
+  const RUNDE = 10;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const norm = s => String(s).trim().toLowerCase().replace(/\s+/g, ' ');
   const num = s => (window.LernLab && LernLab.term) ? LernLab.term.zahl(s) : parseFloat(String(s).replace(/\s/g, '').replace(',', '.'));
@@ -19,8 +15,7 @@
   const hilfe = t => t.typ === 'term' ? '<p class="muted">Schreibweise: x^2, e^(2x), ln|x|, sin(3x), Brüche mit /. Setze Klammern, wenn der Nenner oder Exponent aus mehreren Zeichen besteht. Ein +C darfst du anhängen.</p>'
     : t.typ === 'zahl' && t.exakt ? '<p class="muted">Gib den exakten Wert (z. B. ln(2), e-1, pi/2) oder eine Dezimalzahl mit zwei Nachkommastellen ein.</p>' : '';
   const q = new URLSearchParams(location.search);
-  let tasks = [], prog = { box: {} }, run = null;
-  prog = Object.assign(prog, store.get());
+  let tasks = [], schwach = new Set(), run = null;
 
   const korrekt = (t, v) => t.typ === 'auswahl' ? +v === t.richtig
     : t.typ === 'term' ? LernLab.term.istStammfunktion(v, t.richtig, t.punkte)
@@ -31,7 +26,7 @@
     : t.typ === 'zahl' ? String(t.richtig).replace('.', ',') + (t.einheit ? ' ' + t.einheit : '') : t.richtig[0];
 
   function neueRunde() {
-    const sortiert = shuffle(tasks).sort((a, b) => (prog.box[a.id] || 0) - (prog.box[b.id] || 0));
+    const sortiert = shuffle(tasks).sort((a, b) => schwach.has(b.id) - schwach.has(a.id));
     run = { liste: shuffle(sortiert.slice(0, RUNDE)), i: 0, punkte: 0, falsch: [], beantwortet: false };
     frage();
   }
@@ -63,12 +58,12 @@
     if (t.typ === 'zahl' && isNaN(num(v))) { fb.innerHTML = '<p class="feedback nok">Das ist keine Zahl. Schreibe zum Beispiel 3,5.</p>'; return; }
     if (t.typ === 'term') { try { LernLab.term.parse(v); } catch (e) { fb.innerHTML = `<p class="feedback nok">Das kann ich nicht lesen: ${esc(e.message)}. Prüfe Klammern und Schreibweise.</p>`; return; } }
     const ok = korrekt(t, t.typ === 'auswahl' ? v : v);
-    prog.box[t.id] = ok ? Math.min((prog.box[t.id] || 0) + 1, GEMEISTERT) : 0; store.set(prog);
+    ok ? schwach.delete(t.id) : schwach.add(t.id);
     if (ok) run.punkte++; else run.falsch.push(t);
     f.querySelectorAll('input').forEach(i => i.disabled = true);
     fb.innerHTML = `<p class="feedback ${ok ? 'ok' : 'nok'}"><strong>${ok ? 'Richtig.' : 'Nicht ganz.'}</strong>${ok ? '' : ' Richtig ist: ' + esc(loesung(t)) + '.'}</p>${t.erklaerung ? `<p class="muted">${esc(t.erklaerung)}</p>` : ''}`;
     const b = document.getElementById('ok'); b.textContent = run.i + 1 < run.liste.length ? 'Weiter' : 'Ergebnis'; b.focus();
-    run.beantwortet = true; seite(); mathe(fb);
+    run.beantwortet = true; mathe(fb);
   }
 
   function weiter() { run.i++; run.i < run.liste.length ? frage() : ergebnis(); }
@@ -78,32 +73,19 @@
     root.innerHTML = `<h2 id="f-titel" tabindex="-1">Runde geschafft</h2><p class="readout">${run.punkte} von ${n} richtig</p>
       ${run.falsch.length ? '<h3>Das üben wir weiter</h3><ul>' + run.falsch.map(t => `<li>${esc(t.frage)} <span class="muted">Lösung: ${esc(loesung(t))}</span></li>`).join('') + '</ul>' : '<p>Alles richtig. Stark!</p>'}
       <button class="btn" id="neu" type="button">Neue Runde</button>`;
-    document.getElementById('f-titel').focus(); document.getElementById('neu').onclick = neueRunde; seite(); mathe(root);
+    document.getElementById('f-titel').focus(); document.getElementById('neu').onclick = neueRunde; mathe(root);
   }
 
   function arbeitsblatt(mitLoesung) {
-    document.querySelector('.app-layout').classList.add('einspaltig'); side.parentElement.hidden = true;
+    document.querySelector('.app-layout').classList.add('einspaltig');
     root.innerHTML = `<div class="row noprint"><button class="btn" type="button" onclick="print()">Drucken</button></div>
       <h2>${mitLoesung ? 'Lösungen' : 'Arbeitsblatt'}</h2><p>Name: ______________________ Datum: ____________</p>
       <ol class="ab">${tasks.map(t => `<li>${esc(t.frage)}${bild(t)}${t.typ === 'auswahl' ? '<ul class="ab-opt">' + t.optionen.map(o => `<li>${esc(o)}</li>`).join('') + '</ul>' : '<br>' + (t.typ === 'term' ? 'F(x) = ' : '') + '<span class="ab-line"></span> ' + esc(t.einheit || '')}${mitLoesung ? `<div class="ab-lsg">Lösung: ${esc(loesung(t))}</div>` : ''}</li>`).join('')}</ol>`;
     mathe(root);
   }
 
-  function seite() {
-    if (!side) return;
-    const g = tasks.filter(t => (prog.box[t.id] || 0) >= GEMEISTERT).length, p = Math.round(100 * g / tasks.length);
-    side.innerHTML = `<div class="readout">${g} / ${tasks.length}</div><p class="muted">Aufgaben sicher gelernt</p>
-      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${p}"><span style="width:${p}%"></span></div>
-      <p class="muted">Falsche Aufgaben kommen früher wieder. Dein Lernstand bleibt nur in diesem Browser.</p>
-      <p class="muted">Für den Unterricht:<br><a href="?arbeitsblatt">Arbeitsblatt drucken</a><br><a href="?arbeitsblatt&loesung">Arbeitsblatt mit Lösungen</a></p>
-      <div class="row"><button class="btn ghost" id="exp" type="button">Lernstand speichern</button><button class="btn ghost" id="rst" type="button">Zurücksetzen</button></div>`;
-    document.getElementById('exp').onclick = () => {
-      const a = document.createElement('a'); a.download = 'lernstand.json';
-      a.href = URL.createObjectURL(new Blob([JSON.stringify({ app: location.pathname, datum: new Date().toISOString(), boxen: prog.box }, null, 2)], { type: 'application/json' })); a.click();
-    };
-    document.getElementById('rst').onclick = () => { if (confirm('Lernstand wirklich löschen?')) { prog = { box: {} }; store.set(prog); neueRunde(); } };
-  }
-
-  fetch('aufgaben.json').then(r => r.json()).then(d => { tasks = d.aufgaben; const merk = document.querySelector('.merk'); if (merk) mathe(merk); if (q.has('arbeitsblatt')) return arbeitsblatt(q.has('loesung')); seite(); neueRunde(); })
+  fetch('aufgaben.json').then(r => r.json()).then(d => { tasks = d.aufgaben; const merk = document.querySelector('.merk'); if (merk) mathe(merk); if (q.has('arbeitsblatt')) return arbeitsblatt(q.has('loesung'));
+      root.insertAdjacentHTML('afterend', '<p class="muted noprint">Für den Unterricht: <a href="?arbeitsblatt">Arbeitsblatt drucken</a> oder <a href="?arbeitsblatt&amp;loesung">Arbeitsblatt mit Lösungen</a>.</p>');
+      neueRunde(); })
     .catch(() => { root.innerHTML = '<p class="feedback nok">Die Aufgaben konnten nicht geladen werden. Lade die Seite neu.</p>'; });
 })();
