@@ -14,6 +14,6 @@ h1{font-size:20pt}.muted,.app-head p{color:#333!important}
 .qr{display:block!important;position:absolute;top:0;right:0;width:2.6cm;background:#fff}
 .qr svg{width:100%;height:auto}
 .app-head{position:relative}
-.schritte,.nav-unten,.slots,.bausteine,hr{display:none!important}
+.schritte,.nav-unten,.palette,.aktionen,.status,.bausteine,hr,.eyebrow{display:none!important}
 .schaltbild{border:1px solid #999!important;break-inside:avoid;background:#fff!important}
 .ergebnis{color:#000}
