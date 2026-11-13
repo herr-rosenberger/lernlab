@@ -115,6 +115,23 @@
   const begriffeHtml = t => { const b = begriffe(t), n = b.filter(x => x.da).length; return `<p><strong>${n} von ${b.length}</strong> Fachbegriffen verwendet (Ziel: mindestens ${D.ziel}).</p><ul class="begriffe">${b.map(x => `<li class="${x.da ? 'da' : ''}">${x.da ? '✓' : '○'} ${esc(x.name)}</li>`).join('')}</ul>`; };
   const hinweiseHtml = t => D.hinweise.filter(h => new RegExp(h.muster, 'i').test(t)).map(h => `<p class="hint">${esc(h.text)}</p>`).join('');
   const grow = t => { t.style.height = 'auto'; t.style.height = Math.max(t.scrollHeight + 2, 104) + 'px'; };
+  // ---------- Aussagen-Check ----------
+  let letzte = null;
+  const checkHtml = r => {
+    const gr = { ok: [], teil: [], fehlt: [] }; r.aussagen.forEach((a, i) => gr[a.status].push([a, i]));
+    const btn = (ai, ti, z) => `<button type="button" class="btn ghost kl" data-note data-a="${ai}" data-t="${ti}"${z ? ' data-z="1"' : ''}>In meine Notizen übernehmen</button>`;
+    const liste = (titel, items, f) => items.length ? `<h4>${titel}</h4><ul class="pruef">${items.map(f).join('')}</ul>` : '';
+    const ok = ([a]) => `<li class="ok"><span class="badge" aria-hidden="true">✓</span><div><p class="pr-status"><strong>${esc(a.titel)}</strong></p><p>${esc(a.lob)}</p></div></li>`;
+    const off = ([a, i]) => `<li class="nok"><span class="badge" aria-hidden="true">?</span><div><p class="pr-status"><strong>${esc(a.titel)}</strong> <span class="muted">${a.status === 'teil' ? 'teilweise erkennbar' : 'noch nicht erkennbar'}</span></p>` +
+      a.teile.filter(t => t.ok).map(t => `<p>✓ ${esc(t.lob)}</p>`).join('') + a.teile.map((t, j) => t.ok ? '' : `<p>${esc(t.frage)}</p>${btn(i, j)}`).join('') + `<p class="muted">Gehört zu Leitfrage ${a.leitfrage + 1}.</p></div></li>`;
+    const zus = (z, i) => z.ok ? `<li class="ok"><span class="badge" aria-hidden="true">✓</span><div><p>${esc(z.lob)}</p></div></li>` : `<li class="nok"><span class="badge" aria-hidden="true">+</span><div><p>${esc(z.frage)}</p>${btn(i, 0, true)}</div></li>`;
+    return `<p><strong>${gr.ok.length} von ${r.aussagen.length}</strong> Kernaussagen sind in deinem Text erkennbar.</p>` +
+      (r.hinweise.length ? `<h4>Achtung bei dieser Formulierung</h4>${r.hinweise.map(h => `<p class="hint">${esc(h)}</p>`).join('')}` : '') +
+      liste('Das steht schon in deinem Text', gr.ok, ok) + liste('Das ist noch ungenau', gr.teil, off) + liste('Das fehlt noch', gr.fehlt, off) +
+      (r.zusaetze.length ? `<h4>Zum Weiterdenken</h4><ul class="pruef">${r.zusaetze.map(zus).join('')}</ul>` : '') +
+      '<p class="muted">Stand der letzten Prüfung. Prüfe nach Änderungen erneut.</p>';
+  };
+  const notiz = (idx, frage) => { const z = 'Offene Frage: ' + frage, alt = st.n[idx] || ''; if (!alt.includes(z)) st.n[idx] = alt ? alt + '\n' + z : z; save(); };
   const offen = () => {
     const o = [], gel = D.quellen.filter((_, i) => st.g[i]).length;
     if (gel < D.quellen.length) o.push(`${D.quellen.length - gel} Quelle(n) noch nicht als gelesen markiert`);
@@ -188,6 +205,9 @@
         <div class="bausteine" role="group" aria-label="Satzanfänge">${D.bausteine.map((b, i) => `<button type="button" class="btn ghost" data-b="${i}">${esc(b.trim())} …</button>`).join('')}</div>
         <label for="text">Dein Erklärtext</label><textarea id="text" rows="9" placeholder="Schreibe in ganzen Sätzen und benutze Fachbegriffe …"></textarea><p class="zaehler muted" id="worte"></p></div>
       <div id="begriffe" aria-live="polite"></div><div id="hinweise" aria-live="polite"></div>
+      <div class="editor"><h3>Aussagen-Check</h3>
+        <p>Der Check vergleicht deinen Text mit den wichtigsten Kernaussagen und stellt dir Rückfragen. Rechtschreib- und Zeichensetzungsfehler spielen dabei keine Rolle. Er ist ein automatischer Textvergleich und keine Bewertung und kann richtige Formulierungen übersehen, die er nicht kennt.</p>
+        <button class="btn" type="button" id="check">Text prüfen</button><div id="checkout" aria-live="polite"></div></div>
       <div class="editor field"><label for="bild">Bildunterschrift zu Schaltbild A (1 bis 2 Sätze)</label><textarea id="bild" rows="3" placeholder="Das Schaltbild zeigt …"></textarea><p class="muted">Beschreibe, was das Schaltbild zeigt und worauf man bei der Sicherheit achten muss.</p></div>
       <p class="muted">Die Fachbegriffe-Anzeige ist nur eine Orientierung. Ob dein Text inhaltlich stimmt, prüft deine Lehrkraft.</p>`,
     bind() {
@@ -195,6 +215,15 @@
       const upd = () => { $('#begriffe').innerHTML = begriffeHtml(t.value); $('#hinweise').innerHTML = hinweiseHtml(t.value); $('#worte').textContent = wortzahl(t.value) + ' Wörter'; grow(t); };
       t.oninput = () => { st.text = t.value; save(); upd(); }; b.oninput = () => { st.bild = b.value; save(); grow(b); };
       $$('[data-b]').forEach(x => x.onclick = () => { const s = D.bausteine[x.dataset.b], p = t.selectionStart, pre = p > 0 && !/\s$/.test(t.value.slice(0, p)) ? ' ' : ''; t.setRangeText(pre + s, p, t.selectionEnd, 'end'); t.focus(); t.oninput(); });
+      $('#check').onclick = () => {
+        const out = $('#checkout');
+        if (wortzahl(t.value) < 15) { out.innerHTML = '<p class="hint">Dein Text ist noch sehr kurz. Schreibe zuerst mindestens zwei bis drei Sätze und prüfe dann erneut.</p>'; return; }
+        letzte = LernLab.textcheck.pruefe(t.value, D); out.innerHTML = checkHtml(letzte);
+        out.querySelectorAll('[data-note]').forEach(x => x.onclick = () => {
+          const ai = +x.dataset.a, ti = +x.dataset.t, z = x.dataset.z ? letzte.zusaetze[ai] : null, a = z || letzte.aussagen[ai];
+          notiz(a.leitfrage, z ? z.frage : a.teile[ti].frage); x.textContent = `✓ In Leitfrage ${a.leitfrage + 1} übernommen`; x.disabled = true;
+        });
+      };
       upd(); grow(b);
     }
   }, {

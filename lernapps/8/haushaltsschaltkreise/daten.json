@@ -1,46 +1,573 @@
 {
-  "titel": "Sicherheit im Haushaltsstromkreis",
-  "auftrag": "Du recherchierst in vorgegebenen Quellen, wie Stromkreise im Haushalt aufgebaut sind und wie sie vor Gefahren schützen. Danach stellst du deine Ergebnisse in Schaltbildern und in fachsprachlich korrekten Sätzen dar.",
-  "quellen": [
-    { "titel": "Elektrische Hausinstallation (Schülerlexikon Physik, Lernhelfer)", "url": "https://www.lernhelfer.de/index.php/schuelerlexikon/physik/artikel/elektrische-hausinstallation", "beschreibung": "Anforderungen an die Hausinstallation, Sicherung der Leitungen und Schutzmaßnahmen." },
-    { "titel": "Wie funktioniert ein Sicherungsautomat? (selbst.de)", "url": "https://www.selbst.de/wie-funktioniert-ein-sicherungsautomat-21600.html", "beschreibung": "Aufbau und Wirkung des Leitungsschutzschalters bei Überlastung und Kurzschluss." },
-    { "titel": "Leistung – aber sicher (Universität Mainz, Unterrichtsreihe)", "url": "https://www.jcp.physik.uni-mainz.de/downloads/unterrichtsreihen/leistung_aber_sicher/Unterrichtsreihe_Leistung_aber_sicher_Artikel.pdf", "beschreibung": "Abschnitt 4 zu Schutzeinrichtungen: Leitungsschutzschalter und FI-Schalter. Ausführlicher, eher für Fortgeschrittene." }
-  ],
-  "fragen": [
-    { "frage": "Mit welcher Spannung arbeiten Haushaltsgeräte, und wie heißen die Leitungen einer Steckdose mit Schutzkontakt?", "suche": "Netzspannung, Außenleiter, Neutralleiter, Schutzleiter" },
-    { "frage": "Wie sind Lampen und Steckdosen im Haushalt geschaltet, in Reihe oder parallel? Warum?", "suche": "Parallelschaltung Haushalt, Verbraucher einzeln schaltbar" },
-    { "frage": "Wozu dient die Sicherung (der Leitungsschutzschalter)? Wann löst sie aus?", "suche": "Überlastung, Kurzschluss, Nennstrom, Kabelbrand" },
-    { "frage": "Wo müssen Sicherung und Schalter eingebaut sein, im Außenleiter oder im Neutralleiter? Warum?", "suche": "Schalter im Außenleiter, spannungsfrei, Lampenwechsel" },
-    { "frage": "Wozu dient der Schutzleiter? Was passiert bei einem Gehäuseschluss?", "suche": "Schutzleiter, Metallgehäuse, Gehäuseschluss, Schutzklasse" },
-    { "frage": "Wie arbeitet der FI-Schutzschalter, und bei welcher Stromstärke löst er aus?", "suche": "Fehlerstrom-Schutzschalter, Differenzstrom, 30 mA" }
-  ],
-  "begriffe": [
-    { "name": "Außenleiter", "muster": "außenleiter|aussenleiter|phase" },
-    { "name": "Neutralleiter", "muster": "neutralleiter|nullleiter" },
-    { "name": "Schutzleiter", "muster": "schutzleiter" },
-    { "name": "parallel geschaltet", "muster": "parallel" },
-    { "name": "Sicherung / Leitungsschutzschalter", "muster": "sicherung|leitungsschutz" },
-    { "name": "Kurzschluss", "muster": "kurzschluss" },
-    { "name": "Überlastung", "muster": "überlast|ueberlast" },
-    { "name": "FI-Schutzschalter", "muster": "\\bfi\\b|fehlerstrom" },
-    { "name": "Stromstärke", "muster": "stromstärke|stromstaerke" },
-    { "name": "Spannung", "muster": "spannung|230 ?v" },
-    { "name": "Gehäuse", "muster": "gehäuse|gehaeuse" }
-  ],
-  "ziel": 7,
-  "bausteine": [
-    "Im Haushalt sind die Verbraucher parallel geschaltet, weil ",
-    "Die Sicherung befindet sich im Außenleiter, damit ",
-    "Bei einem Kurzschluss ",
-    "Der Schalter gehört in den Außenleiter, denn ",
-    "Der Schutzleiter ist mit dem Metallgehäuse verbunden, sodass ",
-    "Der FI-Schutzschalter vergleicht ",
-    "Deshalb löst der Schutzschalter aus, sobald "
-  ],
-  "hinweise": [
-    { "muster": "verbraucht", "text": "Der Strom wird nicht verbraucht. Elektrische Energie wird in andere Energieformen umgewandelt." },
-    { "muster": "fliegt|springt raus|knallt", "text": "Fachsprachlich: Die Sicherung löst aus." },
-    { "muster": "\\bplus\\b|\\bminus\\b", "text": "Bei Wechselspannung gibt es kein festes Plus und Minus. Sprich von Außenleiter und Neutralleiter." },
-    { "muster": "\\bdas ding\\b|\\bsachen\\b|\\bzeug\\b", "text": "Benenne Bauteile genau, zum Beispiel Leitungsschutzschalter, Schalter, Lampe." }
-  ]
+ "titel": "Sicherheit im Haushaltsstromkreis",
+ "auftrag": "Du recherchierst in vorgegebenen Quellen, wie Stromkreise im Haushalt aufgebaut sind und wie sie vor Gefahren schützen. Danach stellst du deine Ergebnisse in Schaltbildern und in fachsprachlich korrekten Sätzen dar.",
+ "quellen": [
+  {
+   "titel": "Elektrische Hausinstallation (Schülerlexikon Physik, Lernhelfer)",
+   "url": "https://www.lernhelfer.de/index.php/schuelerlexikon/physik/artikel/elektrische-hausinstallation",
+   "beschreibung": "Anforderungen an die Hausinstallation, Sicherung der Leitungen und Schutzmaßnahmen."
+  },
+  {
+   "titel": "Wie funktioniert ein Sicherungsautomat? (selbst.de)",
+   "url": "https://www.selbst.de/wie-funktioniert-ein-sicherungsautomat-21600.html",
+   "beschreibung": "Aufbau und Wirkung des Leitungsschutzschalters bei Überlastung und Kurzschluss."
+  },
+  {
+   "titel": "Leistung – aber sicher (Universität Mainz, Unterrichtsreihe)",
+   "url": "https://www.jcp.physik.uni-mainz.de/downloads/unterrichtsreihen/leistung_aber_sicher/Unterrichtsreihe_Leistung_aber_sicher_Artikel.pdf",
+   "beschreibung": "Abschnitt 4 zu Schutzeinrichtungen: Leitungsschutzschalter und FI-Schalter. Ausführlicher, eher für Fortgeschrittene."
+  }
+ ],
+ "fragen": [
+  {
+   "frage": "Mit welcher Spannung arbeiten Haushaltsgeräte, und wie heißen die Leitungen einer Steckdose mit Schutzkontakt?",
+   "suche": "Netzspannung, Außenleiter, Neutralleiter, Schutzleiter"
+  },
+  {
+   "frage": "Wie sind Lampen und Steckdosen im Haushalt geschaltet, in Reihe oder parallel? Warum?",
+   "suche": "Parallelschaltung Haushalt, Verbraucher einzeln schaltbar"
+  },
+  {
+   "frage": "Wozu dient die Sicherung (der Leitungsschutzschalter)? Wann löst sie aus?",
+   "suche": "Überlastung, Kurzschluss, Nennstrom, Kabelbrand"
+  },
+  {
+   "frage": "Wo müssen Sicherung und Schalter eingebaut sein, im Außenleiter oder im Neutralleiter? Warum?",
+   "suche": "Schalter im Außenleiter, spannungsfrei, Lampenwechsel"
+  },
+  {
+   "frage": "Wozu dient der Schutzleiter? Was passiert bei einem Gehäuseschluss?",
+   "suche": "Schutzleiter (Erdung), Metallgehäuse, Gehäuseschluss, Schutzklasse"
+  },
+  {
+   "frage": "Wie arbeitet der FI-Schutzschalter, und bei welcher Stromstärke löst er aus?",
+   "suche": "Fehlerstrom-Schutzschalter, Differenzstrom, 30 mA"
+  }
+ ],
+ "begriffe": [
+  {
+   "name": "Außenleiter",
+   "muster": "außenleiter|aussenleiter|phase"
+  },
+  {
+   "name": "Neutralleiter",
+   "muster": "neutralleiter|nullleiter"
+  },
+  {
+   "name": "Schutzleiter (Erdung)",
+   "muster": "schutzleiter|erdung|erdleiter"
+  },
+  {
+   "name": "parallel geschaltet",
+   "muster": "parallel"
+  },
+  {
+   "name": "Sicherung / Leitungsschutzschalter",
+   "muster": "sicherung|leitungsschutz"
+  },
+  {
+   "name": "Kurzschluss",
+   "muster": "kurzschluss"
+  },
+  {
+   "name": "Überlastung",
+   "muster": "überlast|ueberlast"
+  },
+  {
+   "name": "FI-Schutzschalter",
+   "muster": "\\bfi\\b|fehlerstrom"
+  },
+  {
+   "name": "Stromstärke",
+   "muster": "stromstärke|stromstaerke"
+  },
+  {
+   "name": "Spannung",
+   "muster": "spannung|230 ?v"
+  },
+  {
+   "name": "Gehäuse",
+   "muster": "gehäuse|gehaeuse"
+  }
+ ],
+ "ziel": 7,
+ "bausteine": [
+  "Im Haushalt sind die Verbraucher parallel geschaltet, weil ",
+  "Die Sicherung befindet sich im Außenleiter, damit ",
+  "Bei einem Kurzschluss ",
+  "Der Schalter gehört in den Außenleiter, denn ",
+  "Der Schutzleiter ist mit dem Metallgehäuse verbunden, sodass ",
+  "Der FI-Schutzschalter vergleicht ",
+  "Deshalb löst der Schutzschalter aus, sobald "
+ ],
+ "hinweise": [
+  {
+   "muster": "verbraucht",
+   "text": "Der Strom wird nicht verbraucht. Elektrische Energie wird in andere Energieformen umgewandelt."
+  },
+  {
+   "muster": "fliegt|springt raus|knallt",
+   "text": "Fachsprachlich: Die Sicherung löst aus."
+  },
+  {
+   "muster": "\\bplus\\b|\\bminus\\b",
+   "text": "Bei Wechselspannung gibt es kein festes Plus und Minus. Sprich von Außenleiter und Neutralleiter."
+  },
+  {
+   "muster": "\\bdas ding\\b|\\bsachen\\b|\\bzeug\\b",
+   "text": "Benenne Bauteile genau, zum Beispiel Leitungsschutzschalter, Schalter, Lampe."
+  }
+ ],
+ "aussagen": [
+  {
+   "id": "netz",
+   "titel": "Netzspannung",
+   "leitfrage": 0,
+   "lob": "Du nennst die Netzspannung der Steckdose.",
+   "teile": [
+    {
+     "ort": "text",
+     "gruppen": [
+      [
+       "230",
+       "Netzspannung",
+       "Wechselspannung",
+       "Haushaltsspannung"
+      ]
+     ],
+     "lob": "Netzspannung genannt",
+     "frage": "Mit welcher Spannung arbeiten Haushaltsgeräte?"
+    }
+   ]
+  },
+  {
+   "id": "leitungen",
+   "titel": "Leitungen der Steckdose",
+   "leitfrage": 0,
+   "lob": "Du nennst alle drei Leitungen: Außenleiter, Neutralleiter und Schutzleiter (Erdung).",
+   "teile": [
+    {
+     "ort": "text",
+     "gruppen": [
+      [
+       "Außenleiter",
+       "Phase"
+      ]
+     ],
+     "lob": "Außenleiter genannt",
+     "frage": "Wie heißt die Leitung, die die Spannung zum Gerät führt (umgangssprachlich Phase)?"
+    },
+    {
+     "ort": "text",
+     "gruppen": [
+      [
+       "Neutralleiter",
+       "Nullleiter"
+      ]
+     ],
+     "lob": "Neutralleiter genannt",
+     "frage": "Wie heißt die Leitung, die den Strom zum Netz zurückführt?"
+    },
+    {
+     "ort": "text",
+     "gruppen": [
+      [
+       "Schutzleiter",
+       "Erdung",
+       "Erdleiter",
+       "geerdet"
+      ]
+     ],
+     "lob": "Schutzleiter (Erdung) genannt",
+     "frage": "Wie heißt die grün-gelbe Leitung, die bei einem Fehler schützt?"
+    }
+   ]
+  },
+  {
+   "id": "parallel",
+   "titel": "Parallelschaltung im Haushalt",
+   "leitfrage": 1,
+   "lob": "Du erklärst, warum die Geräte parallel geschaltet sind.",
+   "teile": [
+    {
+     "ort": "text",
+     "gruppen": [
+      [
+       "parallel"
+      ]
+     ],
+     "lob": "Parallelschaltung genannt",
+     "frage": "Wie sind Lampen und Steckdosen im Haushalt geschaltet, in Reihe oder parallel?"
+    },
+    {
+     "ort": "satz2",
+     "gruppen": [
+      [
+       "parallel"
+      ],
+      [
+       "einzeln",
+       "unabhängig",
+       "volle Spannung",
+       "gleiche Spannung",
+       "gleichen Spannung",
+       "230",
+       "weiter",
+       "ausfällt",
+       "Ausfall",
+       "kaputt",
+       "defekt",
+       "durchgebrannt"
+      ]
+     ],
+     "lob": "Begründung der Parallelschaltung genannt",
+     "frage": "Was wäre anders, wenn die Lampen in Reihe geschaltet wären?"
+    }
+   ]
+  },
+  {
+   "id": "sicherung",
+   "titel": "Sicherung (Leitungsschutzschalter)",
+   "leitfrage": 2,
+   "lob": "Du erklärst Funktion und Zweck der Sicherung.",
+   "teile": [
+    {
+     "ort": "satz2",
+     "gruppen": [
+      [
+       "Sicherung",
+       "Leitungsschutz",
+       "Sicherungsautomat"
+      ],
+      [
+       "trennt",
+       "unterbricht",
+       "löst aus",
+       "löst",
+       "ausgelöst",
+       "schaltet ab",
+       "abgeschaltet",
+       "Abschaltung"
+      ],
+      [
+       "Stromstärke",
+       "Überlast",
+       "Kurzschluss",
+       "zu groß",
+       "zu hoch",
+       "zu viel",
+       "zu stark",
+       "zu viele"
+      ]
+     ],
+     "lob": "Funktion der Sicherung genannt",
+     "frage": "Wann trennt eine Sicherung den Stromkreis?"
+    },
+    {
+     "ort": "satz2",
+     "gruppen": [
+      [
+       "Sicherung",
+       "Leitungsschutz",
+       "Sicherungsautomat"
+      ],
+      [
+       "überhitz",
+       "heiß",
+       "erhitz",
+       "erwärm",
+       "Brand",
+       "Kabelbrand",
+       "Schmelz",
+       "glüh"
+      ]
+     ],
+     "lob": "Schutz der Leitung genannt",
+     "frage": "Was würde ohne Sicherung mit einer überlasteten Leitung passieren?"
+    }
+   ]
+  },
+  {
+   "id": "kurzschluss",
+   "titel": "Kurzschluss",
+   "leitfrage": 2,
+   "lob": "Du beschreibst, was bei einem Kurzschluss geschieht.",
+   "teile": [
+    {
+     "ort": "satz2",
+     "varianten": [
+      [
+       [
+        "Kurzschluss"
+       ],
+       [
+        "Stromstärke",
+        "Strom"
+       ],
+       [
+        "groß",
+        "größer",
+        "hoch",
+        "höher",
+        "stark",
+        "ansteig",
+        "steigt",
+        "sehr viel"
+       ]
+      ],
+      [
+       [
+        "Kurzschluss"
+       ],
+       [
+        "Widerstand"
+       ],
+       [
+        "klein",
+        "gering",
+        "kaum",
+        "null",
+        "wenig"
+       ]
+      ]
+     ],
+     "lob": "Folge des Kurzschlusses genannt",
+     "frage": "Was geschieht mit dem Widerstand und der Stromstärke bei einem Kurzschluss?"
+    }
+   ]
+  },
+  {
+   "id": "aussenleiter",
+   "titel": "Sicherung und Schalter im Außenleiter",
+   "leitfrage": 3,
+   "lob": "Du ordnest Sicherung und Schalter dem Außenleiter zu und begründest es.",
+   "teile": [
+    {
+     "ort": "satz",
+     "gruppen": [
+      [
+       "Sicherung",
+       "Leitungsschutz"
+      ],
+      [
+       "Außenleiter",
+       "Phase"
+      ]
+     ],
+     "lob": "Sicherung im Außenleiter",
+     "frage": "In welchem Leiter sitzt die Sicherung, im Außenleiter oder im Neutralleiter?"
+    },
+    {
+     "ort": "satz",
+     "gruppen": [
+      [
+       "Schalter"
+      ],
+      [
+       "Außenleiter",
+       "Phase"
+      ],
+      [
+       "spannungsfrei",
+       "Lampenwechsel",
+       "Lampe wechsel",
+       "Lampe auswechsel",
+       "Fassung",
+       "Stromschlag",
+       "ungefährlich",
+       "Gefahr",
+       "gefährlich",
+       "Glühbirne",
+       "anliegt"
+      ]
+     ],
+     "lob": "Schalter im Außenleiter mit Begründung",
+     "frage": "Was würde passieren, wenn der Schalter im Neutralleiter säße und du die Lampe wechselst?"
+    }
+   ]
+  },
+  {
+   "id": "schutzleiter",
+   "titel": "Schutzleiter (Erdung)",
+   "leitfrage": 4,
+   "lob": "Du erklärst, wie der Schutzleiter (Erdung) bei einem Gehäuseschluss schützt.",
+   "teile": [
+    {
+     "ort": "satz2",
+     "varianten": [
+      [
+       [
+        "Schutzleiter",
+        "Erdleiter"
+       ],
+       [
+        "Gehäuse"
+       ],
+       [
+        "Erde",
+        "verbunden",
+        "verbindet",
+        "angeschlossen",
+        "leitet",
+        "Verbindung"
+       ]
+      ],
+      [
+       [
+        "Erdung",
+        "geerdet"
+       ],
+       [
+        "Gehäuse"
+       ]
+      ]
+     ],
+     "lob": "Verbindung von Gehäuse und Erde genannt",
+     "frage": "Womit verbindet der Schutzleiter das Metallgehäuse eines Geräts?"
+    },
+    {
+     "ort": "satz2",
+     "gruppen": [
+      [
+       "Gehäuseschluss",
+       "unter Spannung",
+       "Berührung",
+       "berührt",
+       "Fehler",
+       "defekt"
+      ],
+      [
+       "Schutzleiter",
+       "Erdung",
+       "Erdleiter",
+       "Erde"
+      ],
+      [
+       "ableit",
+       "abfließ",
+       "abgeleitet",
+       "fließt",
+       "Sicherung",
+       "löst",
+       "ausgelöst",
+       "abgeschaltet",
+       "abschalt"
+      ]
+     ],
+     "lob": "Wirkung bei Gehäuseschluss genannt",
+     "frage": "Was passiert bei einem Gehäuseschluss, wenn das Gerät keinen Schutzleiter hat?"
+    }
+   ]
+  },
+  {
+   "id": "fi",
+   "titel": "FI-Schutzschalter",
+   "leitfrage": 5,
+   "lob": "Du erklärst Funktionsweise und Schutzwirkung des FI-Schutzschalters.",
+   "teile": [
+    {
+     "ort": "satz2",
+     "gruppen": [
+      [
+       "=FI",
+       "Fehlerstrom",
+       "Differenzstrom"
+      ],
+      [
+       "vergleich",
+       "Differenz",
+       "Unterschied",
+       "misst",
+       "messen",
+       "unterschiedlich",
+       "mehr Strom",
+       "weniger Strom"
+      ]
+     ],
+     "lob": "Funktionsprinzip genannt",
+     "frage": "Was vergleicht der FI-Schutzschalter?"
+    },
+    {
+     "ort": "satz2",
+     "gruppen": [
+      [
+       "=FI",
+       "Fehlerstrom",
+       "Differenzstrom",
+       "Schutzschalter"
+      ],
+      [
+       "Mensch",
+       "Person",
+       "Körper",
+       "Stromschlag",
+       "Lebensgefahr",
+       "schützt"
+      ]
+     ],
+     "lob": "Schutzwirkung genannt",
+     "frage": "Warum löst die Sicherung bei einem kleinen Strom durch den Körper nicht aus, der FI aber schon?"
+    }
+   ]
+  }
+ ],
+ "zusaetze": [
+  {
+   "id": "ueberlast",
+   "titel": "Überlastung",
+   "leitfrage": 2,
+   "teil": {
+    "ort": "text",
+    "gruppen": [
+     [
+      "Überlast",
+      "zu viele Geräte",
+      "zu viel Geräte",
+      "Mehrfachsteckdose",
+      "Mehrfachstecker"
+     ]
+    ]
+   },
+   "lob": "Du nennst auch die Überlastung durch zu viele Geräte.",
+   "frage": "Was kann passieren, wenn zu viele Geräte an einer Mehrfachsteckdose hängen?"
+  },
+  {
+   "id": "fi30",
+   "titel": "Auslösestromstärke des FI",
+   "leitfrage": 5,
+   "teil": {
+    "ort": "text",
+    "gruppen": [
+     [
+      "30 mA",
+      "30mA",
+      "Milliampere"
+     ]
+    ]
+   },
+   "lob": "Du nennst die Auslösestromstärke des FI-Schutzschalters.",
+   "frage": "Bei welcher Stromstärke löst ein FI-Schutzschalter typischerweise aus?"
+  }
+ ],
+ "fehlvorstellungen": [
+  {
+   "muster": "sicherung[^.!?]{0,60}schuetz[^.!?]{0,40}(mensch|person|koerper)|(mensch|person|koerper)[^.!?]{0,40}sicherung[^.!?]{0,30}geschuetzt",
+   "ausser": "\\bfi\\b|fehlerstrom",
+   "text": "Die Sicherung schützt vor allem die Leitung vor zu großer Stromstärke. Löst sie auch schon bei einem kleinen Strom durch den Körper aus? Welches Bauteil ist dafür gedacht?"
+  },
+  {
+   "muster": "(haushalt|wohnung|steckdose|lampen)[^.!?]{0,60}\\bin reihe\\b",
+   "ausser": "\\b(nicht|nie|kein|keine|sondern|waeren|waere|wuerden|wenn)\\b",
+   "text": "Wären Haushaltsgeräte in Reihe geschaltet, gingen alle aus, sobald eines ausfällt. Schau noch einmal in deine Notizen zu Leitfrage 2."
+  },
+  {
+   "muster": "(neutralleiter|nullleiter)[^.!?]{0,50}\\b(kein|keinen|nicht)\\b[^.!?]{0,20}strom|\\b(kein|keinen)\\b[^.!?]{0,20}strom[^.!?]{0,30}(neutralleiter|nullleiter)",
+   "text": "Der Neutralleiter führt den Strom zum Netz zurück. Ein Stromkreis muss geschlossen sein. Wohin sollte der Strom sonst fließen?"
+  },
+  {
+   "muster": "schutzleiter[^.!?]{0,60}(fliesst|fuehrt|transportiert)[^.!?]{0,20}strom",
+   "ausser": "gehaeuseschluss|fehler|defekt|kurzschluss|stromschlag|dann|\\bab\\b|ableit|abfliess|abgeleitet",
+   "text": "Wann fließt über den Schutzleiter überhaupt Strom? Denke an den Normalbetrieb und an den Fehlerfall."
+  }
+ ]
 }

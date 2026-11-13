@@ -1,8 +1,9 @@
 // Qualitätsprüfung ohne Abhängigkeiten. Aufruf: node scripts/check.mjs (Exit-Code 1 bei Fehlern)
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
-import { join, dirname, resolve } from 'node:path';
+import { join, dirname, resolve, basename } from 'node:path';
 import { createRequire } from 'node:module';
 const term = createRequire(import.meta.url)('../js/term.js');
+const textcheck = createRequire(import.meta.url)('../js/textcheck.js');
 let fehler = 0;
 const err = (f, m) => { console.error(`✗ ${f}: ${m}`); fehler++; };
 const walk = (d, out = []) => { for (const e of readdirSync(d, { withFileTypes: true })) {
@@ -37,6 +38,18 @@ for (const f of dateien.filter(f => f.endsWith('aufgaben.json'))) {
     else err(w, `Unbekannter typ "${t.typ}"`);
     if (t.bild) { if (!t.bildAlt) err(w, 'bildAlt (Alternativtext) fehlt'); if (!existsSync(join(dirname(f), t.bild))) err(w, `Bild fehlt: ${t.bild}`); }
   }
+}
+// Erwartungshorizont (Aussagen-Check): Aufbau prüfen, Musterantwort muss alles erfüllen, leerer Text nichts
+for (const f of dateien.filter(f => f.endsWith('daten.json'))) {
+  const d = json(f); if (!d || !d.aussagen) continue;
+  d.aussagen.forEach(a => {
+    if (!a.titel || !Number.isInteger(a.leitfrage) || a.leitfrage < 0 || a.leitfrage >= (d.fragen || []).length) err(f, `Aussage "${a.id}": titel oder leitfrage fehlt/ungültig`);
+    (a.teile || []).forEach((t, i) => { if (!t.frage || !t.lob) err(f, `Aussage "${a.id}", Teil ${i + 1}: lob oder frage fehlt`); if (!t.gruppen && !t.varianten) err(f, `Aussage "${a.id}", Teil ${i + 1}: gruppen oder varianten fehlen`); });
+  });
+  const mf = join('tests', basename(dirname(f)) + '-musterantwort.txt');
+  if (!existsSync(mf)) { err(f, 'Musterantwort fehlt: ' + mf); continue; }
+  textcheck.pruefe(readFileSync(mf, 'utf8'), d).aussagen.filter(a => a.status !== 'ok').forEach(a => err(f, `Die Musterantwort erfüllt "${a.titel}" nicht (Status: ${a.status})`));
+  if (textcheck.pruefe('', d).aussagen.some(a => a.status !== 'fehlt')) err(f, 'Ein leerer Text darf keine Aussage erfüllen');
 }
 for (const f of dateien.filter(f => f.endsWith('.html'))) {
   const h = readFileSync(f, 'utf8');
