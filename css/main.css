@@ -204,3 +204,10 @@ hr{border:0;border-top:1px solid var(--line);margin:1.5rem 0}
 .editor label{display:block;font-weight:700;margin:1rem 0 .4rem}
 .editor textarea{background:var(--field)}
 .zaehler{margin:.3rem 0 0;text-align:right;font-size:.9rem}
+
+/* Textareas in Karten und Editor: volle Breite der Box, gleiches Design wie .field */
+.karte textarea,.editor textarea{display:block;width:100%;max-width:100%;font:inherit;line-height:1.55;min-height:6.5rem;resize:vertical;
+  background:var(--field);color:var(--text);border:1.5px solid var(--line);border-radius:12px;padding:.7rem .95rem;
+  box-shadow:inset 0 1px 2px light-dark(#0f172a14,#00000040);transition:border-color .15s,box-shadow .15s}
+.karte textarea:hover,.editor textarea:hover{border-color:var(--muted)}
+.karte textarea:focus,.editor textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
