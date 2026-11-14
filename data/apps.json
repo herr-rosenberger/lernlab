@@ -14,6 +14,23 @@
     "pfad": "simulationen/7/fadenpendel/"
   },
   {
+    "titel": "Schaltungen mit bis zu drei Widerständen",
+    "fach": "Physik",
+    "lehrplanBezug": "Elektrischer Strom: Stromstärken und Spannungen in Reihen-, Parallel- und gemischten Schaltungen mit maximal drei Widerständen",
+    "kurzbeschreibung": "Spannungen und Stromstärken in Reihen-, Parallel- und gemischten Schaltungen untersuchen, mit Rechenweg und der Möglichkeit, erst selbst zu rechnen.",
+    "tags": [
+      "Reihenschaltung",
+      "Parallelschaltung",
+      "Widerstand",
+      "Spannung",
+      "Stromstärke"
+    ],
+    "dauerMin": 30,
+    "typ": "simulationen",
+    "klasse": 8,
+    "pfad": "simulationen/8/schaltungen-drei-widerstaende/"
+  },
+  {
     "titel": "Fläche und Integralfunktion",
     "fach": "Mathematik",
     "lehrplanBezug": "Integralrechnung: bestimmtes Integral, Integralfunktion, Hauptsatz",
@@ -73,6 +90,39 @@
     "typ": "lernapps",
     "klasse": 8,
     "pfad": "lernapps/8/haushaltsschaltkreise/"
+  },
+  {
+    "titel": "Schaltungen berechnen und erklären",
+    "fach": "Physik",
+    "lehrplanBezug": "Elektrischer Strom: Stromstärken und Spannungen in Schaltungen mit maximal drei Widerständen, Erläuterung mit Modell und Rechnung",
+    "kurzbeschreibung": "Stromstärken und Spannungen in Reihen-, Parallel- und gemischten Schaltungen berechnen und mit dem Stromkreismodell begründen.",
+    "tags": [
+      "Reihenschaltung",
+      "Parallelschaltung",
+      "Widerstand",
+      "Spannung",
+      "Stromstärke"
+    ],
+    "dauerMin": 30,
+    "typ": "lernapps",
+    "klasse": 8,
+    "pfad": "lernapps/8/schaltungen-berechnen/"
+  },
+  {
+    "titel": "Was passiert, wenn …?",
+    "fach": "Physik",
+    "lehrplanBezug": "Elektrischer Strom: Reihen- und Parallelschaltungen, Kurzschluss, Vorhersagen mit dem Stromkreismodell",
+    "kurzbeschreibung": "Vorhersagen zu Lampen in Reihen- und Parallelschaltungen treffen: Lampe herausdrehen, Schalter öffnen, Draht überbrücken.",
+    "tags": [
+      "Reihenschaltung",
+      "Parallelschaltung",
+      "Kurzschluss",
+      "Vorhersage"
+    ],
+    "dauerMin": 20,
+    "typ": "lernapps",
+    "klasse": 8,
+    "pfad": "lernapps/8/schaltungen-vorhersagen/"
   },
   {
     "titel": "Stammfunktionen und Integrale üben",

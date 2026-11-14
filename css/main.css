@@ -216,3 +216,12 @@ hr{border:0;border-top:1px solid var(--line);margin:1.5rem 0}
 .btn.kl{font-size:.9rem;padding:.35rem .8rem;margin-top:.2rem}
 #checkout h4{margin:1.2rem 0 .3rem}
 #checkout .hint{margin:.4rem 0}
+
+/* Tabellen und Schaltungs-Simulation */
+.tabelle{width:100%;border-collapse:collapse;margin:.5rem 0 1rem;font-variant-numeric:tabular-nums}
+.tabelle th,.tabelle td{padding:.45rem .7rem;border-bottom:1px solid var(--line);text-align:right}
+.tabelle th[scope=col],.tabelle th[scope=row]{text-align:left;color:var(--muted);font-weight:700}
+.tabelle .summe td,.tabelle .summe th{border-top:2px solid var(--muted);font-weight:700;color:var(--text)}
+.pad{padding:1rem 1.25rem}
+.bild svg{display:block;width:100%;height:auto}
+#weg{overflow-x:auto}#weg p{margin:.2rem 0 .8rem}

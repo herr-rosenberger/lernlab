@@ -1,0 +1,360 @@
+{
+ "aufgaben": [
+  {
+   "id": "r1",
+   "typ": "zahl",
+   "frage": "Berechne den Gesamtwiderstand $R_{ges}$ in $\\Omega$.",
+   "richtig": 60,
+   "toleranz": 0.01,
+   "einheit": "Ω",
+   "bild": "reihe2.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 12 V, dahinter in Reihe R1 = 20 Ohm und R2 = 40 Ohm.",
+   "erklaerung": "$R_{ges}=R_1+R_2=20\\,\\Omega+40\\,\\Omega=60\\,\\Omega$",
+   "hinweis": "Reihenschaltung: Die Widerstände addieren sich, $R_{ges}=R_1+R_2+\\dots$."
+  },
+  {
+   "id": "r2",
+   "typ": "zahl",
+   "frage": "Berechne die Stromstärke $I$ im Stromkreis in A.",
+   "richtig": 0.2,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "bild": "reihe2.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 12 V, dahinter in Reihe R1 = 20 Ohm und R2 = 40 Ohm.",
+   "erklaerung": "$I=\\dfrac{U}{R_{ges}}=\\dfrac{12\\,\\mathrm{V}}{60\\,\\Omega}=0{,}2\\,\\mathrm{A}$",
+   "hinweis": "Berechne zuerst $R_{ges}$, dann $I=\\dfrac{U}{R_{ges}}$."
+  },
+  {
+   "id": "r3",
+   "typ": "zahl",
+   "frage": "Ein Amperemeter wird zwischen $R_1$ und $R_2$ eingebaut. Welche Stromstärke zeigt es in A?",
+   "richtig": 0.2,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "bild": "reihe2.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 12 V, dahinter in Reihe R1 = 20 Ohm und R2 = 40 Ohm.",
+   "erklaerung": "In der Reihenschaltung ist die Stromstärke an jeder Stelle gleich groß, denn der Stromkreis ist unverzweigt. Es zeigt also $0{,}2\\,\\mathrm{A}$ an.",
+   "hinweis": "Wie viel Ladung fließt pro Sekunde durch jede Stelle eines unverzweigten Stromkreises?"
+  },
+  {
+   "id": "r4",
+   "typ": "zahl",
+   "frage": "Berechne die Spannung $U_2$ an $R_2$ in V.",
+   "richtig": 8.0,
+   "toleranz": 0.01,
+   "einheit": "V",
+   "bild": "reihe2.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 12 V, dahinter in Reihe R1 = 20 Ohm und R2 = 40 Ohm.",
+   "erklaerung": "$U_2=R_2\\cdot I=40\\,\\Omega\\cdot0{,}2\\,\\mathrm{A}=8\\,\\mathrm{V}$",
+   "hinweis": "Teilspannung: $U_i=R_i\\cdot I$ mit der Stromstärke $I$ im Stromkreis."
+  },
+  {
+   "id": "r5",
+   "typ": "zahl",
+   "frage": "Berechne die Spannung $U_1$ an $R_1$ in V.",
+   "richtig": 4.0,
+   "toleranz": 0.01,
+   "einheit": "V",
+   "bild": "reihe2.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 12 V, dahinter in Reihe R1 = 20 Ohm und R2 = 40 Ohm.",
+   "erklaerung": "$U_1=R_1\\cdot I=20\\,\\Omega\\cdot0{,}2\\,\\mathrm{A}=4\\,\\mathrm{V}$",
+   "hinweis": "Teilspannung: $U_i=R_i\\cdot I$ mit der Stromstärke $I$ im Stromkreis."
+  },
+  {
+   "id": "r6",
+   "typ": "auswahl",
+   "frage": "Wie hängen die Teilspannungen mit der Gesamtspannung $U$ zusammen?",
+   "optionen": [
+    "$U=U_1+U_2$",
+    "$U=U_1=U_2$",
+    "$U=U_1\\cdot U_2$",
+    "$U=\\dfrac{U_1+U_2}{2}$"
+   ],
+   "richtig": 0,
+   "erklaerung": "In der Reihenschaltung teilt sich die Spannung auf: $4\\,\\mathrm{V}+8\\,\\mathrm{V}=12\\,\\mathrm{V}$.",
+   "bild": "reihe2.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 12 V, dahinter in Reihe R1 = 20 Ohm und R2 = 40 Ohm."
+  },
+  {
+   "id": "r7",
+   "typ": "auswahl",
+   "frage": "Warum ist die Stromstärke in einer Reihenschaltung an allen Stellen gleich?",
+   "optionen": [
+    "Der Stromkreis ist unverzweigt: Durch jede Stelle fließt pro Sekunde gleich viel Ladung.",
+    "Weil die Spannung an allen Widerständen gleich ist.",
+    "Weil alle Widerstände gleich groß sind.",
+    "Weil der erste Widerstand einen Teil des Stroms verbraucht."
+   ],
+   "richtig": 0,
+   "erklaerung": "Ladung geht im Stromkreis nicht verloren. Im Modell (z. B. Wasserkreislauf) fließt durch jede Stelle des unverzweigten Rohrs pro Zeit gleich viel Wasser."
+  },
+  {
+   "id": "r8",
+   "typ": "zahl",
+   "frage": "Berechne den Gesamtwiderstand $R_{ges}$ in $\\Omega$.",
+   "richtig": 60,
+   "toleranz": 0.01,
+   "einheit": "Ω",
+   "bild": "reihe3.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 9 V, dahinter in Reihe R1 = 10 Ohm, R2 = 20 Ohm und R3 = 30 Ohm.",
+   "erklaerung": "$R_{ges}=10\\,\\Omega+20\\,\\Omega+30\\,\\Omega=60\\,\\Omega$",
+   "hinweis": "Reihenschaltung: Die Widerstände addieren sich, $R_{ges}=R_1+R_2+\\dots$."
+  },
+  {
+   "id": "r9",
+   "typ": "zahl",
+   "frage": "Berechne die Spannung $U_3$ an $R_3$ in V.",
+   "richtig": 4.5,
+   "toleranz": 0.01,
+   "einheit": "V",
+   "bild": "reihe3.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 9 V, dahinter in Reihe R1 = 10 Ohm, R2 = 20 Ohm und R3 = 30 Ohm.",
+   "erklaerung": "$I=\\dfrac{U}{R_{ges}}=\\dfrac{9\\,\\mathrm{V}}{60\\,\\Omega}=0{,}15\\,\\mathrm{A}$, danach $U_3=R_3\\cdot I=30\\,\\Omega\\cdot0{,}15\\,\\mathrm{A}=4{,}5\\,\\mathrm{V}$.",
+   "hinweis": "Berechne zuerst die Stromstärke $I$ im Stromkreis."
+  },
+  {
+   "id": "p1",
+   "typ": "zahl",
+   "frage": "Welche Spannung liegt an $R_2$ an, in V?",
+   "richtig": 12,
+   "toleranz": 0.01,
+   "einheit": "V",
+   "bild": "parallel2.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 12 V, daran parallel R1 = 30 Ohm und R2 = 60 Ohm.",
+   "erklaerung": "In der Parallelschaltung liegt an jedem Zweig die volle Spannung der Quelle an.",
+   "hinweis": "An wie vielen Stellen kann der Strom die Spannungsquelle verlassen und wieder erreichen?"
+  },
+  {
+   "id": "p2",
+   "typ": "zahl",
+   "frage": "Berechne die Stromstärke $I_1$ durch $R_1$ in A.",
+   "richtig": 0.4,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "bild": "parallel2.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 12 V, daran parallel R1 = 30 Ohm und R2 = 60 Ohm.",
+   "erklaerung": "$I_1=\\dfrac{U}{R_1}=\\dfrac{12\\,\\mathrm{V}}{30\\,\\Omega}=0{,}4\\,\\mathrm{A}$",
+   "hinweis": "An $R_1$ liegt die volle Spannung $U$ an: $I_1=\\dfrac{U}{R_1}$."
+  },
+  {
+   "id": "p3",
+   "typ": "zahl",
+   "frage": "Berechne die Stromstärke $I_2$ durch $R_2$ in A.",
+   "richtig": 0.2,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "bild": "parallel2.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 12 V, daran parallel R1 = 30 Ohm und R2 = 60 Ohm.",
+   "erklaerung": "$I_2=\\dfrac{U}{R_2}=\\dfrac{12\\,\\mathrm{V}}{60\\,\\Omega}=0{,}2\\,\\mathrm{A}$"
+  },
+  {
+   "id": "p4",
+   "typ": "zahl",
+   "frage": "Berechne die Gesamtstromstärke $I$ an der Quelle in A.",
+   "richtig": 0.6,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "bild": "parallel2.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 12 V, daran parallel R1 = 30 Ohm und R2 = 60 Ohm.",
+   "erklaerung": "Knotenregel: $I=I_1+I_2=0{,}4\\,\\mathrm{A}+0{,}2\\,\\mathrm{A}=0{,}6\\,\\mathrm{A}$",
+   "hinweis": "Die Stromstärken der Zweige addieren sich."
+  },
+  {
+   "id": "p5",
+   "typ": "zahl",
+   "frage": "Berechne den Gesamtwiderstand $R_{ges}$ aus $U$ und $I$ in $\\Omega$. (Zusatz)",
+   "richtig": 20.0,
+   "toleranz": 0.01,
+   "einheit": "Ω",
+   "bild": "parallel2.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 12 V, daran parallel R1 = 30 Ohm und R2 = 60 Ohm.",
+   "erklaerung": "$R_{ges}=\\dfrac{U}{I}=\\dfrac{12\\,\\mathrm{V}}{0{,}6\\,\\mathrm{A}}=20\\,\\Omega$. Das ist weniger als jeder einzelne Widerstand.",
+   "hinweis": "Nutze die Definitionsgleichung $R=\\dfrac{U}{I}$ mit der Gesamtstromstärke."
+  },
+  {
+   "id": "p6",
+   "typ": "auswahl",
+   "frage": "Der Gesamtwiderstand der Parallelschaltung ist kleiner als jeder einzelne Widerstand. Wie lässt sich das erklären?",
+   "optionen": [
+    "Der Strom hat mehrere Wege. Bei gleicher Spannung fließt insgesamt mehr Strom als durch einen Zweig allein.",
+    "Parallelschaltungen haben immer die kleinere Spannung.",
+    "Der Strom wird in den Widerständen verbraucht.",
+    "Die Widerstände heben sich gegenseitig auf."
+   ],
+   "richtig": 0,
+   "erklaerung": "Mit jedem Zweig kommt ein zusätzlicher Weg für die Ladung hinzu. Bei gleicher Spannung wird die Gesamtstromstärke größer, also ist der Gesamtwiderstand $R_{ges}=\\frac{U}{I}$ kleiner.",
+   "bild": "parallel2.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 12 V, daran parallel R1 = 30 Ohm und R2 = 60 Ohm."
+  },
+  {
+   "id": "p7",
+   "typ": "zahl",
+   "frage": "Berechne die Stromstärke $I_1$ durch $R_1$ in A.",
+   "richtig": 0.3,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "bild": "parallel3.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 6 V, daran parallel R1 = 20 Ohm, R2 = 30 Ohm und R3 = 60 Ohm.",
+   "erklaerung": "$I_1=\\dfrac{U}{R_1}=\\dfrac{6\\,\\mathrm{V}}{20\\,\\Omega}=0{,}3\\,\\mathrm{A}$",
+   "hinweis": "An allen Widerständen liegt die Spannung $U$ an."
+  },
+  {
+   "id": "p8",
+   "typ": "zahl",
+   "frage": "Berechne die Stromstärke $I_3$ durch $R_3$ in A.",
+   "richtig": 0.1,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "bild": "parallel3.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 6 V, daran parallel R1 = 20 Ohm, R2 = 30 Ohm und R3 = 60 Ohm.",
+   "erklaerung": "$I_3=\\dfrac{U}{R_3}=\\dfrac{6\\,\\mathrm{V}}{60\\,\\Omega}=0{,}1\\,\\mathrm{A}$"
+  },
+  {
+   "id": "p9",
+   "typ": "zahl",
+   "frage": "Berechne die Gesamtstromstärke $I$ an der Quelle in A.",
+   "richtig": 0.6,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "bild": "parallel3.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 6 V, daran parallel R1 = 20 Ohm, R2 = 30 Ohm und R3 = 60 Ohm.",
+   "erklaerung": "$I=I_1+I_2+I_3=0{,}3\\,\\mathrm{A}+0{,}2\\,\\mathrm{A}+0{,}1\\,\\mathrm{A}=0{,}6\\,\\mathrm{A}$",
+   "hinweis": "Berechne zuerst $I_1$, $I_2$ und $I_3$."
+  },
+  {
+   "id": "p10",
+   "typ": "zahl",
+   "frage": "Berechne den Gesamtwiderstand $R_{ges}$ in $\\Omega$. (Zusatz)",
+   "richtig": 10.0,
+   "toleranz": 0.01,
+   "einheit": "Ω",
+   "bild": "parallel3.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 6 V, daran parallel R1 = 20 Ohm, R2 = 30 Ohm und R3 = 60 Ohm.",
+   "erklaerung": "$R_{ges}=\\dfrac{U}{I}=\\dfrac{6\\,\\mathrm{V}}{0{,}6\\,\\mathrm{A}}=10\\,\\Omega$",
+   "hinweis": "$R=\\dfrac{U}{I}$ mit der Gesamtstromstärke."
+  },
+  {
+   "id": "p11",
+   "typ": "zahl",
+   "frage": "Berechne die Gesamtstromstärke $I$ an der Quelle in A.",
+   "richtig": 0.24,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "bild": "parallel_gleich.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 12 V, daran parallel zwei Widerstände mit je 100 Ohm.",
+   "erklaerung": "Durch jeden Widerstand fließt $I_1=I_2=\\dfrac{12\\,\\mathrm{V}}{100\\,\\Omega}=0{,}12\\,\\mathrm{A}$, zusammen $I=0{,}24\\,\\mathrm{A}$.",
+   "hinweis": "Beide Zweige haben gleich große Widerstände."
+  },
+  {
+   "id": "p12",
+   "typ": "zahl",
+   "frage": "Berechne den Gesamtwiderstand $R_{ges}$ in $\\Omega$. (Zusatz)",
+   "richtig": 50.0,
+   "toleranz": 0.01,
+   "einheit": "Ω",
+   "bild": "parallel_gleich.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 12 V, daran parallel zwei Widerstände mit je 100 Ohm.",
+   "erklaerung": "$R_{ges}=\\dfrac{U}{I}=\\dfrac{12\\,\\mathrm{V}}{0{,}24\\,\\mathrm{A}}=50\\,\\Omega$. Zwei gleiche Widerstände parallel ergeben den halben Widerstand.",
+   "hinweis": "$R=\\dfrac{U}{I}$ mit der Gesamtstromstärke aus der vorigen Aufgabe."
+  },
+  {
+   "id": "g1",
+   "typ": "zahl",
+   "frage": "Durch $R_1$ fließt ein Strom von $0{,}3\\,\\mathrm{A}$. Berechne die Spannung $U_1$ an $R_1$ in V.",
+   "richtig": 6.0,
+   "toleranz": 0.01,
+   "einheit": "V",
+   "bild": "gemischt.svg",
+   "bildAlt": "Gemischte Schaltung: Spannungsquelle mit 12 V, dahinter R1 = 20 Ohm in Reihe zu den parallelen Widerständen R2 = 30 Ohm und R3 = 60 Ohm.",
+   "erklaerung": "$U_1=R_1\\cdot I_1=20\\,\\Omega\\cdot0{,}3\\,\\mathrm{A}=6\\,\\mathrm{V}$",
+   "hinweis": "Teilspannung: $U_i=R_i\\cdot I$ mit der Stromstärke $I$ im Stromkreis."
+  },
+  {
+   "id": "g2",
+   "typ": "zahl",
+   "frage": "Durch $R_1$ fließt $0{,}3\\,\\mathrm{A}$. Welche Spannung liegt dann an $R_2$ (und ebenso an $R_3$) in V?",
+   "richtig": 6.0,
+   "toleranz": 0.01,
+   "einheit": "V",
+   "bild": "gemischt.svg",
+   "bildAlt": "Gemischte Schaltung: Spannungsquelle mit 12 V, dahinter R1 = 20 Ohm in Reihe zu den parallelen Widerständen R2 = 30 Ohm und R3 = 60 Ohm.",
+   "erklaerung": "$R_1$ liegt in Reihe zu den beiden parallelen Widerständen. Die Spannung teilt sich auf: $U=U_1+U_{23}$, also $U_{23}=12\\,\\mathrm{V}-6\\,\\mathrm{V}=6\\,\\mathrm{V}$. An $R_2$ und $R_3$ liegt dieselbe Spannung an.",
+   "hinweis": "Die Gesamtspannung teilt sich auf $R_1$ und die Parallelschaltung auf."
+  },
+  {
+   "id": "g3",
+   "typ": "zahl",
+   "frage": "Berechne die Stromstärke $I_2$ durch $R_2$ in A (mit $U_{23}=6\\,\\mathrm{V}$).",
+   "richtig": 0.2,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "bild": "gemischt.svg",
+   "bildAlt": "Gemischte Schaltung: Spannungsquelle mit 12 V, dahinter R1 = 20 Ohm in Reihe zu den parallelen Widerständen R2 = 30 Ohm und R3 = 60 Ohm.",
+   "erklaerung": "$I_2=\\dfrac{U_{23}}{R_2}=\\dfrac{6\\,\\mathrm{V}}{30\\,\\Omega}=0{,}2\\,\\mathrm{A}$"
+  },
+  {
+   "id": "g4",
+   "typ": "zahl",
+   "frage": "Berechne die Stromstärke $I_3$ durch $R_3$ in A (mit $U_{23}=6\\,\\mathrm{V}$).",
+   "richtig": 0.1,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "bild": "gemischt.svg",
+   "bildAlt": "Gemischte Schaltung: Spannungsquelle mit 12 V, dahinter R1 = 20 Ohm in Reihe zu den parallelen Widerständen R2 = 30 Ohm und R3 = 60 Ohm.",
+   "erklaerung": "$I_3=\\dfrac{U_{23}}{R_3}=\\dfrac{6\\,\\mathrm{V}}{60\\,\\Omega}=0{,}1\\,\\mathrm{A}$. Kontrolle: $I_2+I_3=0{,}2\\,\\mathrm{A}+0{,}1\\,\\mathrm{A}=0{,}3\\,\\mathrm{A}=I_1$."
+  },
+  {
+   "id": "g5",
+   "typ": "zahl",
+   "frage": "Berechne den Gesamtwiderstand der ganzen Schaltung aus $U$ und $I$ in $\\Omega$ (mit $I=0{,}3\\,\\mathrm{A}$). (Zusatz)",
+   "richtig": 40.0,
+   "toleranz": 0.01,
+   "einheit": "Ω",
+   "bild": "gemischt.svg",
+   "bildAlt": "Gemischte Schaltung: Spannungsquelle mit 12 V, dahinter R1 = 20 Ohm in Reihe zu den parallelen Widerständen R2 = 30 Ohm und R3 = 60 Ohm.",
+   "erklaerung": "$R_{ges}=\\dfrac{U}{I}=\\dfrac{12\\,\\mathrm{V}}{0{,}3\\,\\mathrm{A}}=40\\,\\Omega$",
+   "hinweis": "$R=\\dfrac{U}{I}$"
+  },
+  {
+   "id": "g6",
+   "typ": "auswahl",
+   "frage": "Welche Aussage über die Stromstärken in der gemischten Schaltung ist richtig?",
+   "optionen": [
+    "$I_1=I_2+I_3$",
+    "$I_1=I_2=I_3$",
+    "$I_2=I_1+I_3$",
+    "$I_1+I_2=I_3$"
+   ],
+   "richtig": 0,
+   "erklaerung": "Der Strom durch $R_1$ teilt sich an der Verzweigung auf $R_2$ und $R_3$ auf. Danach fließt er wieder zusammen.",
+   "bild": "gemischt.svg",
+   "bildAlt": "Gemischte Schaltung: Spannungsquelle mit 12 V, dahinter R1 = 20 Ohm in Reihe zu den parallelen Widerständen R2 = 30 Ohm und R3 = 60 Ohm."
+  },
+  {
+   "id": "e1",
+   "typ": "auswahl",
+   "frage": "Im Haushalt sind die Geräte parallel geschaltet. Welche Erklärung ist richtig?",
+   "optionen": [
+    "An jedem Gerät liegt die volle Netzspannung an, und jedes Gerät lässt sich einzeln ein- und ausschalten.",
+    "Alle Geräte teilen sich die Spannung, deshalb sind sie schwächer.",
+    "Durch alle Geräte fließt immer dieselbe Stromstärke.",
+    "Der Strom wird auf die Geräte verteilt, bis er aufgebraucht ist."
+   ],
+   "richtig": 0,
+   "erklaerung": "In der Parallelschaltung hat jeder Zweig die volle Spannung. Fällt ein Zweig aus oder wird ausgeschaltet, arbeiten die anderen unverändert weiter."
+  },
+  {
+   "id": "e2",
+   "typ": "auswahl",
+   "frage": "Welche Formulierung ist fachsprachlich korrekt?",
+   "optionen": [
+    "Durch den Widerstand fließt eine Stromstärke von 0,2 A.",
+    "Der Strom wird im Widerstand verbraucht.",
+    "Die Spannung fließt durch den Widerstand.",
+    "Der Widerstand hat 0,2 A."
+   ],
+   "richtig": 0,
+   "erklaerung": "Stromstärke fließt nicht „verbraucht“, und die Spannung fließt nicht: Die Spannung liegt an, die Stromstärke fließt durch. Im Widerstand wird elektrische Energie umgewandelt, Ladung geht nicht verloren."
+  }
+ ]
+}

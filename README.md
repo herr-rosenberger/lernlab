@@ -12,6 +12,12 @@ Gesamtübersicht mit Suche und Filtern: **[Zur Startseite](https://BENUTZERNAME.
 |---|---|---|
 | [Fadenpendel](https://BENUTZERNAME.github.io/REPO/simulationen/7/fadenpendel/) | Physik | Kräfte und Bewegung |
 
+### Klasse 8
+
+| App | Fach | Lehrplanbezug |
+|---|---|---|
+| [Schaltungen mit bis zu drei Widerständen](https://BENUTZERNAME.github.io/REPO/simulationen/8/schaltungen-drei-widerstaende/) | Physik | Elektrischer Strom: Stromstärken und Spannungen in Reihen-, Parallel- und gemischten Schaltungen mit maximal drei Widerständen |
+
 ### Klasse 13
 
 | App | Fach | Lehrplanbezug |
@@ -32,6 +38,8 @@ Gesamtübersicht mit Suche und Filtern: **[Zur Startseite](https://BENUTZERNAME.
 | App | Fach | Lehrplanbezug |
 |---|---|---|
 | [Sicherheit im Haushaltsstromkreis](https://BENUTZERNAME.github.io/REPO/lernapps/8/haushaltsschaltkreise/) | Physik | Schaltkreise im Haushalt und Sicherheit: recherchieren, als Schaltbild und Fachtext darstellen |
+| [Schaltungen berechnen und erklären](https://BENUTZERNAME.github.io/REPO/lernapps/8/schaltungen-berechnen/) | Physik | Elektrischer Strom: Stromstärken und Spannungen in Schaltungen mit maximal drei Widerständen, Erläuterung mit Modell und Rechnung |
+| [Was passiert, wenn …?](https://BENUTZERNAME.github.io/REPO/lernapps/8/schaltungen-vorhersagen/) | Physik | Elektrischer Strom: Reihen- und Parallelschaltungen, Kurzschluss, Vorhersagen mit dem Stromkreismodell |
 
 ### Klasse 13
 
