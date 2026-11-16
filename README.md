@@ -6,16 +6,11 @@ Gesamtübersicht mit Suche und Filtern: **[Zur Startseite](https://herr-rosenber
 
 ## Simulationen
 
-### Klasse 7
-
-| App | Fach | Lehrplanbezug |
-|---|---|---|
-| [Fadenpendel](https://herr-rosenberger.github.io/lernlab/simulationen/7/fadenpendel/) | Physik | Kräfte und Bewegung |
-
 ### Klasse 8
 
 | App | Fach | Lehrplanbezug |
 |---|---|---|
+| [Messlabor: Kennlinien](https://herr-rosenberger.github.io/lernlab/simulationen/8/messlabor-kennlinien/) | Physik | Elektrischer Strom: Messgeräte richtig anschließen, Kennlinien aufnehmen und auswerten, Sicherheit beim Experimentieren |
 | [Schaltungen mit bis zu drei Widerständen](https://herr-rosenberger.github.io/lernlab/simulationen/8/schaltungen-drei-widerstaende/) | Physik | Elektrischer Strom: Stromstärken und Spannungen in Reihen-, Parallel- und gemischten Schaltungen mit maximal drei Widerständen |
 
 ### Klasse 13

@@ -1,15 +1,34 @@
 [
   {
+    "titel": "Messlabor: Kennlinien",
+    "fach": "Physik",
+    "lehrplanBezug": "Elektrischer Strom: Messgeräte richtig anschließen, Kennlinien aufnehmen und auswerten, Sicherheit beim Experimentieren",
+    "kurzbeschreibung": "Virtuelles Messlabor: Amperemeter und Voltmeter richtig anschließen, Kennlinien von zwei Widerständen und einer Glühlampe aufnehmen, auswerten und vergleichen.",
+    "tags": [
+      "Kennlinie",
+      "Widerstand",
+      "Messgeräte",
+      "Glühlampe",
+      "Experiment"
+    ],
+    "dauerMin": 30,
+    "typ": "simulationen",
+    "klasse": 8,
+    "pfad": "simulationen/8/messlabor-kennlinien/"
+  },
+  {
     "titel": "Schaltungen mit bis zu drei Widerständen",
     "fach": "Physik",
     "lehrplanBezug": "Elektrischer Strom: Stromstärken und Spannungen in Reihen-, Parallel- und gemischten Schaltungen mit maximal drei Widerständen",
-    "kurzbeschreibung": "Spannungen und Stromstärken in Reihen-, Parallel- und gemischten Schaltungen untersuchen, mit Rechenweg und der Möglichkeit, erst selbst zu rechnen.",
+    "kurzbeschreibung": "Zusammenhänge selbst entdecken: Messreihen zu Gesamtwiderstand, Teilspannungen und Stromstärken aufnehmen, Vermutungen als Gleichung testen. Dazu ein freier Modus mit Rechenweg.",
     "tags": [
       "Reihenschaltung",
       "Parallelschaltung",
       "Widerstand",
       "Spannung",
-      "Stromstärke"
+      "Stromstärke",
+      "Entdecken",
+      "Messreihe"
     ],
     "dauerMin": 30,
     "typ": "simulationen",
