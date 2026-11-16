@@ -1,0 +1,16 @@
+{
+ "titel": "Schaltungen mit bis zu drei Widerständen",
+ "fach": "Physik",
+ "lehrplanBezug": "Elektrischer Strom: Stromstärken und Spannungen in Reihen-, Parallel- und gemischten Schaltungen mit maximal drei Widerständen",
+ "kurzbeschreibung": "Zusammenhänge selbst entdecken: Messreihen zu Gesamtwiderstand, Teilspannungen und Stromstärken aufnehmen, Vermutungen als Gleichung testen. Dazu ein freier Modus mit Rechenweg.",
+ "tags": [
+  "Reihenschaltung",
+  "Parallelschaltung",
+  "Widerstand",
+  "Spannung",
+  "Stromstärke",
+  "Entdecken",
+  "Messreihe"
+ ],
+ "dauerMin": 30
+}

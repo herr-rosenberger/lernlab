@@ -8,40 +8,36 @@
    "beschreibung": "Anforderungen an die Hausinstallation, Sicherung der Leitungen und Schutzmaßnahmen."
   },
   {
-   "titel": "Wie funktioniert ein Sicherungsautomat? (selbst.de)",
-   "url": "https://www.selbst.de/wie-funktioniert-ein-sicherungsautomat-21600.html",
-   "beschreibung": "Aufbau und Wirkung des Leitungsschutzschalters bei Überlastung und Kurzschluss."
+   "titel": "Sicherungsautomat (Schülerlexikon Physik, Lernhelfer)",
+   "url": "https://www.lernhelfer.de/index.php/schuelerlexikon/physik/artikel/sicherungsautomat",
+   "beschreibung": "Aufbau und Arbeitsweise des Sicherungsautomaten. Der Text setzt etwas Wissen zum Elektromagneten voraus."
   },
   {
-   "titel": "Leistung – aber sicher (Universität Mainz, Unterrichtsreihe)",
+   "titel": "Leistung – aber sicher (Universität Mainz, Fachartikel für Lehrkräfte)",
    "url": "https://www.jcp.physik.uni-mainz.de/downloads/unterrichtsreihen/leistung_aber_sicher/Unterrichtsreihe_Leistung_aber_sicher_Artikel.pdf",
-   "beschreibung": "Abschnitt 4 zu Schutzeinrichtungen: Leitungsschutzschalter und FI-Schalter. Ausführlicher, eher für Fortgeschrittene."
+   "beschreibung": "Kapitel 4 (Seite 4) behandelt die Schutzeinrichtungen im Haushalt: Leitungsschutzschalter und FI-Schalter. Ein Fachtext für Lehrkräfte, daher anspruchsvoller zu lesen."
   }
  ],
  "fragen": [
   {
    "frage": "Mit welcher Spannung arbeiten Haushaltsgeräte, und wie heißen die Leitungen einer Steckdose mit Schutzkontakt?",
-   "suche": "Netzspannung, Außenleiter, Neutralleiter, Schutzleiter"
+   "suche": "Steckdose Aufbau, Hausinstallation, Adernfarben Kabel"
   },
   {
    "frage": "Wie sind Lampen und Steckdosen im Haushalt geschaltet, in Reihe oder parallel? Warum?",
-   "suche": "Parallelschaltung Haushalt, Verbraucher einzeln schaltbar"
+   "suche": "Stromkreis in der Hausinstallation, mehrere Geräte in einem Stromkreis"
   },
   {
    "frage": "Wozu dient die Sicherung (der Leitungsschutzschalter)? Wann löst sie aus?",
-   "suche": "Überlastung, Kurzschluss, Nennstrom, Kabelbrand"
-  },
-  {
-   "frage": "Wo müssen Sicherung und Schalter eingebaut sein, im Außenleiter oder im Neutralleiter? Warum?",
-   "suche": "Schalter im Außenleiter, spannungsfrei, Lampenwechsel"
+   "suche": "Sicherungsautomat, Leitungsschutzschalter, Sicherung Hausinstallation"
   },
   {
    "frage": "Wozu dient der Schutzleiter? Was passiert bei einem Gehäuseschluss?",
-   "suche": "Schutzleiter (Erdung), Metallgehäuse, Gehäuseschluss, Schutzklasse"
+   "suche": "Schutzkontakt Steckdose, Schutzklasse Elektrogeräte"
   },
   {
    "frage": "Wie arbeitet der FI-Schutzschalter, und bei welcher Stromstärke löst er aus?",
-   "suche": "Fehlerstrom-Schutzschalter, Differenzstrom, 30 mA"
+   "suche": "FI-Schalter Funktionsweise, Fehlerstrom-Schutzschalter"
   }
  ],
  "begriffe": [
@@ -339,7 +335,7 @@
   {
    "id": "aussenleiter",
    "titel": "Sicherung und Schalter im Außenleiter",
-   "leitfrage": 3,
+   "leitfrage": 2,
    "lob": "Du ordnest Sicherung und Schalter dem Außenleiter zu und begründest es.",
    "teile": [
     {
@@ -389,7 +385,7 @@
   {
    "id": "schutzleiter",
    "titel": "Schutzleiter (Erdung)",
-   "leitfrage": 4,
+   "leitfrage": 3,
    "lob": "Du erklärst, wie der Schutzleiter (Erdung) bei einem Gehäuseschluss schützt.",
    "teile": [
     {
@@ -462,7 +458,7 @@
   {
    "id": "fi",
    "titel": "FI-Schutzschalter",
-   "leitfrage": 5,
+   "leitfrage": 4,
    "lob": "Du erklärst Funktionsweise und Schutzwirkung des FI-Schutzschalters.",
    "teile": [
     {
@@ -534,7 +530,7 @@
   {
    "id": "fi30",
    "titel": "Auslösestromstärke des FI",
-   "leitfrage": 5,
+   "leitfrage": 4,
    "teil": {
     "ort": "text",
     "gruppen": [

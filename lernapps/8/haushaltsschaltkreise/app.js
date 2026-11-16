@@ -8,6 +8,10 @@
   st.n = st.n || {}; st.g = st.g || {}; st.c = st.c || {}; st.v = st.v || {}; st.text = st.text || ''; st.bild = st.bild || ''; st.name = st.name || '';
   st.c.c1 = st.c.c1 || {}; st.c.c2 = st.c.c2 || {};
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} };
+  if (!st.ver) { // einmalig: Notizen nach dem Wegfall der alten Leitfrage 4 neu zuordnen, Haken der ausgetauschten Quelle 2 entfernen
+    const n = {}; Object.keys(st.n).forEach(k => { k = +k; if (k < 3) n[k] = st.n[k]; else if (k > 3) n[k - 1] = st.n[k]; });
+    st.n = n; delete st.g[1]; st.ver = 1; save();
+  }
 
   // ---------- Schaltzeichen ----------
   const WC = { L: 'var(--f-mathematik)', N: 'var(--f-physik)', PE: 'var(--f-chemie)' };
@@ -154,7 +158,7 @@
       <h3>Leitfragen</h3>
       <div class="karten">${D.fragen.map((f, i) => `<div class="karte"><div class="fk-kopf"><span class="nr" aria-hidden="true">${i + 1}</span><label for="n${i}">${esc(f.frage)}</label></div>
         <textarea id="n${i}" rows="3" placeholder="Meine Stichpunkte …"></textarea>
-        <ul class="chips" aria-label="Suchbegriffe"><li>Suchbegriffe:</li>${f.suche.split(',').map(x => `<li>${esc(x.trim())}</li>`).join('')}</ul></div>`).join('')}</div>`,
+        ${f.suche ? `<ul class="chips" aria-label="Suchbegriffe"><li>Suchbegriffe:</li>${f.suche.split(',').map(x => `<li>${esc(x.trim())}</li>`).join('')}</ul>` : ''}</div>`).join('')}</div>`,
     bind() {
       D.quellen.forEach((_, i) => { const c = $(`[data-g="${i}"]`); c.checked = !!st.g[i]; c.onchange = () => { st.g[i] = c.checked; save(); }; });
       D.fragen.forEach((_, i) => { const t = $('#n' + i); t.value = st.n[i] || ''; grow(t); t.oninput = () => { st.n[i] = t.value; save(); grow(t); }; });
@@ -208,7 +212,10 @@
       <div class="editor"><h3>Aussagen-Check</h3>
         <p>Der Check vergleicht deinen Text mit den wichtigsten Kernaussagen und stellt dir Rückfragen. Rechtschreib- und Zeichensetzungsfehler spielen dabei keine Rolle. Er ist ein automatischer Textvergleich und keine Bewertung und kann richtige Formulierungen übersehen, die er nicht kennt.</p>
         <button class="btn" type="button" id="check">Text prüfen</button><div id="checkout" aria-live="polite"></div></div>
-      <div class="editor field"><label for="bild">Bildunterschrift zu Schaltbild A (1 bis 2 Sätze)</label><textarea id="bild" rows="3" placeholder="Das Schaltbild zeigt …"></textarea><p class="muted">Beschreibe, was das Schaltbild zeigt und worauf man bei der Sicherheit achten muss.</p></div>
+      <div class="editor field"><h3>Bildunterschrift zu deinem Schaltbild</h3>
+        <p>Das ist dein Schaltbild aus Schritt 2, <strong>Aufgabe A: Zwei Lampen im Haushaltsstromkreis</strong>. <a href="#schaltbilder">Schaltbild ändern</a></p>
+        <figure class="schaltbild">${CIRC[0].draw(st.c.c1, false, true)}${CIRC[0].slots.some(x => !st.c.c1[x.id]) ? '<figcaption class="muted">Dein Schaltbild hat noch leere Lücken. Du kannst es in Schritt 2 vervollständigen.</figcaption>' : ''}</figure>
+        <label for="bild">Deine Bildunterschrift (1 bis 2 Sätze)</label><textarea id="bild" rows="3" placeholder="Das Schaltbild zeigt …"></textarea><p class="muted">Beschreibe, was das Schaltbild zeigt und worauf man bei der Sicherheit achten muss.</p></div>
       <p class="muted">Die Fachbegriffe-Anzeige ist nur eine Orientierung. Ob dein Text inhaltlich stimmt, prüft deine Lehrkraft.</p>`,
     bind() {
       const t = $('#text'), b = $('#bild'); t.value = st.text; b.value = st.bild; t.parentElement.classList.add('field');
@@ -222,6 +229,7 @@
         out.querySelectorAll('[data-note]').forEach(x => x.onclick = () => {
           const ai = +x.dataset.a, ti = +x.dataset.t, z = x.dataset.z ? letzte.zusaetze[ai] : null, a = z || letzte.aussagen[ai];
           notiz(a.leitfrage, z ? z.frage : a.teile[ti].frage); x.textContent = `✓ In Leitfrage ${a.leitfrage + 1} übernommen`; x.disabled = true;
+          x.insertAdjacentHTML('afterend', '<p class="muted">Gespeichert in deinen Notizen (Schritt 1) und im Ergebnisblatt.</p>');
         });
       };
       upd(); grow(b);
@@ -233,6 +241,8 @@
       <div class="field noprint"><label for="name">Dein Name</label><input id="name" type="text" autocomplete="off" placeholder="Vor- und Nachname"></div>
       <div class="ergebnis"><h3>${esc(D.titel)}</h3><p id="nameAus"></p>
       <h4>Genutzte Quellen</h4><ul>${D.quellen.filter((_, i) => st.g[i]).map(q => `<li>${esc(q.titel)}</li>`).join('') || '<li>keine markiert</li>'}</ul>
+      <h4>Meine Notizen zu den Leitfragen</h4>
+      <ol class="notizen">${D.fragen.map((f, i) => `<li><strong>${esc(f.frage)}</strong><p>${(st.n[i] || '').trim() ? esc(st.n[i].trim()) : '<span class="muted">Noch keine Notizen.</span>'}</p></li>`).join('')}</ol>
       ${CIRC.map((c, i) => `<h4>Schaltbild ${'AB'[i]}: ${esc(c.titel.replace(/^Aufgabe [AB]: /, ''))}</h4><figure class="schaltbild">${c.draw(st.c[c.id], false, true)}</figure>${i === 0 ? `<p><em>${esc(st.bild) || 'Keine Bildunterschrift.'}</em></p>` : ''}`).join('')}
       <h4>Erklärung</h4><p>${esc(st.text) || 'Noch kein Text.'}</p></div>
       <div class="aktionen noprint"><button class="btn" type="button" id="druck">Drucken oder als PDF speichern</button><button class="btn ghost" type="button" id="kopie">Text kopieren</button><span class="muted" id="kopiert" aria-live="polite"></span></div>`; },
@@ -240,7 +250,7 @@
       const n = $('#name'); n.value = st.name; const z = () => { $('#nameAus').textContent = st.name ? 'Name: ' + st.name : ''; }; z();
       n.oninput = () => { st.name = n.value; save(); z(); };
       $('#druck').onclick = () => print();
-      $('#kopie').onclick = async () => { const s = `${D.titel}\n${st.name ? 'Name: ' + st.name + '\n' : ''}\nBildunterschrift: ${st.bild}\n\n${st.text}`; try { await navigator.clipboard.writeText(s); $('#kopiert').textContent = 'Kopiert.'; } catch (e) { $('#kopiert').textContent = 'Kopieren nicht möglich. Markiere den Text und kopiere ihn von Hand.'; } };
+      $('#kopie').onclick = async () => { const s = `${D.titel}\n${st.name ? 'Name: ' + st.name + '\n' : ''}\nNotizen zu den Leitfragen:\n${D.fragen.map((f, i) => `${i + 1}. ${f.frage}\n${(st.n[i] || '').trim() || '(keine Notizen)'}`).join('\n\n')}\n\nBildunterschrift: ${st.bild}\n\nErklärung:\n${st.text}`; try { await navigator.clipboard.writeText(s); $('#kopiert').textContent = 'Kopiert.'; } catch (e) { $('#kopiert').textContent = 'Kopieren nicht möglich. Markiere den Text und kopiere ihn von Hand.'; } };
     }
   }];
 

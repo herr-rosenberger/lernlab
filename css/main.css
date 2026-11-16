@@ -216,3 +216,46 @@ hr{border:0;border-top:1px solid var(--line);margin:1.5rem 0}
 .btn.kl{font-size:.9rem;padding:.35rem .8rem;margin-top:.2rem}
 #checkout h4{margin:1.2rem 0 .3rem}
 #checkout .hint{margin:.4rem 0}
+
+/* Tabellen und Schaltungs-Simulation */
+.tabelle{width:100%;border-collapse:collapse;margin:.5rem 0 1rem;font-variant-numeric:tabular-nums}
+.tabelle th,.tabelle td{padding:.45rem .7rem;border-bottom:1px solid var(--line);text-align:right}
+.tabelle th[scope=col],.tabelle th[scope=row]{text-align:left;color:var(--muted);font-weight:700}
+.tabelle .summe td,.tabelle .summe th{border-top:2px solid var(--muted);font-weight:700;color:var(--text)}
+.pad{padding:1rem 1.25rem}
+.bild svg{display:block;width:100%;height:auto}
+#weg{overflow-x:auto}#weg p{margin:.2rem 0 .8rem}
+
+/* Link-Button und große Link-Anzeige (Beamer) */
+.link-btn{display:inline-flex;align-items:center;gap:.45rem;height:2.5rem;padding:0 1rem;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:600 .95rem var(--font);cursor:pointer;box-shadow:inset 0 1px 0 var(--edge)}
+.link-btn:hover{background:var(--surface-2)}
+@media (max-width:560px){.link-btn span{display:none}.link-btn{padding:0;width:2.5rem;justify-content:center}}
+.link-dialog{border:1px solid var(--line);border-radius:20px;background:var(--surface);color:var(--text);padding:2rem clamp(1.25rem,4vw,3rem);width:min(62rem,94vw);text-align:center;box-shadow:0 24px 70px #0009}
+.link-dialog::backdrop{background:light-dark(#0f172ad9,#000000d9)}
+.link-dialog h2{font-size:clamp(1.2rem,2.4vw,1.6rem);color:var(--muted);font-weight:600}
+.ld-url{max-width:none;margin:.4rem auto 1.5rem;font-size:clamp(1.5rem,4.4vw,3.4rem);font-weight:700;line-height:1.2;word-break:break-all;user-select:all}
+.ld-qr{width:min(17rem,62vw);margin:0 auto 1.5rem;padding:.6rem;border-radius:14px;background:#fff}
+.ld-qr svg{display:block;width:100%;height:auto}
+.link-dialog .row{justify-content:center}
+.druckblock{display:none}
+
+/* Entdecken-Modus */
+.auftraege{display:grid;gap:.5rem;margin-bottom:1rem}
+.auftraege .auf{text-align:left;padding:.55rem .8rem;border:1.5px solid var(--line);border-radius:12px;background:var(--field);color:var(--text);font:600 .95rem var(--font);cursor:pointer}
+.auftraege .auf:hover{border-color:var(--accent)}
+.auftraege .auf[aria-pressed=true]{border-color:var(--accent);background:var(--accent-soft)}
+.messwerte{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;padding:0;margin:.3rem 0 .6rem}
+.messwerte li{display:grid;padding:.4rem .8rem;border:1px solid var(--line);border-radius:12px;background:var(--bg);min-width:5.5rem}
+.messwerte span{color:var(--muted);font-size:.9rem}.messwerte strong{font-variant-numeric:tabular-nums}
+.gleichung{display:flex;align-items:center;gap:.6rem}.gleichung input[type=text]{flex:1;min-width:0}
+.gleichung span{font-size:1.4rem;font-weight:700}
+
+/* Messlabor */
+.meldung{margin:0 0 1rem;padding:.7rem 1rem;border-left:5px solid var(--line);border-radius:0 var(--radius-s) var(--radius-s) 0;background:var(--bg)}
+.meldung.ok{border-left-color:var(--f-chemie)}.meldung.nok{border-left-color:var(--f-mathematik)}
+.legende{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;list-style:none;padding:0;margin:.5rem 0 1rem}
+fieldset.frage{border:1px solid var(--line);border-radius:var(--radius);padding:.9rem 1.1rem 1rem;margin:0 0 1rem;display:grid;gap:.5rem}
+fieldset.frage legend{font-weight:700;padding:0 .4rem}
+.antwort{text-align:left;padding:.6rem .9rem;border:1.5px solid var(--line);border-radius:12px;background:var(--field);color:var(--text);font:inherit;cursor:pointer}
+.antwort:hover{border-color:var(--accent)}.antwort.ok{border-color:var(--f-chemie);background:var(--accent-soft)}.antwort.nok{border-color:var(--f-mathematik)}
+.btn:disabled,.auf:disabled,.seg button:disabled{opacity:.55;cursor:not-allowed}

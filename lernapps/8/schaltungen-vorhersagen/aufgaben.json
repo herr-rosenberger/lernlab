@@ -1,0 +1,219 @@
+{
+ "aufgaben": [
+  {
+   "id": "w1",
+   "typ": "auswahl",
+   "frage": "Lampe 2 wird aus der Fassung geschraubt. Was passiert mit Lampe 1?",
+   "optionen": [
+    "Sie erlischt, weil der Stromkreis unterbrochen ist.",
+    "Sie leuchtet heller.",
+    "Sie leuchtet unverändert.",
+    "Sie leuchtet schwächer."
+   ],
+   "richtig": 0,
+   "erklaerung": "Die Reihenschaltung hat nur einen Weg für den Strom. Ist er an einer Stelle unterbrochen, fließt nirgends ein Strom, und beide Lampen sind aus.",
+   "bild": "reihe2.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 6 V, dahinter in Reihe die beiden gleichen Lampen L1 und L2."
+  },
+  {
+   "id": "w2",
+   "typ": "auswahl",
+   "frage": "Beide Schalter sind geschlossen. Dann wird Schalter S₂ geöffnet. Was gilt für Lampe 1?",
+   "optionen": [
+    "Sie leuchtet unverändert weiter.",
+    "Sie erlischt ebenfalls.",
+    "Sie leuchtet heller.",
+    "Sie leuchtet schwächer."
+   ],
+   "richtig": 0,
+   "erklaerung": "Jeder Zweig bildet mit der Quelle einen eigenen Stromkreis, und an jedem Zweig liegt die volle Spannung an. Der zweite Zweig beeinflusst den ersten nicht.",
+   "bild": "parallel2.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 6 V, daran parallel zwei Zweige, jeweils mit einem Schalter (S1, S2) in Reihe zu einer Lampe (L1, L2)."
+  },
+  {
+   "id": "w3",
+   "typ": "auswahl",
+   "frage": "Zuerst ist nur S₁ geschlossen. Dann wird auch S₂ geschlossen. Was geschieht mit der Stromstärke an der Quelle?",
+   "optionen": [
+    "Sie wird größer.",
+    "Sie wird kleiner.",
+    "Sie bleibt gleich.",
+    "Sie wird null."
+   ],
+   "richtig": 0,
+   "erklaerung": "Zum ersten Zweig kommt ein zweiter hinzu. Durch ihn fließt zusätzlich Strom, und die Gesamtstromstärke ist die Summe der Zweigströme. Der Gesamtwiderstand wird kleiner.",
+   "bild": "parallel2.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 6 V, daran parallel zwei Zweige, jeweils mit einem Schalter (S1, S2) in Reihe zu einer Lampe (L1, L2)."
+  },
+  {
+   "id": "w4",
+   "typ": "auswahl",
+   "frage": "Beide Schalter sind geschlossen. Lampe 2 wird herausgeschraubt. Wie ändert sich die Stromstärke an der Quelle?",
+   "optionen": [
+    "Sie wird kleiner.",
+    "Sie wird größer.",
+    "Sie bleibt gleich.",
+    "Sie wird verdoppelt."
+   ],
+   "richtig": 0,
+   "erklaerung": "Der Zweig mit Lampe 2 fällt weg, und es fließt nur noch der Strom durch Zweig 1. Die Gesamtstromstärke ist die Summe der Zweigströme, also kleiner.",
+   "bild": "parallel2.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 6 V, daran parallel zwei Zweige, jeweils mit einem Schalter (S1, S2) in Reihe zu einer Lampe (L1, L2)."
+  },
+  {
+   "id": "w5",
+   "typ": "auswahl",
+   "frage": "Zwei gleiche Lampen leuchten in Reihe an der Quelle. Wie hell leuchtet jede im Vergleich zu einer einzelnen Lampe an derselben Quelle?",
+   "optionen": [
+    "Dunkler, denn jede Lampe bekommt nur einen Teil der Spannung.",
+    "Genauso hell.",
+    "Heller.",
+    "Eine leuchtet hell, die andere gar nicht."
+   ],
+   "richtig": 0,
+   "erklaerung": "In der Reihenschaltung teilt sich die Spannung auf. Bei gleichen Lampen liegt an jeder nur die halbe Spannung an. Die Stromstärke ist kleiner als bei einer einzelnen Lampe. (Modell: gleiche Lampen mit gleichem, konstantem Widerstand)",
+   "bild": "reihe2.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 6 V, dahinter in Reihe die beiden gleichen Lampen L1 und L2."
+  },
+  {
+   "id": "w6",
+   "typ": "auswahl",
+   "frage": "Eine dritte gleiche Lampe wird in Reihe zugeschaltet. Was geschieht mit der Stromstärke im Stromkreis?",
+   "optionen": [
+    "Sie wird kleiner.",
+    "Sie wird größer.",
+    "Sie bleibt gleich.",
+    "Sie wird null."
+   ],
+   "richtig": 0,
+   "erklaerung": "Mit jeder weiteren Lampe in Reihe steigt der Gesamtwiderstand. Bei gleicher Spannung wird die Stromstärke kleiner, und alle Lampen leuchten schwächer.",
+   "bild": "reihe2.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 6 V, dahinter in Reihe die beiden gleichen Lampen L1 und L2."
+  },
+  {
+   "id": "w7",
+   "typ": "auswahl",
+   "frage": "Eine dritte gleiche Lampe wird parallel zugeschaltet. Was geschieht mit der Helligkeit von Lampe 1?",
+   "optionen": [
+    "Sie bleibt gleich, denn an Lampe 1 liegt weiter die volle Spannung an.",
+    "Sie wird dunkler.",
+    "Sie wird heller.",
+    "Sie erlischt."
+   ],
+   "richtig": 0,
+   "erklaerung": "Jeder Zweig hat die volle Spannung der Quelle. Lampe 1 merkt vom neuen Zweig nichts. Nur die Stromstärke an der Quelle wird größer.",
+   "bild": "parallel2.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 6 V, daran parallel zwei Zweige, jeweils mit einem Schalter (S1, S2) in Reihe zu einer Lampe (L1, L2)."
+  },
+  {
+   "id": "w8",
+   "typ": "auswahl",
+   "frage": "Lampe 2 wird mit einem Draht überbrückt. Was geschieht?",
+   "optionen": [
+    "Lampe 2 erlischt, und Lampe 1 leuchtet heller.",
+    "Beide Lampen erlöschen.",
+    "Beide Lampen leuchten unverändert.",
+    "Lampe 1 erlischt, und Lampe 2 leuchtet heller."
+   ],
+   "richtig": 0,
+   "erklaerung": "Der Strom fließt fast ohne Widerstand durch den Draht und nicht mehr durch Lampe 2. An Lampe 2 liegt (fast) keine Spannung an. Der Gesamtwiderstand sinkt, und an Lampe 1 liegt jetzt die volle Quellenspannung an. Sie leuchtet heller.",
+   "bild": "ueberbrueckt.svg",
+   "bildAlt": "Reihenschaltung aus L1 und L2. Ein Draht verbindet die Punkte vor und hinter L2 und überbrückt sie."
+  },
+  {
+   "id": "w9",
+   "typ": "auswahl",
+   "frage": "Der Draht verbindet die beiden Anschlüsse der Quelle direkt. Was geschieht?",
+   "optionen": [
+    "Durch den Draht fließt eine sehr große Stromstärke (Kurzschluss), die Lampe erlischt.",
+    "Die Lampe leuchtet heller.",
+    "Die Lampe leuchtet unverändert.",
+    "Es fließt gar kein Strom."
+   ],
+   "richtig": 0,
+   "erklaerung": "Der Draht hat fast keinen Widerstand, deshalb wird die Stromstärke sehr groß. Draht und Quelle erhitzen sich, es besteht Brandgefahr. Im Haushalt löst dann die Sicherung aus. Durch die Lampe fließt kaum noch Strom.",
+   "bild": "quelle_kurz.svg",
+   "bildAlt": "Spannungsquelle mit 6 V. Parallel zur Lampe L1 verläuft ein Draht, der die beiden Anschlüsse der Quelle direkt verbindet."
+  },
+  {
+   "id": "w10",
+   "typ": "auswahl",
+   "frage": "L₃ wird herausgeschraubt. Was geschieht mit L₁ und L₂ (gleiche Lampen)?",
+   "optionen": [
+    "L₁ leuchtet schwächer, L₂ leuchtet heller.",
+    "L₁ und L₂ leuchten unverändert.",
+    "L₁ leuchtet heller, L₂ leuchtet schwächer.",
+    "L₁ und L₂ erlöschen."
+   ],
+   "richtig": 0,
+   "erklaerung": "Vorher liegen an L₁ zwei Drittel und an L₂ ein Drittel der Spannung, denn L₂ und L₃ teilen sich einen Zweig. Nachher sind L₁ und L₂ in Reihe, und an jeder liegt die Hälfte der Spannung. L₁ bekommt also weniger, L₂ mehr. (Modell: gleiche Lampen mit gleichem, konstantem Widerstand)",
+   "bild": "gemischt.svg",
+   "bildAlt": "Spannungsquelle mit 6 V. Lampe L1 liegt in Reihe zu den beiden parallelen Lampen L2 und L3."
+  },
+  {
+   "id": "w11",
+   "typ": "auswahl",
+   "frage": "Der Schalter S wird geöffnet. Was gilt für L₁ und L₂?",
+   "optionen": [
+    "Beide Lampen erlöschen, denn S liegt im unverzweigten Teil des Stromkreises.",
+    "Beide Lampen leuchten weiter.",
+    "Nur L₁ erlischt.",
+    "Beide Lampen leuchten heller."
+   ],
+   "richtig": 0,
+   "erklaerung": "Der gesamte Strom fließt durch S. Ist er geöffnet, fließt in keinem Zweig mehr ein Strom.",
+   "bild": "hauptschalter.svg",
+   "bildAlt": "Spannungsquelle mit 6 V. Ein Schalter S liegt in Reihe zu den beiden parallelen Lampen L1 und L2."
+  },
+  {
+   "id": "w12",
+   "typ": "auswahl",
+   "frage": "Warum bleiben im Haushalt die übrigen Lampen an, wenn eine Glühlampe durchbrennt?",
+   "optionen": [
+    "Die Lampen sind parallel geschaltet, und jede hat einen eigenen Stromkreis mit der vollen Spannung.",
+    "Die Lampen sind in Reihe geschaltet, und der Strom sucht sich einen Weg.",
+    "Die Steckdose gleicht den fehlenden Strom aus.",
+    "Die Sicherung schaltet die Lampe wieder ein."
+   ],
+   "richtig": 0,
+   "erklaerung": "In der Parallelschaltung bildet jede Lampe einen eigenen Zweig. Fällt einer aus, fließt in den anderen Zweigen weiter derselbe Strom."
+  },
+  {
+   "id": "w13",
+   "typ": "auswahl",
+   "frage": "Eine Lichterkette soll weiterleuchten, wenn eine Lampe ausfällt. Wie müssen die Lampen geschaltet sein?",
+   "optionen": [
+    "Parallel.",
+    "In Reihe.",
+    "Das ist egal.",
+    "Mit einem Draht überbrückt."
+   ],
+   "richtig": 0,
+   "erklaerung": "Nur bei einer Parallelschaltung hat jede Lampe einen eigenen Weg für den Strom. Billige Lichterketten in Reihe gehen komplett aus, sobald eine Lampe fehlt."
+  },
+  {
+   "id": "w14",
+   "typ": "zahl",
+   "frage": "Zwei gleiche Lampen sind in Reihe an die Quelle angeschlossen. Welche Spannung liegt an jeder Lampe in V?",
+   "richtig": 3,
+   "toleranz": 0.01,
+   "einheit": "V",
+   "erklaerung": "Die Quellenspannung von 6 V teilt sich bei gleichen Lampen gleichmäßig auf: jeweils 3 V.",
+   "bild": "reihe2.svg",
+   "bildAlt": "Reihenschaltung: Spannungsquelle mit 6 V, dahinter in Reihe die beiden gleichen Lampen L1 und L2.",
+   "hinweis": "Die Spannung teilt sich in der Reihenschaltung auf."
+  },
+  {
+   "id": "w15",
+   "typ": "zahl",
+   "frage": "Welche Spannung liegt an Lampe 2 in V, wenn beide Schalter geschlossen sind?",
+   "richtig": 6,
+   "toleranz": 0.01,
+   "einheit": "V",
+   "erklaerung": "Jeder Zweig der Parallelschaltung liegt an der vollen Quellenspannung von 6 V.",
+   "bild": "parallel2.svg",
+   "bildAlt": "Parallelschaltung: Spannungsquelle mit 6 V, daran parallel zwei Zweige, jeweils mit einem Schalter (S1, S2) in Reihe zu einer Lampe (L1, L2).",
+   "hinweis": "Wie viele Stromkreise bilden die beiden Zweige?"
+  }
+ ]
+}
