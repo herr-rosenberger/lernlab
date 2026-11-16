@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
  "titel": "Schaltungen mit bis zu drei Widerständen",
  "fach": "Physik",
@@ -14,3 +15,6 @@
  ],
  "dauerMin": 30
 }
+=======
+{ "titel": "Schaltungen mit bis zu drei Widerständen", "fach": "Physik", "lehrplanBezug": "Elektrischer Strom: Stromstärken und Spannungen in Reihen-, Parallel- und gemischten Schaltungen mit maximal drei Widerständen", "kurzbeschreibung": "Spannungen und Stromstärken in Reihen-, Parallel- und gemischten Schaltungen untersuchen, mit Rechenweg und der Möglichkeit, erst selbst zu rechnen.", "tags": ["Reihenschaltung", "Parallelschaltung", "Widerstand", "Spannung", "Stromstärke"], "dauerMin": 30 }
+>>>>>>> ef06bb84ece92b3486660d05b9bf0fc158b71ff3

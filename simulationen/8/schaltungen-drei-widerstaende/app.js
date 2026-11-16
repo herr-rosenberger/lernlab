@@ -2,7 +2,11 @@
   const $ = id => document.getElementById(id);
   const fmt = (v, d = 3) => Number.isFinite(v) ? (+v.toFixed(d)).toLocaleString('de-DE') : '–';
   const tx = (v, d = 3) => fmt(v, d).replace(',', '{,}');
+<<<<<<< HEAD
   const SUB = '₀₁₂₃', S = { typ: 'reihe', n: 2, U: 12, R: [20, 30, 50], hide: false, modus: 'entdecken' };
+=======
+  const SUB = '₀₁₂₃', S = { typ: 'reihe', n: 3, U: 6, R: [20, 30, 50], hide: false };
+>>>>>>> ef06bb84ece92b3486660d05b9bf0fc158b71ff3
   const NAME = { reihe: 'Reihenschaltung', parallel: 'Parallelschaltung', gemischt: 'Gemischte Schaltung' };
 
   function calc() {
@@ -88,6 +92,7 @@
   }
 
   // ---------- Steuerung ----------
+<<<<<<< HEAD
   const escH = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   // ---------- Entdecken: Messreihen aufnehmen und Vermutungen testen ----------
@@ -212,6 +217,17 @@
   $('auftraege').innerHTML = AUFTR.map(a => `<button type="button" class="auf" data-auf="${a.id}" aria-pressed="false">${escH(a.titel)}</button>`).join('');
   document.querySelectorAll('[data-auf]').forEach(b => b.onclick = () => waehle(b.dataset.auf));
   document.querySelectorAll('[data-modus]').forEach(b => b.onclick = () => modus(b.dataset.modus));
+=======
+  function draw() {
+    const c = calc(), gem = S.typ === 'gemischt', n = c.n;
+    ['U', 'R1', 'R2', 'R3'].forEach(id => { const o = $('o' + id); if (o) o.textContent = id === 'U' ? fmt(S.U, 1) + ' V' : fmt(S.R[+id[1] - 1], 0) + ' Ω'; });
+    $('f3').hidden = n < 3; $('nGroup').hidden = gem; $('hinweisGem').hidden = !gem;
+    $('bild').innerHTML = schaltbild(c); $('tabelle').innerHTML = tabelle(c); $('weg').innerHTML = weg(c);
+    document.querySelectorAll('[data-typ]').forEach(b => b.setAttribute('aria-pressed', b.dataset.typ === S.typ));
+    document.querySelectorAll('[data-n]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.n === S.n));
+    if (window.LernLab && LernLab.mathe) LernLab.mathe($('weg'));
+  }
+>>>>>>> ef06bb84ece92b3486660d05b9bf0fc158b71ff3
   document.querySelectorAll('[data-typ]').forEach(b => b.onclick = () => { S.typ = b.dataset.typ; draw(); });
   document.querySelectorAll('[data-n]').forEach(b => b.onclick = () => { S.n = +b.dataset.n; draw(); });
   $('U').oninput = e => { S.U = +e.target.value; draw(); };
@@ -222,5 +238,9 @@
     S.U = [3, 6, 9, 12][Math.random() * 4 | 0]; S.R = [pick(), pick(), pick()];
     ['U', 'R1', 'R2', 'R3'].forEach((id, i) => $(id).value = i ? S.R[i - 1] : S.U); draw();
   };
+<<<<<<< HEAD
   $('U').value = S.U; modus('entdecken');
+=======
+  draw();
+>>>>>>> ef06bb84ece92b3486660d05b9bf0fc158b71ff3
 })();
