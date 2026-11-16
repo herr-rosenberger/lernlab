@@ -1,7 +1,7 @@
 /* Arbeitsblätter und Ausdrucke: immer hell, ohne Bedienelemente. */
 :root{color-scheme:light!important}
 body{background:#fff!important;color:#000!important;font-size:11pt;display:block}
-.site-head,.site-foot,.skip,.filters,.back,.icon-btn,.btn,aside,.noprint,.hint{display:none!important}
+.site-head,.site-foot,.skip,.filters,.back,.icon-btn,.link-btn,.link-dialog,.btn,aside,.noprint,.hint{display:none!important}
 .wrap{width:100%}
 .app-layout{display:block}
 .panel{border:0!important;box-shadow:none!important;background:none!important;padding:0!important}
@@ -14,3 +14,9 @@ h1{font-size:20pt}.muted,.app-head p{color:#333!important}
 .qr{display:block!important;position:absolute;top:0;right:0;width:2.6cm;background:#fff}
 .qr svg{width:100%;height:auto}
 .app-head{position:relative}
+.schritte,.nav-unten,.palette,.aktionen,.status,.bausteine,hr,.eyebrow{display:none!important}
+.schaltbild{border:1px solid #999!important;break-inside:avoid;background:#fff!important}
+.ergebnis{color:#000}
+.notizen li{break-inside:avoid;margin-bottom:.4cm}
+.druckblock{display:block!important}
+.tabelle th,.tabelle td{border-bottom:1px solid #999!important;color:#000!important}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Messlabor: Kennlinien – LernLab</title>
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../../../css/main.css">
+<link rel="stylesheet" href="../../../css/print.css" media="print">
+<link rel="manifest" href="../../../manifest.webmanifest">
+<link rel="icon" href="../../../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/icon-180.png">
+<meta name="theme-color" content="#e6eaf0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+<script src="../../../js/common.js"></script>
+<script src="../../../js/qr.js"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="../../../"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="none" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/><path class="l1" d="M5 18c3-9 6-9 9 0s6 9 9 0 3-5 4-6" fill="none" stroke-width="2.6" stroke-linecap="round"/><circle class="l2" cx="27" cy="12" r="2.4"/></svg> LernLab</a><span class="spacer"></span>
+  <button class="icon-btn" id="theme-toggle" type="button" aria-label="Design wechseln (hell/dunkel)"><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg></button>
+</div></header>
+<main class="wrap">
+  <div class="app-head">
+    <div class="qr" data-qr></div>
+    <a class="back" href="../../../">Zur Übersicht</a>
+    <h1>Messlabor: Kennlinien</h1>
+    <p>Nimm die Kennlinien von Widerständen und einer Glühlampe auf. Lehrplanbezug: Elektrischer Strom, Kennlinien, Messgeräte.</p>
+  </div>
+  <div class="app-layout">
+    <section class="panel stage" aria-label="Messlabor">
+      <div class="pad">
+        <h2>Dein Auftrag</h2>
+        <ol>
+          <li>Wähle ein Bauteil und schließe die Messgeräte an. Das Amperemeter misst die Stromstärke, das Voltmeter die Spannung am Bauteil.</li>
+          <li>Schalte das Netzgerät ein (der Regler steht bei 0 V) und erhöhe die Spannung in kleinen Schritten.</li>
+          <li>Übernimm mindestens sechs Messwerte in die Tabelle und beobachte die Kennlinie.</li>
+          <li>Wiederhole die Messung mit den anderen Bauteilen und vergleiche die Kennlinien.</li>
+          <li>Beantworte die Fragen zur Auswertung.</li>
+        </ol>
+        <p class="hint"><strong>Sicherheit:</strong> Umgebaut wird nur bei ausgeschaltetem Netzgerät. Eingeschaltet wird immer bei 0 V. Die Glühlampe verträgt nicht mehr als ihre Nennspannung.</p>
+      </div>
+      <div id="aufbau" class="bild"></div>
+      <div class="pad">
+        <p id="meldung" class="meldung" role="status" hidden></p>
+        <h2>Messtabelle</h2><div id="tabelle"></div>
+        <h2>Kennlinie</h2>
+        <canvas id="c" role="img" aria-label="Kennlinien-Diagramm"></canvas>
+        <ul id="legende" class="legende"></ul>
+        <h2>Auswertung</h2><div id="auswertung"></div>
+      </div>
+    </section>
+    <aside class="panel" aria-label="Einstellungen">
+      <h2>Bauteil</h2>
+      <div class="auftraege" role="group" aria-label="Bauteil wählen">
+        <button type="button" class="auf" data-bt="rA" aria-pressed="true">Widerstand A (50 Ω)</button>
+        <button type="button" class="auf" data-bt="rB" aria-pressed="false">Widerstand B (100 Ω)</button>
+        <button type="button" class="auf" data-bt="lampe" aria-pressed="false">Glühlampe (6 V / 0,1 A)</button>
+      </div>
+      <button type="button" class="btn ghost" id="neueLampe" hidden>Neue Lampe einsetzen</button>
+      <h2>Messgeräte anschließen</h2>
+      <p class="muted">Amperemeter</p>
+      <div class="seg" role="group" aria-label="Anschluss des Amperemeters"><button type="button" data-a="reihe" aria-pressed="false">in Reihe</button><button type="button" data-a="parallel" aria-pressed="false">parallel zum Bauteil</button></div>
+      <p class="muted">Voltmeter</p>
+      <div class="seg" role="group" aria-label="Anschluss des Voltmeters"><button type="button" data-v="parallel" aria-pressed="false">parallel zum Bauteil</button><button type="button" data-v="reihe" aria-pressed="false">in Reihe</button></div>
+      <h2>Netzgerät</h2>
+      <button type="button" class="btn" id="netz" aria-pressed="false">Netzgerät einschalten</button>
+      <div class="field"><label for="U">Spannung <output id="oU"></output></label><input id="U" type="range" min="0" max="12" step="0.5" value="0" disabled></div>
+      <p class="hint" id="ueberNenn" hidden>Achtung: Die Spannung liegt über der Nennspannung der Lampe (6 V).</p>
+      <h2>Messung</h2>
+      <div class="aktionen"><button class="btn" type="button" id="uebernehmen">Messwert übernehmen</button></div>
+      <div class="aktionen"><button class="btn ghost" type="button" id="zeileweg">Letzten Wert löschen</button><button class="btn ghost" type="button" id="reiheweg">Messreihe löschen</button></div>
+      <label class="check"><input type="checkbox" id="showR"><span>R = U : I in der Tabelle anzeigen</span></label>
+      <label class="check"><input type="checkbox" id="linie" checked><span>Messpunkte verbinden</span></label>
+    </aside>
+    <script src="../../../js/plot.js"></script>
+    <script src="app.js"></script>
+  </div>
+</main>
+<footer class="site-foot"><div class="wrap"><span>Inhalte CC BY-SA 4.0 · Code MIT</span><a href="../../../impressum.html">Impressum</a><a href="../../../datenschutz.html">Datenschutz</a><a href="https://github.com/BENUTZERNAME/REPO/issues/new/choose">Fehler melden</a></div></footer>
+</body></html>
