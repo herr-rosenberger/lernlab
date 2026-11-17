@@ -1,0 +1,360 @@
+{
+ "aufgaben": [
+  {
+   "id": "f1",
+   "typ": "auswahl",
+   "frage": "Was zeigt die Kennlinie von Bauteil A?",
+   "optionen": [
+    "Einen ohmschen Widerstand: I ist proportional zu U.",
+    "Einen Widerstand, der bei hoher Spannung größer wird.",
+    "Eine Glühlampe.",
+    "Ein Bauteil, durch das erst ab einer bestimmten Spannung Strom fließt."
+   ],
+   "richtig": 0,
+   "erklaerung": "Die Kennlinie ist eine Gerade durch den Ursprung. Verdoppelt man $U$, verdoppelt sich $I$. Der Quotient $R=\\dfrac{U}{I}$ ist konstant.",
+   "bild": "bauteil_a.svg",
+   "bildAlt": "Kennlinie von Bauteil A im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Die Kennlinie von Bauteil A verläuft durch die Punkte (0 V | 0 A), (2 V | 0,08 A), (4 V | 0,16 A), (6 V | 0,24 A), (8 V | 0,32 A), (10 V | 0,4 A)."
+  },
+  {
+   "id": "f2",
+   "typ": "auswahl",
+   "frage": "Was zeigt die Kennlinie von Bauteil B?",
+   "optionen": [
+    "Ein Bauteil, dessen Widerstand mit wachsender Spannung zunimmt.",
+    "Einen ohmschen Widerstand.",
+    "Ein Bauteil, dessen Widerstand mit wachsender Spannung abnimmt.",
+    "Ein Bauteil ohne Widerstand."
+   ],
+   "richtig": 0,
+   "erklaerung": "Die Kennlinie ist keine Gerade und wird flacher: $I$ wächst langsamer als $U$, also wächst $R=\\dfrac{U}{I}$. So verhält sich zum Beispiel eine Glühlampe, deren Glühfaden mit steigender Spannung heißer wird.",
+   "bild": "bauteil_b.svg",
+   "bildAlt": "Kennlinie von Bauteil B im I-U-Diagramm. Waagerecht U in V von 0 bis 6, senkrecht I in A von 0 bis 0,12.",
+   "bildText": "Die Kennlinie von Bauteil B verläuft durch die Punkte (0 V | 0 A), (1 V | 0,03 A), (2 V | 0,05 A), (3 V | 0,066 A), (4 V | 0,08 A), (5 V | 0,091 A), (6 V | 0,1 A)."
+  },
+  {
+   "id": "f3",
+   "typ": "auswahl",
+   "frage": "Was zeigt die Kennlinie von Bauteil C?",
+   "optionen": [
+    "Ein Bauteil, dessen Widerstand mit wachsender Spannung abnimmt.",
+    "Einen ohmschen Widerstand.",
+    "Ein Bauteil, dessen Widerstand mit wachsender Spannung zunimmt.",
+    "Ein Bauteil, durch das nie Strom fließt."
+   ],
+   "richtig": 0,
+   "erklaerung": "Die Kennlinie wird steiler: $I$ wächst schneller als $U$, also sinkt $R=\\dfrac{U}{I}$. Das Bauteil ist kein ohmscher Widerstand.",
+   "bild": "bauteil_c.svg",
+   "bildAlt": "Kennlinie von Bauteil C im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Die Kennlinie von Bauteil C verläuft durch die Punkte (0 V | 0 A), (2 V | 0,016 A), (4 V | 0,064 A), (5 V | 0,1 A), (6 V | 0,144 A), (8 V | 0,256 A), (10 V | 0,4 A)."
+  },
+  {
+   "id": "f4",
+   "typ": "auswahl",
+   "frage": "Die Messpunkte liegen nicht exakt auf einer Geraden. Was lässt sich trotzdem sagen?",
+   "optionen": [
+    "Die Punkte liegen nahe an einer Geraden durch den Ursprung. Die kleinen Abweichungen sind Messungenauigkeiten, es ist ein ohmscher Widerstand.",
+    "Es ist kein ohmscher Widerstand, weil die Punkte nicht genau auf einer Linie liegen.",
+    "Es ist eine Glühlampe.",
+    "Man kann aus den Messpunkten nichts schließen."
+   ],
+   "richtig": 0,
+   "erklaerung": "Jede Messung hat kleine Abweichungen. Entscheidend ist der Gesamtverlauf: Die Punkte folgen einer Ursprungsgeraden.",
+   "bild": "messpunkte_a.svg",
+   "bildAlt": "Messpunkte eines Bauteils im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,3.",
+   "bildText": "Die Messpunkte (U | I) sind: (1 V | 0,026 A), (2 V | 0,049 A), (3 V | 0,077 A), (4 V | 0,101 A), (5 V | 0,124 A), (6 V | 0,151 A), (7 V | 0,172 A), (8 V | 0,201 A), (9 V | 0,223 A), (10 V | 0,252 A)."
+  },
+  {
+   "id": "f5",
+   "typ": "auswahl",
+   "frage": "Wie verlaufen die Messpunkte, und was bedeutet das?",
+   "optionen": [
+    "Sie folgen einer Kurve, die flacher wird. Das Bauteil ist kein ohmscher Widerstand.",
+    "Sie folgen einer Geraden durch den Ursprung. Das Bauteil ist ein ohmscher Widerstand.",
+    "Sie folgen einer Kurve, die steiler wird. Der Widerstand wird kleiner.",
+    "Sie liegen alle auf einer waagerechten Linie."
+   ],
+   "richtig": 0,
+   "erklaerung": "Die Stromstärke wächst langsamer als die Spannung, der Quotient $\\dfrac{U}{I}$ wird größer. Das ist typisch für eine Glühlampe.",
+   "bild": "messpunkte_b.svg",
+   "bildAlt": "Messpunkte eines Bauteils im I-U-Diagramm. Waagerecht U in V von 0 bis 6, senkrecht I in A von 0 bis 0,12.",
+   "bildText": "Die Messpunkte (U | I) sind: (0,5 V | 0,019 A), (1 V | 0,031 A), (2 V | 0,05 A), (3 V | 0,066 A), (4 V | 0,079 A), (5 V | 0,09 A), (6 V | 0,101 A)."
+  },
+  {
+   "id": "a1",
+   "typ": "zahl",
+   "frage": "Wie groß ist die Stromstärke von Bauteil A bei $6\\,\\mathrm{V}$? Gib sie in A an.",
+   "richtig": 0.24,
+   "toleranz": 0.01,
+   "einheit": "A",
+   "erklaerung": "Man liest an der Kennlinie bei $6\\,\\mathrm{V}$ den Wert $0{,}24\\,\\mathrm{A}$ ab.",
+   "bild": "bauteil_a.svg",
+   "bildAlt": "Kennlinie von Bauteil A im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Die Kennlinie von Bauteil A verläuft durch die Punkte (0 V | 0 A), (2 V | 0,08 A), (4 V | 0,16 A), (6 V | 0,24 A), (8 V | 0,32 A), (10 V | 0,4 A).",
+   "hinweis": "Ein kleines Kästchen entspricht waagerecht 1 V und senkrecht 0,05 A. Gehe von 6 V senkrecht nach oben bis zur Kennlinie."
+  },
+  {
+   "id": "a2",
+   "typ": "zahl",
+   "frage": "Bei welcher Spannung fließen durch Bauteil A $0{,}3\\,\\mathrm{A}$? Gib sie in V an.",
+   "richtig": 7.5,
+   "toleranz": 0.3,
+   "einheit": "V",
+   "erklaerung": "Bei $0{,}3\\,\\mathrm{A}$ liest man waagerecht $7{,}5\\,\\mathrm{V}$ ab.",
+   "bild": "bauteil_a.svg",
+   "bildAlt": "Kennlinie von Bauteil A im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Die Kennlinie von Bauteil A verläuft durch die Punkte (0 V | 0 A), (2 V | 0,08 A), (4 V | 0,16 A), (6 V | 0,24 A), (8 V | 0,32 A), (10 V | 0,4 A).",
+   "hinweis": "Ein kleines Kästchen entspricht waagerecht 1 V und senkrecht 0,05 A."
+  },
+  {
+   "id": "a3",
+   "typ": "zahl",
+   "frage": "Wie groß ist die Stromstärke von Bauteil B bei $4\\,\\mathrm{V}$? Gib sie in A an.",
+   "richtig": 0.08,
+   "toleranz": 0.005,
+   "einheit": "A",
+   "erklaerung": "Bei $4\\,\\mathrm{V}$ liest man $0{,}08\\,\\mathrm{A}$ ab.",
+   "bild": "bauteil_b.svg",
+   "bildAlt": "Kennlinie von Bauteil B im I-U-Diagramm. Waagerecht U in V von 0 bis 6, senkrecht I in A von 0 bis 0,12.",
+   "bildText": "Die Kennlinie von Bauteil B verläuft durch die Punkte (0 V | 0 A), (1 V | 0,03 A), (2 V | 0,05 A), (3 V | 0,066 A), (4 V | 0,08 A), (5 V | 0,091 A), (6 V | 0,1 A).",
+   "hinweis": "Ein kleines Kästchen entspricht waagerecht 0,5 V und senkrecht 0,01 A."
+  },
+  {
+   "id": "a4",
+   "typ": "zahl",
+   "frage": "Bei welcher Spannung fließen durch Bauteil B $0{,}05\\,\\mathrm{A}$? Gib sie in V an.",
+   "richtig": 2,
+   "toleranz": 0.2,
+   "einheit": "V",
+   "erklaerung": "Bei $0{,}05\\,\\mathrm{A}$ liest man waagerecht $2\\,\\mathrm{V}$ ab.",
+   "bild": "bauteil_b.svg",
+   "bildAlt": "Kennlinie von Bauteil B im I-U-Diagramm. Waagerecht U in V von 0 bis 6, senkrecht I in A von 0 bis 0,12.",
+   "bildText": "Die Kennlinie von Bauteil B verläuft durch die Punkte (0 V | 0 A), (1 V | 0,03 A), (2 V | 0,05 A), (3 V | 0,066 A), (4 V | 0,08 A), (5 V | 0,091 A), (6 V | 0,1 A).",
+   "hinweis": "Ein kleines Kästchen entspricht waagerecht 0,5 V und senkrecht 0,01 A."
+  },
+  {
+   "id": "a5",
+   "typ": "zahl",
+   "frage": "Wie groß ist bei $10\\,\\mathrm{V}$ die Stromstärke bei Kennlinie 1? Gib sie in A an.",
+   "richtig": 0.5,
+   "toleranz": 0.01,
+   "einheit": "A",
+   "erklaerung": "Die durchgezogene Kennlinie 1 liegt bei $10\\,\\mathrm{V}$ bei $0{,}5\\,\\mathrm{A}$.",
+   "bild": "zwei_widerstaende.svg",
+   "bildAlt": "Zwei Kennlinien, 1 (durchgezogen) und 2 (gestrichelt), im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Kennlinie 1 verläuft durch (0 V | 0 A), (4 V | 0,2 A), (8 V | 0,4 A), (10 V | 0,5 A). Kennlinie 2 verläuft durch (0 V | 0 A), (5 V | 0,1 A), (10 V | 0,2 A).",
+   "hinweis": "Ein kleines Kästchen entspricht waagerecht 1 V und senkrecht 0,05 A."
+  },
+  {
+   "id": "a6",
+   "typ": "zahl",
+   "frage": "Wie groß ist bei $10\\,\\mathrm{V}$ die Stromstärke bei Kennlinie 2? Gib sie in A an.",
+   "richtig": 0.2,
+   "toleranz": 0.01,
+   "einheit": "A",
+   "erklaerung": "Die gestrichelte Kennlinie 2 liegt bei $10\\,\\mathrm{V}$ bei $0{,}2\\,\\mathrm{A}$.",
+   "bild": "zwei_widerstaende.svg",
+   "bildAlt": "Zwei Kennlinien, 1 (durchgezogen) und 2 (gestrichelt), im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Kennlinie 1 verläuft durch (0 V | 0 A), (4 V | 0,2 A), (8 V | 0,4 A), (10 V | 0,5 A). Kennlinie 2 verläuft durch (0 V | 0 A), (5 V | 0,1 A), (10 V | 0,2 A).",
+   "hinweis": "Ein kleines Kästchen entspricht waagerecht 1 V und senkrecht 0,05 A."
+  },
+  {
+   "id": "r1",
+   "typ": "zahl",
+   "frage": "Berechne den Widerstand von Bauteil A aus dem Wert bei $10\\,\\mathrm{V}$. Gib ihn in $\\Omega$ an.",
+   "richtig": 25,
+   "toleranz": 1,
+   "einheit": "Ω",
+   "erklaerung": "$R=\\dfrac{U}{I}=\\dfrac{10\\,\\mathrm{V}}{0{,}4\\,\\mathrm{A}}=25\\,\\Omega$",
+   "bild": "bauteil_a.svg",
+   "bildAlt": "Kennlinie von Bauteil A im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Die Kennlinie von Bauteil A verläuft durch die Punkte (0 V | 0 A), (2 V | 0,08 A), (4 V | 0,16 A), (6 V | 0,24 A), (8 V | 0,32 A), (10 V | 0,4 A).",
+   "hinweis": "Lies zuerst bei $10\\,\\mathrm{V}$ die Stromstärke ab. Ein kleines Kästchen entspricht waagerecht 1 V und senkrecht 0,05 A."
+  },
+  {
+   "id": "r2",
+   "typ": "zahl",
+   "frage": "Berechne den Widerstand von Bauteil B bei $2\\,\\mathrm{V}$. Gib ihn in $\\Omega$ an.",
+   "richtig": 40,
+   "toleranz": 2,
+   "einheit": "Ω",
+   "erklaerung": "$R=\\dfrac{U}{I}=\\dfrac{2\\,\\mathrm{V}}{0{,}05\\,\\mathrm{A}}=40\\,\\Omega$",
+   "bild": "bauteil_b.svg",
+   "bildAlt": "Kennlinie von Bauteil B im I-U-Diagramm. Waagerecht U in V von 0 bis 6, senkrecht I in A von 0 bis 0,12.",
+   "bildText": "Die Kennlinie von Bauteil B verläuft durch die Punkte (0 V | 0 A), (1 V | 0,03 A), (2 V | 0,05 A), (3 V | 0,066 A), (4 V | 0,08 A), (5 V | 0,091 A), (6 V | 0,1 A).",
+   "hinweis": "Lies bei $2\\,\\mathrm{V}$ die Stromstärke ab. Ein kleines Kästchen entspricht waagerecht 0,5 V und senkrecht 0,01 A."
+  },
+  {
+   "id": "r3",
+   "typ": "zahl",
+   "frage": "Berechne den Widerstand von Bauteil B bei $6\\,\\mathrm{V}$. Gib ihn in $\\Omega$ an.",
+   "richtig": 60,
+   "toleranz": 2,
+   "einheit": "Ω",
+   "erklaerung": "$R=\\dfrac{U}{I}=\\dfrac{6\\,\\mathrm{V}}{0{,}1\\,\\mathrm{A}}=60\\,\\Omega$",
+   "bild": "bauteil_b.svg",
+   "bildAlt": "Kennlinie von Bauteil B im I-U-Diagramm. Waagerecht U in V von 0 bis 6, senkrecht I in A von 0 bis 0,12.",
+   "bildText": "Die Kennlinie von Bauteil B verläuft durch die Punkte (0 V | 0 A), (1 V | 0,03 A), (2 V | 0,05 A), (3 V | 0,066 A), (4 V | 0,08 A), (5 V | 0,091 A), (6 V | 0,1 A).",
+   "hinweis": "Ein kleines Kästchen entspricht waagerecht 0,5 V und senkrecht 0,01 A."
+  },
+  {
+   "id": "r4",
+   "typ": "auswahl",
+   "frage": "Vergleiche den Widerstand von Bauteil B bei $2\\,\\mathrm{V}$ und bei $6\\,\\mathrm{V}$. Was stellst du fest?",
+   "optionen": [
+    "Bei $6\\,\\mathrm{V}$ ist der Widerstand größer als bei $2\\,\\mathrm{V}$.",
+    "Der Widerstand ist bei beiden Spannungen gleich groß.",
+    "Bei $6\\,\\mathrm{V}$ ist der Widerstand kleiner als bei $2\\,\\mathrm{V}$.",
+    "Das lässt sich nicht vergleichen."
+   ],
+   "richtig": 0,
+   "erklaerung": "Bei $2\\,\\mathrm{V}$ ist $R=40\\,\\Omega$, bei $6\\,\\mathrm{V}$ ist $R=60\\,\\Omega$. Der Widerstand wächst mit der Spannung, das Bauteil ist nicht ohmsch.",
+   "bild": "bauteil_b.svg",
+   "bildAlt": "Kennlinie von Bauteil B im I-U-Diagramm. Waagerecht U in V von 0 bis 6, senkrecht I in A von 0 bis 0,12.",
+   "bildText": "Die Kennlinie von Bauteil B verläuft durch die Punkte (0 V | 0 A), (1 V | 0,03 A), (2 V | 0,05 A), (3 V | 0,066 A), (4 V | 0,08 A), (5 V | 0,091 A), (6 V | 0,1 A)."
+  },
+  {
+   "id": "r5",
+   "typ": "zahl",
+   "frage": "Berechne den Widerstand von Bauteil C bei $5\\,\\mathrm{V}$. Gib ihn in $\\Omega$ an.",
+   "richtig": 50,
+   "toleranz": 2,
+   "einheit": "Ω",
+   "erklaerung": "$R=\\dfrac{U}{I}=\\dfrac{5\\,\\mathrm{V}}{0{,}1\\,\\mathrm{A}}=50\\,\\Omega$",
+   "bild": "bauteil_c.svg",
+   "bildAlt": "Kennlinie von Bauteil C im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Die Kennlinie von Bauteil C verläuft durch die Punkte (0 V | 0 A), (2 V | 0,016 A), (4 V | 0,064 A), (5 V | 0,1 A), (6 V | 0,144 A), (8 V | 0,256 A), (10 V | 0,4 A).",
+   "hinweis": "Ein kleines Kästchen entspricht waagerecht 1 V und senkrecht 0,05 A."
+  },
+  {
+   "id": "r6",
+   "typ": "zahl",
+   "frage": "Berechne den Widerstand von Bauteil C bei $10\\,\\mathrm{V}$. Gib ihn in $\\Omega$ an.",
+   "richtig": 25,
+   "toleranz": 1,
+   "einheit": "Ω",
+   "erklaerung": "$R=\\dfrac{U}{I}=\\dfrac{10\\,\\mathrm{V}}{0{,}4\\,\\mathrm{A}}=25\\,\\Omega$. Bei $5\\,\\mathrm{V}$ waren es $50\\,\\Omega$: Der Widerstand sinkt mit wachsender Spannung.",
+   "bild": "bauteil_c.svg",
+   "bildAlt": "Kennlinie von Bauteil C im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Die Kennlinie von Bauteil C verläuft durch die Punkte (0 V | 0 A), (2 V | 0,016 A), (4 V | 0,064 A), (5 V | 0,1 A), (6 V | 0,144 A), (8 V | 0,256 A), (10 V | 0,4 A).",
+   "hinweis": "Ein kleines Kästchen entspricht waagerecht 1 V und senkrecht 0,05 A."
+  },
+  {
+   "id": "r7",
+   "typ": "zahl",
+   "frage": "Berechne den Widerstand von Bauteil 1 (durchgezogen) aus dem Wert bei $10\\,\\mathrm{V}$. Gib ihn in $\\Omega$ an.",
+   "richtig": 20,
+   "toleranz": 1,
+   "einheit": "Ω",
+   "erklaerung": "$R_1=\\dfrac{U}{I}=\\dfrac{10\\,\\mathrm{V}}{0{,}5\\,\\mathrm{A}}=20\\,\\Omega$",
+   "bild": "zwei_widerstaende.svg",
+   "bildAlt": "Zwei Kennlinien, 1 (durchgezogen) und 2 (gestrichelt), im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Kennlinie 1 verläuft durch (0 V | 0 A), (4 V | 0,2 A), (8 V | 0,4 A), (10 V | 0,5 A). Kennlinie 2 verläuft durch (0 V | 0 A), (5 V | 0,1 A), (10 V | 0,2 A).",
+   "hinweis": "Ein kleines Kästchen entspricht waagerecht 1 V und senkrecht 0,05 A."
+  },
+  {
+   "id": "r8",
+   "typ": "zahl",
+   "frage": "Berechne den Widerstand von Bauteil 2 (gestrichelt) aus dem Wert bei $10\\,\\mathrm{V}$. Gib ihn in $\\Omega$ an.",
+   "richtig": 50,
+   "toleranz": 2,
+   "einheit": "Ω",
+   "erklaerung": "$R_2=\\dfrac{U}{I}=\\dfrac{10\\,\\mathrm{V}}{0{,}2\\,\\mathrm{A}}=50\\,\\Omega$",
+   "bild": "zwei_widerstaende.svg",
+   "bildAlt": "Zwei Kennlinien, 1 (durchgezogen) und 2 (gestrichelt), im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Kennlinie 1 verläuft durch (0 V | 0 A), (4 V | 0,2 A), (8 V | 0,4 A), (10 V | 0,5 A). Kennlinie 2 verläuft durch (0 V | 0 A), (5 V | 0,1 A), (10 V | 0,2 A).",
+   "hinweis": "Ein kleines Kästchen entspricht waagerecht 1 V und senkrecht 0,05 A."
+  },
+  {
+   "id": "r9",
+   "typ": "zahl",
+   "frage": "Schätze den Widerstand des Bauteils aus den Messpunkten. Gib ihn in $\\Omega$ an.",
+   "richtig": 40,
+   "toleranz": 3,
+   "einheit": "Ω",
+   "erklaerung": "Die Punkte liegen nahe an der Ursprungsgeraden durch $(8\\,\\mathrm{V}\\,|\\,0{,}2\\,\\mathrm{A})$. Daraus folgt $R=\\dfrac{8\\,\\mathrm{V}}{0{,}2\\,\\mathrm{A}}=40\\,\\Omega$. Einzelne Punkte weichen etwas ab, deshalb ist das ein Schätzwert.",
+   "bild": "messpunkte_a.svg",
+   "bildAlt": "Messpunkte eines Bauteils im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,3.",
+   "bildText": "Die Messpunkte (U | I) sind: (1 V | 0,026 A), (2 V | 0,049 A), (3 V | 0,077 A), (4 V | 0,101 A), (5 V | 0,124 A), (6 V | 0,151 A), (7 V | 0,172 A), (8 V | 0,201 A), (9 V | 0,223 A), (10 V | 0,252 A).",
+   "hinweis": "Wähle einen Punkt, der gut auf der Geraden liegt, oder lege die Gerade gedanklich durch den Ursprung."
+  },
+  {
+   "id": "v1",
+   "typ": "auswahl",
+   "frage": "Welche der beiden Kennlinien gehört zum Bauteil mit dem größeren Widerstand?",
+   "optionen": [
+    "Kennlinie 2 (gestrichelt): Bei gleicher Spannung fließt weniger Strom.",
+    "Kennlinie 1 (durchgezogen): Sie ist steiler.",
+    "Beide, denn die Widerstände sind gleich.",
+    "Das lässt sich nur mit einer dritten Kennlinie sagen."
+   ],
+   "richtig": 0,
+   "erklaerung": "Bei gleicher Spannung fließt durch Bauteil 2 weniger Strom, also ist sein Widerstand größer. Je flacher die Kennlinie, desto größer der Widerstand.",
+   "bild": "zwei_widerstaende.svg",
+   "bildAlt": "Zwei Kennlinien, 1 (durchgezogen) und 2 (gestrichelt), im I-U-Diagramm. Waagerecht U in V von 0 bis 10, senkrecht I in A von 0 bis 0,5.",
+   "bildText": "Kennlinie 1 verläuft durch (0 V | 0 A), (4 V | 0,2 A), (8 V | 0,4 A), (10 V | 0,5 A). Kennlinie 2 verläuft durch (0 V | 0 A), (5 V | 0,1 A), (10 V | 0,2 A)."
+  },
+  {
+   "id": "c1",
+   "typ": "auswahl",
+   "frage": "Die Kennlinie eines Bauteils ist eine Gerade durch den Ursprung. Was folgt daraus?",
+   "optionen": [
+    "$I$ ist proportional zu $U$, und der Quotient $R=\\dfrac{U}{I}$ ist konstant.",
+    "$I$ ist konstant, egal wie groß $U$ ist.",
+    "Der Widerstand wächst mit der Spannung.",
+    "Das Bauteil ist eine Glühlampe."
+   ],
+   "richtig": 0,
+   "erklaerung": "So ist ein ohmscher Widerstand definiert: Das Verhältnis aus Spannung und Stromstärke bleibt gleich."
+  },
+  {
+   "id": "c2",
+   "typ": "zahl",
+   "frage": "Durch einen ohmschen Widerstand fließen bei $3\\,\\mathrm{V}$ genau $0{,}06\\,\\mathrm{A}$. Welche Stromstärke fließt bei $9\\,\\mathrm{V}$? Gib sie in A an.",
+   "richtig": 0.18,
+   "toleranz": 0.005,
+   "einheit": "A",
+   "erklaerung": "Die Spannung wird verdreifacht, also auch die Stromstärke: $I=3\\cdot0{,}06\\,\\mathrm{A}=0{,}18\\,\\mathrm{A}$.",
+   "hinweis": "Bei einem ohmschen Widerstand ist $I$ proportional zu $U$."
+  },
+  {
+   "id": "c3",
+   "typ": "auswahl",
+   "frage": "Warum ist die Kennlinie einer Glühlampe keine Gerade?",
+   "optionen": [
+    "Der Glühfaden wird mit steigender Spannung heißer, und sein Widerstand wächst.",
+    "Die Spannungsquelle wird bei höherer Spannung schwächer.",
+    "Die Lampe verbraucht den Strom.",
+    "Die Messgeräte verfälschen die Werte."
+   ],
+   "richtig": 0,
+   "erklaerung": "Mit der Temperatur nimmt der Widerstand des Glühfadens zu. Deshalb wächst $I$ langsamer als $U$."
+  },
+  {
+   "id": "c4",
+   "typ": "auswahl",
+   "frage": "Jemand sagt: „Der Widerstand dieser Glühlampe beträgt $60\\,\\Omega$.“ Warum ist diese Aussage unvollständig?",
+   "optionen": [
+    "Der Widerstand hängt von der Spannung ab. Die $60\\,\\Omega$ gelten nur bei einer bestimmten Spannung.",
+    "Der Widerstand einer Lampe lässt sich nicht berechnen.",
+    "Eine Lampe hat überhaupt keinen Widerstand.",
+    "Der Widerstand ist immer größer als $100\\,\\Omega$."
+   ],
+   "richtig": 0,
+   "erklaerung": "Bei einem nicht-ohmschen Bauteil gibt es keinen festen Widerstandswert. Man muss dazusagen, bei welcher Spannung $R=\\dfrac{U}{I}$ berechnet wurde."
+  },
+  {
+   "id": "c5",
+   "typ": "auswahl",
+   "frage": "Bei einem Bauteil fließen bei $2\\,\\mathrm{V}$ genau $0{,}04\\,\\mathrm{A}$ und bei $4\\,\\mathrm{V}$ genau $0{,}10\\,\\mathrm{A}$. Ist es ein ohmscher Widerstand?",
+   "optionen": [
+    "Nein: Bei $2\\,\\mathrm{V}$ ist $R=50\\,\\Omega$, bei $4\\,\\mathrm{V}$ nur $40\\,\\Omega$. Der Widerstand ist nicht konstant.",
+    "Ja, denn die Stromstärke wird größer, wenn die Spannung größer wird.",
+    "Ja, denn $R$ ist beide Male gleich groß.",
+    "Nein, weil die Stromstärke zu klein ist."
+   ],
+   "richtig": 0,
+   "erklaerung": "$\\dfrac{2\\,\\mathrm{V}}{0{,}04\\,\\mathrm{A}}=50\\,\\Omega$ und $\\dfrac{4\\,\\mathrm{V}}{0{,}10\\,\\mathrm{A}}=40\\,\\Omega$. Bei einem ohmschen Widerstand müssten beide Werte gleich sein. Dass $I$ mit $U$ wächst, reicht dafür nicht."
+  }
+ ]
+}

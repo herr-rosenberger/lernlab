@@ -265,3 +265,6 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 .vorschau{min-height:1.6rem;margin:.4rem 0 .8rem;color:var(--muted)}
 .tabwrap{overflow-x:auto}
 .chips .katex{font-size:1.05em}
+
+/* Grafikbeschreibung als Text */
+.bildtext{margin-top:.5rem}.bildtext summary{cursor:pointer;color:var(--accent);font-weight:600}.bildtext p{margin:.4rem 0 0}

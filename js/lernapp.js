@@ -1,7 +1,7 @@
 // LernLab Mini-Framework für Lern-Apps. Aufgaben stehen in aufgaben.json neben der index.html.
 // Typen: "auswahl" {optionen[], richtig:Index} · "zahl" {richtig:Zahl, toleranz?, einheit?, exakt?} · "text" {richtig:[Strings]}
 // · "term" {richtig:"x^2/2", f:"x", punkte?[]}: Stammfunktion eintippen, geprüft bis auf +C (braucht js/term.js). loesungTeX? überschreibt die angezeigte Lösung.
-// Optional je Aufgabe: hinweis, erklaerung, bild + bildAlt (Alternativtext Pflicht). Formeln: $…$ (KaTeX). Arbeitsblatt: ?arbeitsblatt bzw. ?arbeitsblatt&loesung.
+// Optional je Aufgabe: hinweis, erklaerung, bild + bildAlt (Alternativtext Pflicht), optional bildText (Werte der Grafik als Text, aufklappbar für Screenreader). Formeln: $…$ (KaTeX). Arbeitsblatt: ?arbeitsblatt bzw. ?arbeitsblatt&loesung.
 // Falsch beantwortete Aufgaben kommen in der nächsten Runde bevorzugt wieder (nur im Speicher, es wird nichts gespeichert).
 (() => {
   const root = document.getElementById('quiz');
@@ -11,7 +11,7 @@
   const num = s => (window.LernLab && LernLab.term) ? LernLab.term.zahl(s) : parseFloat(String(s).replace(/\s/g, '').replace(',', '.'));
   const shuffle = a => { a = [...a]; for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const mathe = el => (window.LernLab && LernLab.mathe) ? LernLab.mathe(el) : null;
-  const bild = t => t.bild ? `<figure class="fig"><img src="${esc(t.bild)}" alt="${esc(t.bildAlt || '')}"></figure>` : '';
+  const bild = t => t.bild ? `<figure class="fig"><img src="${esc(t.bild)}" alt="${esc(t.bildAlt || '')}">${t.bildText ? `<details class="bildtext"><summary>Grafik als Text beschreiben</summary><p>${esc(t.bildText)}</p></details>` : ''}</figure>` : '';
   const hilfe = t => t.typ === 'term' ? '<p class="muted">Schreibweise: x^2, e^(2x), ln|x|, sin(3x), Brüche mit /. Setze Klammern, wenn der Nenner oder Exponent aus mehreren Zeichen besteht. Ein +C darfst du anhängen.</p>'
     : t.typ === 'zahl' && t.exakt ? '<p class="muted">Gib den exakten Wert (z. B. ln(2), e-1, pi/2) oder eine Dezimalzahl mit zwei Nachkommastellen ein.</p>' : '';
   const q = new URLSearchParams(location.search);

@@ -13,3 +13,5 @@ Typ `term`: Schüler tippen eine Stammfunktion ein. `richtig` ist eine Stammfunk
 Typ `zahl` mit `"exakt": true` akzeptiert auch Terme wie `ln(2)` oder `e-1`. Mit `loesungTeX` überschreibst du die angezeigte Lösung.
 Diagramme in Simulationen: `js/plot.js` (Koordinatensystem, Kurven, Flächen, Theme-Farben) und `js/term.js` (Funktionseingabe) einbinden. Beispiele: `simulationen/13/…`.
 Canvas-Farben nie direkt aus `getPropertyValue` lesen (liefert `light-dark(…)` als Text), sondern `P.farbe('--accent')` nutzen.
+Grafiken mit Werten: Zusätzlich zu `bildAlt` kann `bildText` die Werte der Grafik als Text enthalten. Er erscheint aufklappbar unter dem Bild („Grafik als Text beschreiben“).
+Kennlinien-Diagramme und Aufgaben von lernapps/8/kennlinien-deuten entstehen mit `tools/kennlinien_erzeugen.py`.
