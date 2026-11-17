@@ -65,20 +65,20 @@
     const { R, U, I, Rg, Ui, Ii } = c, o = '\\,\\Omega', V = '\\,\\mathrm{V}', A = '\\,\\mathrm{A}', L = [];
     const r = i => `${tx(R[i], 0)}${o}`;
     if (S.typ === 'reihe') {
-      L.push(`Gesamtwiderstand: $R_{ges}=${R.map((_, i) => `R_${i + 1}`).join('+')}=${R.map((_, i) => r(i)).join('+')}=${tx(Rg, 2)}${o}$`,
-        `Stromstärke (überall gleich): $I=\\dfrac{U}{R_{ges}}=\\dfrac{${tx(U, 1)}${V}}{${tx(Rg, 2)}${o}}=${tx(I)}${A}$`,
+      L.push(`Gesamtwiderstand: $R_{\\mathrm{ges}}=${R.map((_, i) => `R_${i + 1}`).join('+')}=${R.map((_, i) => r(i)).join('+')}=${tx(Rg, 2)}${o}$`,
+        `Stromstärke (überall gleich): $I=\\dfrac{U}{R_{\\mathrm{ges}}}=\\dfrac{${tx(U, 1)}${V}}{${tx(Rg, 2)}${o}}=${tx(I)}${A}$`,
         ...R.map((_, i) => `Spannung an $R_${i + 1}$: $U_${i + 1}=R_${i + 1}\\cdot I=${r(i)}\\cdot${tx(I)}${A}=${tx(Ui[i], 2)}${V}$`),
         `Kontrolle: $U=${Ui.map((_, i) => `U_${i + 1}`).join('+')}=${Ui.map(u => tx(u, 2) + V).join('+')}=${tx(Ui.reduce((a, b) => a + b, 0), 2)}${V}$`);
     } else if (S.typ === 'parallel') {
       L.push(`An jedem Widerstand liegt die volle Spannung an: $U_1=U_2=\\dots=${tx(U, 1)}${V}$`,
         ...R.map((_, i) => `Stromstärke durch $R_${i + 1}$: $I_${i + 1}=\\dfrac{U}{R_${i + 1}}=\\dfrac{${tx(U, 1)}${V}}{${r(i)}}=${tx(Ii[i])}${A}$`),
         `Knotenregel: $I=${Ii.map((_, i) => `I_${i + 1}`).join('+')}=${Ii.map(x => tx(x) + A).join('+')}=${tx(I)}${A}$`,
-        `Gesamtwiderstand: $R_{ges}=\\dfrac{U}{I}=\\dfrac{${tx(U, 1)}${V}}{${tx(I)}${A}}=${tx(Rg, 2)}${o}$`);
+        `Gesamtwiderstand: $R_{\\mathrm{ges}}=\\dfrac{U}{I}=\\dfrac{${tx(U, 1)}${V}}{${tx(I)}${A}}=${tx(Rg, 2)}${o}$`);
     } else {
       L.push(`$R_1$ liegt in Reihe zu den parallelen Widerständen $R_2$ und $R_3$.`,
         `Ersatzwiderstand der Parallelschaltung (Vertiefung): $R_{23}=\\dfrac{R_2\\cdot R_3}{R_2+R_3}=\\dfrac{${r(1)}\\cdot${r(2)}}{${r(1)}+${r(2)}}=${tx(c.R23, 2)}${o}$`,
-        `Gesamtwiderstand: $R_{ges}=R_1+R_{23}=${r(0)}+${tx(c.R23, 2)}${o}=${tx(Rg, 2)}${o}$`,
-        `Stromstärke durch $R_1$ (= Gesamtstromstärke): $I=\\dfrac{U}{R_{ges}}=\\dfrac{${tx(U, 1)}${V}}{${tx(Rg, 2)}${o}}=${tx(I)}${A}$`,
+        `Gesamtwiderstand: $R_{\\mathrm{ges}}=R_1+R_{23}=${r(0)}+${tx(c.R23, 2)}${o}=${tx(Rg, 2)}${o}$`,
+        `Stromstärke durch $R_1$ (= Gesamtstromstärke): $I=\\dfrac{U}{R_{\\mathrm{ges}}}=\\dfrac{${tx(U, 1)}${V}}{${tx(Rg, 2)}${o}}=${tx(I)}${A}$`,
         `Spannung an $R_1$: $U_1=R_1\\cdot I=${r(0)}\\cdot${tx(I)}${A}=${tx(Ui[0], 2)}${V}$`,
         `Spannung an $R_2$ und $R_3$: $U_{23}=U-U_1=${tx(U, 1)}${V}-${tx(Ui[0], 2)}${V}=${tx(Ui[1], 2)}${V}$`,
         `Stromstärken: $I_2=\\dfrac{U_{23}}{R_2}=${tx(Ii[1])}${A}$ und $I_3=\\dfrac{U_{23}}{R_3}=${tx(Ii[2])}${A}$`,
@@ -92,35 +92,51 @@
 
   // ---------- Entdecken: Messreihen aufnehmen und Vermutungen testen ----------
   const T = LernLab.term;
-  const GR = { R1: ['R₁', 'Ω', 0], R2: ['R₂', 'Ω', 0], R3: ['R₃', 'Ω', 0], Rges: ['R_ges', 'Ω', 2], U: ['U', 'V', 1], U1: ['U₁', 'V', 2], U2: ['U₂', 'V', 2], I: ['I', 'A', 3], I1: ['I₁', 'A', 3], I2: ['I₂', 'A', 3] };
-  const GLEICH = ['Miss mindestens vier Kombinationen, auch mit zwei gleich großen Widerständen.'];
+  const mathe = el => (window.LernLab && LernLab.mathe) ? LernLab.mathe(el) : Promise.resolve();
+  // Größe: [TeX-Symbol, Einheit, Nachkommastellen]. Eingetippt wird mit dem Namen (R1, Rges, U1 …).
+  const Rg = 'R_{\\mathrm{ges}}';
+  const GR = { R1: ['R_1', 'Ω', 0], R2: ['R_2', 'Ω', 0], R3: ['R_3', 'Ω', 0], Rges: [Rg, 'Ω', 2], U: ['U', 'V', 1], U1: ['U_1', 'V', 2], U2: ['U_2', 'V', 2], I: ['I', 'A', 3], I1: ['I_1', 'A', 3], I2: ['I_2', 'A', 3] };
+  const GLEICH = 'Miss mindestens vier Kombinationen, auch mit zwei gleich großen Widerständen.';
   const AUFTR = [
     { id: 'e1', titel: '1 Reihenschaltung: Gesamtwiderstand', typ: 'reihe', n: 2, uVar: false, spalten: ['R1', 'R2', 'Rges'], ziel: 'Rges',
-      text: 'Zwei Widerstände liegen in Reihe an 12 V. Die App bestimmt den Gesamtwiderstand wie im Experiment aus Spannung und Stromstärke. Stelle verschiedene Werte ein und übernimm jede Messung in die Tabelle.',
-      schritte: [...GLEICH, 'Vergleiche R_ges mit R₁ und R₂.', 'Stelle eine Vermutung als Gleichung auf und teste sie.'],
-      tipps: ['Wähle Werte, mit denen du gut rechnen kannst, zum Beispiel 10, 20 und 30 Ω.', 'Ist R_ges größer oder kleiner als R₁ und R₂? Um wie viel?', 'Teste die Gleichung Rges = R1 + R2.'] },
+      text: 'Zwei Widerstände liegen in Reihe an $12\\,\\mathrm{V}$. Die App bestimmt den Gesamtwiderstand $R_{\\mathrm{ges}}$ wie im Experiment aus Spannung und Stromstärke: $R_{\\mathrm{ges}}=\\dfrac{U}{I}$. Stelle verschiedene Werte ein und übernimm jede Messung in die Tabelle.',
+      schritte: [GLEICH, 'Vergleiche $R_{\\mathrm{ges}}$ mit $R_1$ und $R_2$.', 'Stelle eine Vermutung als Gleichung auf und teste sie.'],
+      tipps: ['Wähle Werte, mit denen du gut rechnen kannst, zum Beispiel $10\\,\\Omega$, $20\\,\\Omega$ und $30\\,\\Omega$.', 'Ist $R_{\\mathrm{ges}}$ größer oder kleiner als $R_1$ und $R_2$? Um wie viel?', 'Teste die Gleichung $R_{\\mathrm{ges}}=R_1+R_2$.'] },
     { id: 'e2', titel: '2 Parallelschaltung: Gesamtwiderstand (Vertiefung)', typ: 'parallel', n: 2, uVar: false, spalten: ['R1', 'R2', 'Rges'], ziel: 'Rges',
-      text: 'Zwei Widerstände liegen parallel an 12 V. Der Gesamtwiderstand wird wieder aus Spannung und Stromstärke bestimmt. Diese Untersuchung geht über den Lehrplan hinaus.',
-      schritte: [...GLEICH, 'Vergleiche R_ges mit dem kleineren der beiden Widerstände.', 'Untersuche, was bei zwei gleich großen Widerständen geschieht.', 'Stelle eine Vermutung als Gleichung auf und teste sie.'],
-      tipps: ['Ist R_ges größer, kleiner oder gleich dem kleineren Einzelwiderstand?', 'Bei zwei gleichen Widerständen R: Wie groß ist R_ges im Verhältnis zu R?', 'Teste Rges = R1*R2/(R1+R2). Du kannst auch 1/Rges = 1/R1 + 1/R2 testen.'] },
-    { id: 'e3', titel: '3 Reihenschaltung: Spannungen', typ: 'reihe', n: 2, uVar: true, spalten: ['U', 'R1', 'R2', 'U1', 'U2'], ziel: 'U',
-      text: 'Zwei Widerstände liegen in Reihe. Du kannst jetzt auch die Spannung U ändern. Miss die Teilspannungen U₁ und U₂.',
-      schritte: ['Miss mindestens vier Kombinationen mit verschiedenen Werten für U, R₁ und R₂.', 'Was ergibt U₁ + U₂? Vergleiche mit U.', 'Vergleiche das Verhältnis U₁ : U₂ mit dem Verhältnis R₁ : R₂.'],
-      tipps: ['Addiere U₁ und U₂ in jeder Zeile.', 'Teile U₁ durch U₂ und R₁ durch R₂. Vergleiche die Ergebnisse.', 'Teste U = U1 + U2 und U1/U2 = R1/R2.'] },
-    { id: 'e4', titel: '4 Parallelschaltung: Stromstärken', typ: 'parallel', n: 2, uVar: true, spalten: ['U', 'R1', 'R2', 'I1', 'I2', 'I'], ziel: 'I',
-      text: 'Zwei Widerstände liegen parallel. Du kannst auch die Spannung U ändern. Miss die Stromstärken I₁ und I₂ in den Zweigen und die Gesamtstromstärke I.',
-      schritte: ['Miss mindestens vier Kombinationen mit verschiedenen Werten für U, R₁ und R₂.', 'Was ergibt I₁ + I₂? Vergleiche mit I.', 'Vergleiche das Verhältnis I₁ : I₂ mit dem Verhältnis R₁ : R₂ und mit R₂ : R₁.'],
-      tipps: ['Addiere I₁ und I₂ in jeder Zeile.', 'Teile I₁ durch I₂. Vergleiche mit R₁ : R₂ und mit R₂ : R₁.', 'Teste I = I1 + I2 und I1/I2 = R2/R1. Auch I1 = U/R1 lohnt sich.'] },
+      text: 'Zwei Widerstände liegen parallel an $12\\,\\mathrm{V}$. Der Gesamtwiderstand $R_{\\mathrm{ges}}$ wird wieder aus $U$ und $I$ bestimmt. Diese Untersuchung geht über den Lehrplan hinaus.',
+      schritte: [GLEICH, 'Vergleiche $R_{\\mathrm{ges}}$ mit dem kleineren der beiden Widerstände.', 'Untersuche, was bei zwei gleich großen Widerständen geschieht.', 'Stelle eine Vermutung als Gleichung auf und teste sie.'],
+      tipps: ['Ist $R_{\\mathrm{ges}}$ größer, kleiner oder gleich dem kleineren Einzelwiderstand?', 'Bei zwei gleichen Widerständen $R$: Wie groß ist $R_{\\mathrm{ges}}$ im Verhältnis zu $R$?', 'Kehrwerte helfen: Vergleiche $\\dfrac{1}{R_{\\mathrm{ges}}}$ mit $\\dfrac{1}{R_1}$ und $\\dfrac{1}{R_2}$.'] },
+    { id: 'e3a', titel: '3a Reihenschaltung: Spannungen', typ: 'reihe', n: 2, uVar: true, spalten: ['U', 'R1', 'R2', 'U1', 'U2'], ziel: 'U',
+      text: 'Zwei Widerstände liegen in Reihe. Du kannst auch die Spannung $U$ ändern. Miss die Teilspannungen $U_1$ und $U_2$.',
+      schritte: ['Miss mindestens vier Kombinationen mit verschiedenen Werten für $U$, $R_1$ und $R_2$.', 'Was ergibt $U_1+U_2$? Vergleiche mit $U$.', 'Vergleiche das Verhältnis $\\dfrac{U_1}{U_2}$ mit dem Verhältnis $\\dfrac{R_1}{R_2}$.'],
+      tipps: ['Addiere $U_1$ und $U_2$ in jeder Zeile.', 'Teile $U_1$ durch $U_2$ und $R_1$ durch $R_2$. Vergleiche die Ergebnisse.', 'Teste $U=U_1+U_2$ und $\\dfrac{U_1}{U_2}=\\dfrac{R_1}{R_2}$.'] },
+    { id: 'e3b', titel: '3b Reihenschaltung: Stromstärke', typ: 'reihe', n: 2, uVar: true, spalten: ['U', 'R1', 'R2', 'I1', 'I2', 'I'], ziel: 'I',
+      text: 'Zwei Widerstände liegen in Reihe. Du misst die Stromstärke an drei Stellen: am Netzgerät ($I$), durch $R_1$ ($I_1$) und durch $R_2$ ($I_2$).',
+      schritte: ['Miss mindestens vier Kombinationen mit verschiedenen Werten für $U$, $R_1$ und $R_2$.', 'Vergleiche $I_1$, $I_2$ und $I$. Was passiert, wenn du $R_1$ oder $R_2$ veränderst?', 'Wie hängt $I$ von $U$ und den Widerständen ab? Nutze dein Wissen aus Auftrag 1.'],
+      tipps: ['Vergleiche $I_1$ und $I_2$ in jeder Zeile. Ändern sie sich, wenn du $R_1$ oder $R_2$ veränderst?', 'Der Gesamtwiderstand der Reihenschaltung ist dir aus Auftrag 1 bekannt. Berechne $\\dfrac{U}{R_{\\mathrm{ges}}}$ und vergleiche mit $I$.', 'Teste $I=I_1=I_2$ und $I=\\dfrac{U}{R_1+R_2}$.'] },
+    { id: 'e4a', titel: '4a Parallelschaltung: Stromstärken', typ: 'parallel', n: 2, uVar: true, spalten: ['U', 'R1', 'R2', 'I1', 'I2', 'I'], ziel: 'I',
+      text: 'Zwei Widerstände liegen parallel. Du kannst auch die Spannung $U$ ändern. Miss die Stromstärken $I_1$ und $I_2$ in den Zweigen und die Gesamtstromstärke $I$.',
+      schritte: ['Miss mindestens vier Kombinationen mit verschiedenen Werten für $U$, $R_1$ und $R_2$.', 'Was ergibt $I_1+I_2$? Vergleiche mit $I$.', 'Vergleiche das Verhältnis $\\dfrac{I_1}{I_2}$ mit dem Verhältnis $\\dfrac{R_1}{R_2}$ und mit $\\dfrac{R_2}{R_1}$.'],
+      tipps: ['Addiere $I_1$ und $I_2$ in jeder Zeile.', 'Teile $I_1$ durch $I_2$. Vergleiche mit $\\dfrac{R_1}{R_2}$ und mit $\\dfrac{R_2}{R_1}$.', 'Teste $I=I_1+I_2$ und $\\dfrac{I_1}{I_2}=\\dfrac{R_2}{R_1}$. Auch $I_1=\\dfrac{U}{R_1}$ lohnt sich.'] },
+    { id: 'e4b', titel: '4b Parallelschaltung: Spannung', typ: 'parallel', n: 2, uVar: true, spalten: ['U', 'R1', 'R2', 'U1', 'U2'], ziel: 'U',
+      text: 'Zwei Widerstände liegen parallel. Du misst die Spannung an drei Stellen: am Netzgerät ($U$), an $R_1$ ($U_1$) und an $R_2$ ($U_2$).',
+      schritte: ['Miss mindestens vier Kombinationen mit verschiedenen Werten für $U$, $R_1$ und $R_2$.', 'Vergleiche $U_1$, $U_2$ und $U$. Was passiert, wenn du $R_1$ oder $R_2$ veränderst?', 'Hängt die Spannung an einem Widerstand von dessen Widerstandswert ab?'],
+      tipps: ['Vergleiche $U_1$ und $U_2$ in jeder Zeile. Ändern sie sich, wenn du $R_1$ oder $R_2$ veränderst?', 'Vergleiche $U_1$ und $U_2$ mit der Spannung $U$ am Netzgerät.', 'Teste $U=U_1=U_2$.'] },
     { id: 'e5', titel: '5 Gemischte Schaltung: anwenden (Vertiefung)', typ: 'gemischt', n: 3, uVar: false, spalten: ['R1', 'R2', 'R3', 'Rges'], ziel: 'Rges',
-      text: 'R₁ liegt in Reihe zu R₂ und R₃, die parallel liegen. Nutze deine Regeln aus Auftrag 1 und 2.',
-      schritte: ['Setze zuerst R₂ = R₃ und überlege, wie groß der Ersatzwiderstand der beiden ist.', 'Stelle dann eine Gleichung für R_ges auf und teste sie mit mehreren Messungen.'],
-      tipps: ['Die parallelen Widerstände R₂ und R₃ wirken zusammen wie ein einzelner Widerstand.', 'Dieser Ersatzwiderstand liegt in Reihe zu R₁.', 'Teste Rges = R1 + R2*R3/(R2+R3).'] }
+      text: '$R_1$ liegt in Reihe zu $R_2$ und $R_3$, die parallel liegen. Nutze deine Regeln aus Auftrag 1 und 2.',
+      schritte: ['Setze zuerst $R_2=R_3$ und überlege, wie groß der Ersatzwiderstand der beiden ist.', 'Stelle dann eine Gleichung für $R_{\\mathrm{ges}}$ auf und teste sie mit mehreren Messungen.'],
+      tipps: ['Die parallelen Widerstände $R_2$ und $R_3$ wirken zusammen wie ein einzelner Widerstand.', 'Dieser Ersatzwiderstand liegt in Reihe zu $R_1$. Nutze deine Ergebnisse aus Auftrag 1 und 2.', 'Bestimme zuerst den Ersatzwiderstand von $R_2$ und $R_3$ mit deiner Regel aus Auftrag 2 und addiere dann $R_1$.'] }
   ];
   const E = { aktiv: 'e1', rows: {}, hyp: {}, regel: {}, tipp: {} };
   AUFTR.forEach(a => { E.rows[a.id] = []; E.hyp[a.id] = { a: a.ziel, b: '' }; E.regel[a.id] = ''; E.tipp[a.id] = -1; });
   const akt = () => AUFTR.find(a => a.id === E.aktiv);
   const mess = () => { const c = calc(); return { R1: c.R[0], R2: c.R[1], R3: c.R[2], Rges: c.Rg, U: c.U, U1: c.Ui[0], U2: c.Ui[1], I: c.I, I1: c.Ii[0], I2: c.Ii[1] }; };
   const zelle = (k, v) => fmt(v, GR[k][2]);
+  // Eingabe der Schülerin in mathematische Schreibweise (TeX) übersetzen, nur für die Anzeige
+  const texTerm = (txt, erlaubt) => {
+    const ids = new Map(erlaubt.map(k => [k.toLowerCase(), k]));
+    return String(txt).replace(/[\\{}$%#&_~]/g, '').replace(/[A-Za-zÄÖÜäöü]+\d*/g, t => ids.has(t.toLowerCase()) ? GR[ids.get(t.toLowerCase())][0] : '\\mathrm{' + t + '}').replace(/\*/g, '\\cdot ');
+  };
 
   // Term der Schülerin auswerten: Größen aus der Tabelle werden durch die Messwerte der Zeile ersetzt
   function wert(txt, row, erlaubt) {
@@ -137,7 +153,7 @@
     const zeilen = rows.map(r => { let A = '', B = '', m = '';
       if (hasT) { try { const va = wert(h.a, r, a.spalten), vb = wert(h.b, r, a.spalten); A = fmt(va, 4); B = fmt(vb, 4); const ok = Math.abs(va - vb) <= 1e-6 * (1 + Math.abs(va)); m = ok ? '✓ gleich' : '✗ verschieden'; if (ok) gleich++; } catch (e) { fehler = e.message; } }
       return `<tr>${a.spalten.map(k => `<td>${zelle(k, r[k])}</td>`).join('')}${hasT ? `<td>${A}</td><td>${B}</td><td>${m}</td>` : ''}</tr>`; }).join('');
-    const tabelle = rows.length ? `<table class="tabelle"><thead><tr>${a.spalten.map(k => `<th scope="col">${GR[k][0]} in ${GR[k][1]}</th>`).join('')}${hasT ? '<th scope="col">linke Seite</th><th scope="col">rechte Seite</th><th scope="col">Vergleich</th>' : ''}</tr></thead><tbody>${zeilen}</tbody></table>` : '<p class="muted">Noch keine Messwerte. Stelle Werte ein und übernimm die Messung.</p>';
+    const tabelle = rows.length ? `<div class="tabwrap"><table class="tabelle"><thead><tr>${a.spalten.map(k => `<th scope="col">$${GR[k][0]}$ in ${GR[k][1]}</th>`).join('')}${hasT ? '<th scope="col">linke Seite</th><th scope="col">rechte Seite</th><th scope="col">Vergleich</th>' : ''}</tr></thead><tbody>${zeilen}</tbody></table></div>` : '<p class="muted">Noch keine Messwerte. Stelle Werte ein und übernimm die Messung.</p>';
     let msg = '';
     if (fehler) msg = `<p class="feedback nok">${escH(fehler)}</p>`;
     else if (!hasT) msg = '<p class="muted">Schreibe links und rechts je einen Term, dann vergleicht die Tabelle beide Seiten für jede Messung.</p>';
@@ -146,15 +162,21 @@
     else msg = `<p class="feedback nok"><strong>Die Gleichung stimmt bei ${gleich} von ${rows.length} Messungen.</strong> Schau dir die Zeilen mit „verschieden“ an. Was ist dort anders?</p>`;
     return { tabelle, msg };
   }
-  function renderTab() { const t = tabEnt(akt()); $('mtab').innerHTML = t.tabelle; $('hypErg').innerHTML = t.msg; }
+  function renderTab() {
+    const a = akt(), t = tabEnt(a), h = E.hyp[a.id];
+    $('mtab').innerHTML = t.tabelle; $('hypErg').innerHTML = t.msg;
+    $('vorschau').innerHTML = h.a.trim() && h.b.trim() ? `So liest sich deine Gleichung: $${texTerm(h.a, a.spalten)}=${texTerm(h.b, a.spalten)}$` : '';
+    mathe($('mtab')); mathe($('vorschau'));
+  }
   function updateMess() {
     const el = $('messung'); if (!el) return; const a = akt(), m = mess();
-    el.innerHTML = `<ul class="messwerte">${a.spalten.map(k => `<li><span>${GR[k][0]}</span><strong>${zelle(k, m[k])} ${GR[k][1]}</strong></li>`).join('')}</ul>` +
-      (a.spalten.includes('Rges') ? `<p class="muted">Gemessen wie im Experiment: R_ges = U : I = ${fmt(m.U, 1)} V : ${fmt(m.I)} A = <strong>${fmt(m.Rges, 2)} Ω</strong></p>` : '');
+    el.innerHTML = `<ul class="messwerte">${a.spalten.map(k => `<li><span>$${GR[k][0]}$</span><strong>${zelle(k, m[k])} ${GR[k][1]}</strong></li>`).join('')}</ul>` +
+      (a.spalten.includes('Rges') ? `<p class="muted">Gemessen wie im Experiment: $${Rg}=\\dfrac{U}{I}=\\dfrac{${tx(m.U, 1)}\\,\\mathrm{V}}{${tx(m.I)}\\,\\mathrm{A}}=${tx(m.Rges, 2)}\\,\\Omega$</p>` : '');
+    mathe(el);
   }
   function ueberblick() {
     const teile = AUFTR.filter(a => E.rows[a.id].length || E.regel[a.id].trim()).map(a => { const h = E.hyp[a.id];
-      return `<h3>${escH(a.titel)}</h3>${tabEnt(a).tabelle}` + (h.b.trim() ? `<p>Meine Gleichung: <strong>${escH(h.a)} = ${escH(h.b)}</strong></p>` : '') + (E.regel[a.id].trim() ? `<p>Meine Regel: ${escH(E.regel[a.id].trim())}</p>` : ''); });
+      return `<h3>${escH(a.titel)}</h3>${tabEnt(a).tabelle}` + (h.b.trim() ? `<p>Meine Gleichung: $${texTerm(h.a, a.spalten)}=${texTerm(h.b, a.spalten)}$</p>` : '') + (E.regel[a.id].trim() ? `<p>Meine Regel: ${escH(E.regel[a.id].replace(/\$/g, '').trim())}</p>` : ''); });
     return '<h2>Mein Entdeckerblatt</h2>' + (teile.join('') || '<p>Noch keine Messungen.</p>');
   }
   function renderEnt() {
@@ -165,21 +187,23 @@
       <div class="aktionen"><button class="btn" type="button" id="uebernehmen">Messwert in die Tabelle übernehmen</button><button class="btn ghost" type="button" id="zeileweg">Letzte Zeile löschen</button><button class="btn ghost" type="button" id="tabweg">Tabelle leeren</button></div>
       <div id="mtab"></div>
       <h3>Deine Vermutung als Gleichung</h3>
-      <p class="muted">Schreibe die Größen so: ${a.spalten.join(', ')}. Erlaubt sind + − * / und Klammern, zum Beispiel R1*R2/(R1+R2).</p>
+      <ul class="chips" aria-label="So tippst du die Größen ein"><li>So tippst du die Größen ein:</li>${a.spalten.map(k => `<li><span>$${GR[k][0]}$</span> → <code>${k}</code></li>`).join('')}</ul>
+      <p class="muted">Erlaubt sind <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> und Klammern. Beispiel für die Schreibweise: <code>2*(R1+5)/R2</code>. Rechne mit den Größen aus der Tabelle.</p>
       <div class="gleichung field"><label class="visually-hidden" for="hypA">Linke Seite</label><input id="hypA" type="text" autocomplete="off" spellcheck="false"><span aria-hidden="true">=</span><label class="visually-hidden" for="hypB">Rechte Seite</label><input id="hypB" type="text" autocomplete="off" spellcheck="false" placeholder="dein Term"></div>
+      <p id="vorschau" class="vorschau" aria-live="polite"></p>
       <div id="hypErg" aria-live="polite"></div>
       <div class="field"><label for="regel"><strong>Meine Regel in Worten</strong></label><textarea id="regel" rows="3" placeholder="Wenn …, dann …"></textarea></div>
       <div class="aktionen"><button class="btn ghost" type="button" id="drucken">Entdeckerblatt drucken</button></div>`;
     $('hypA').value = h.a; $('hypB').value = h.b; $('regel').value = E.regel[a.id];
-    const tipp = () => { const i = E.tipp[a.id]; $('tippOut').innerHTML = i < 0 ? '' : `<p class="hint"><strong>Tipp ${i + 1} von ${a.tipps.length}:</strong> ${escH(a.tipps[i])}</p>`; }; tipp();
+    const tipp = () => { const i = E.tipp[a.id]; $('tippOut').innerHTML = i < 0 ? '' : `<p class="hint"><strong>Tipp ${i + 1} von ${a.tipps.length}:</strong> ${escH(a.tipps[i])}</p>`; mathe($('tippOut')); }; tipp();
     $('tipp').onclick = () => { E.tipp[a.id] = Math.min(E.tipp[a.id] + 1, a.tipps.length - 1); tipp(); };
     $('uebernehmen').onclick = () => { if (E.rows[a.id].length >= 12) return; E.rows[a.id].push(mess()); renderTab(); };
     $('zeileweg').onclick = () => { E.rows[a.id].pop(); renderTab(); };
     $('tabweg').onclick = () => { E.rows[a.id] = []; renderTab(); };
     $('hypA').oninput = e => { h.a = e.target.value; renderTab(); }; $('hypB').oninput = e => { h.b = e.target.value; renderTab(); };
     $('regel').oninput = e => { E.regel[a.id] = e.target.value; };
-    $('drucken').onclick = () => { $('ueberblick').innerHTML = ueberblick(); print(); };
-    updateMess(); renderTab();
+    $('drucken').onclick = async () => { $('ueberblick').innerHTML = ueberblick(); await mathe($('ueberblick')); print(); };
+    mathe($('entdecken')); updateMess(); renderTab();
   }
   function waehle(id) {
     E.aktiv = id; const a = akt(); S.typ = a.typ; S.n = a.n; if (!a.uVar) { S.U = 12; $('U').value = 12; }

@@ -56,14 +56,13 @@
         <button type="button" class="auf" data-bt="rB" aria-pressed="false">Widerstand B (100 Ω)</button>
         <button type="button" class="auf" data-bt="lampe" aria-pressed="false">Glühlampe (6 V / 0,1 A)</button>
       </div>
-      <button type="button" class="btn ghost" id="neueLampe" hidden>Neue Lampe einsetzen</button>
       <h2>Messgeräte anschließen</h2>
       <p class="muted">Amperemeter</p>
       <div class="seg" role="group" aria-label="Anschluss des Amperemeters"><button type="button" data-a="reihe" aria-pressed="false">in Reihe</button><button type="button" data-a="parallel" aria-pressed="false">parallel zum Bauteil</button></div>
       <p class="muted">Voltmeter</p>
       <div class="seg" role="group" aria-label="Anschluss des Voltmeters"><button type="button" data-v="parallel" aria-pressed="false">parallel zum Bauteil</button><button type="button" data-v="reihe" aria-pressed="false">in Reihe</button></div>
       <h2>Netzgerät</h2>
-      <button type="button" class="btn" id="netz" aria-pressed="false">Netzgerät einschalten</button>
+      <div class="aktionen"><button type="button" class="btn" id="netz" aria-pressed="false">Netzgerät einschalten</button><button type="button" class="btn ghost" id="neueLampe" hidden>Neue Lampe einsetzen</button></div>
       <div class="field"><label for="U">Spannung <output id="oU"></output></label><input id="U" type="range" min="0" max="12" step="0.5" value="0" disabled></div>
       <p class="hint" id="ueberNenn" hidden>Achtung: Die Spannung liegt über der Nennspannung der Lampe (6 V).</p>
       <h2>Messung</h2>
@@ -76,5 +75,5 @@
     <script src="app.js"></script>
   </div>
 </main>
-<footer class="site-foot"><div class="wrap"><span>Inhalte CC BY-SA 4.0 · Code MIT</span><a href="../../../impressum.html">Impressum</a><a href="../../../datenschutz.html">Datenschutz</a><a href="https://github.com/herr-rosenberger/lernlab/issues/new/choose">Fehler melden</a></div></footer>
+<footer class="site-foot"><div class="wrap"><span>Inhalte CC BY-SA 4.0 · Code MIT</span><a href="../../../impressum.html">Impressum</a><a href="../../../datenschutz.html">Datenschutz</a><a href="https://github.com/BENUTZERNAME/REPO/issues/new/choose">Fehler melden</a></div></footer>
 </body></html>
