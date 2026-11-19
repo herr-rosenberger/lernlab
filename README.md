@@ -1,24 +1,30 @@
 # LernLab
 
-Simulationen und Lern-Apps für das Gymnasium. Live: <https://herr-rosenberger.github.io/lernlab/>
+Simulationen und Lern-Apps für das Gymnasium. Live: <https://BENUTZERNAME.github.io/REPO/>
 
-Gesamtübersicht mit Suche und Filtern: **[Zur Startseite](https://herr-rosenberger.github.io/lernlab/)**
+Gesamtübersicht mit Suche und Filtern: **[Zur Startseite](https://BENUTZERNAME.github.io/REPO/)**
 
 ## Simulationen
+
+### Klasse 7
+
+| App | Fach | Lehrplanbezug |
+|---|---|---|
+| [Fadenpendel](https://BENUTZERNAME.github.io/REPO/simulationen/7/fadenpendel/) | Physik | Kräfte und Bewegung |
 
 ### Klasse 8
 
 | App | Fach | Lehrplanbezug |
 |---|---|---|
-| [Messlabor: Kennlinien](https://herr-rosenberger.github.io/lernlab/simulationen/8/messlabor-kennlinien/) | Physik | Elektrischer Strom: Messgeräte richtig anschließen, Kennlinien aufnehmen und auswerten, Sicherheit beim Experimentieren |
-| [Schaltungen mit bis zu drei Widerständen](https://herr-rosenberger.github.io/lernlab/simulationen/8/schaltungen-drei-widerstaende/) | Physik | Elektrischer Strom: Stromstärken und Spannungen in Reihen-, Parallel- und gemischten Schaltungen mit maximal drei Widerständen |
+| [Messlabor: Kennlinien](https://BENUTZERNAME.github.io/REPO/simulationen/8/messlabor-kennlinien/) | Physik | Elektrischer Strom: Messgeräte richtig anschließen, Kennlinien aufnehmen und auswerten, Sicherheit beim Experimentieren |
+| [Schaltungen mit bis zu drei Widerständen](https://BENUTZERNAME.github.io/REPO/simulationen/8/schaltungen-drei-widerstaende/) | Physik | Elektrischer Strom: Stromstärken und Spannungen in Reihen-, Parallel- und gemischten Schaltungen mit maximal drei Widerständen |
 
 ### Klasse 13
 
 | App | Fach | Lehrplanbezug |
 |---|---|---|
-| [Fläche und Integralfunktion](https://herr-rosenberger.github.io/lernlab/simulationen/13/integralfunktion/) | Mathematik | Integralrechnung: bestimmtes Integral, Integralfunktion, Hauptsatz |
-| [Ober- und Untersummen](https://herr-rosenberger.github.io/lernlab/simulationen/13/ober-untersumme/) | Mathematik | Integralrechnung: Näherung durch Rechtecke, Einführung des Integrals |
+| [Fläche und Integralfunktion](https://BENUTZERNAME.github.io/REPO/simulationen/13/integralfunktion/) | Mathematik | Integralrechnung: bestimmtes Integral, Integralfunktion, Hauptsatz |
+| [Ober- und Untersummen](https://BENUTZERNAME.github.io/REPO/simulationen/13/ober-untersumme/) | Mathematik | Integralrechnung: Näherung durch Rechtecke, Einführung des Integrals |
 
 ## Lern-Apps
 
@@ -26,21 +32,23 @@ Gesamtübersicht mit Suche und Filtern: **[Zur Startseite](https://herr-rosenber
 
 | App | Fach | Lehrplanbezug |
 |---|---|---|
-| [Größen umrechnen](https://herr-rosenberger.github.io/lernlab/lernapps/5/groessen-umrechnen/) | Mathematik | Größen und Messen |
+| [Größen umrechnen](https://BENUTZERNAME.github.io/REPO/lernapps/5/groessen-umrechnen/) | Mathematik | Größen und Messen |
 
 ### Klasse 8
 
 | App | Fach | Lehrplanbezug |
 |---|---|---|
-| [Sicherheit im Haushaltsstromkreis](https://herr-rosenberger.github.io/lernlab/lernapps/8/haushaltsschaltkreise/) | Physik | Schaltkreise im Haushalt und Sicherheit: recherchieren, als Schaltbild und Fachtext darstellen |
-| [Schaltungen berechnen und erklären](https://herr-rosenberger.github.io/lernlab/lernapps/8/schaltungen-berechnen/) | Physik | Elektrischer Strom: Stromstärken und Spannungen in Schaltungen mit maximal drei Widerständen, Erläuterung mit Modell und Rechnung |
-| [Was passiert, wenn …?](https://herr-rosenberger.github.io/lernlab/lernapps/8/schaltungen-vorhersagen/) | Physik | Elektrischer Strom: Reihen- und Parallelschaltungen, Kurzschluss, Vorhersagen mit dem Stromkreismodell |
+| [Sicherheit im Haushaltsstromkreis](https://BENUTZERNAME.github.io/REPO/lernapps/8/haushaltsschaltkreise/) | Physik | Schaltkreise im Haushalt und Sicherheit: recherchieren, als Schaltbild und Fachtext darstellen |
+| [Kennlinien deuten](https://BENUTZERNAME.github.io/REPO/lernapps/8/kennlinien-deuten/) | Physik | Elektrischer Strom: Kennlinien auswerten, ohmscher und nicht-ohmscher Widerstand, Widerstand als Quotient aus Spannung und Stromstärke |
+| [Schaltungen berechnen und erklären](https://BENUTZERNAME.github.io/REPO/lernapps/8/schaltungen-berechnen/) | Physik | Elektrischer Strom: Stromstärken und Spannungen in Schaltungen mit maximal drei Widerständen, Erläuterung mit Modell und Rechnung |
+| [Was passiert, wenn …?](https://BENUTZERNAME.github.io/REPO/lernapps/8/schaltungen-vorhersagen/) | Physik | Elektrischer Strom: Reihen- und Parallelschaltungen, Kurzschluss, Vorhersagen mit dem Stromkreismodell |
+| [Rechnen mit R = U/I](https://BENUTZERNAME.github.io/REPO/lernapps/8/widerstand-berechnen/) | Physik | Elektrischer Strom: Widerstand als Quotient aus Spannung und Stromstärke, Gleichung umstellen, Einheiten umrechnen, sinnvoll runden |
 
 ### Klasse 13
 
 | App | Fach | Lehrplanbezug |
 |---|---|---|
-| [Stammfunktionen und Integrale üben](https://herr-rosenberger.github.io/lernlab/lernapps/13/integrale-ueben/) | Mathematik | Integralrechnung: Stammfunktionen, bestimmtes Integral, Integrationsregeln |
+| [Stammfunktionen und Integrale üben](https://BENUTZERNAME.github.io/REPO/lernapps/13/integrale-ueben/) | Mathematik | Integralrechnung: Stammfunktionen, bestimmtes Integral, Integrationsregeln |
 
 ---
 Inhalte: CC BY-SA 4.0 · Code: MIT. Neue App anlegen: siehe `templates/`. README und `data/apps.json` werden mit `node scripts/build.mjs` erzeugt.

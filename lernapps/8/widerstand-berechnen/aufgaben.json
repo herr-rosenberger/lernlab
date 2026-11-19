@@ -1,0 +1,355 @@
+{
+ "aufgaben": [
+  {
+   "id": "e1",
+   "typ": "zahl",
+   "frage": "Wandle um: $250\\,\\mathrm{mA}$ sind wie viel A?",
+   "richtig": 0.25,
+   "toleranz": 0.0001,
+   "einheit": "A",
+   "erklaerung": "$1\\,\\mathrm{mA}=0{,}001\\,\\mathrm{A}$, also $250\\,\\mathrm{mA}=250\\cdot0{,}001\\,\\mathrm{A}=0{,}25\\,\\mathrm{A}$.",
+   "hinweis": "Milli bedeutet ein Tausendstel: $1\\,\\mathrm{mA}=0{,}001\\,\\mathrm{A}$."
+  },
+  {
+   "id": "e2",
+   "typ": "zahl",
+   "frage": "Wandle um: $0{,}35\\,\\mathrm{A}$ sind wie viel mA?",
+   "richtig": 350,
+   "toleranz": 0.01,
+   "einheit": "mA",
+   "erklaerung": "$1\\,\\mathrm{A}=1000\\,\\mathrm{mA}$, also $0{,}35\\,\\mathrm{A}=0{,}35\\cdot1000\\,\\mathrm{mA}=350\\,\\mathrm{mA}$.",
+   "hinweis": "$1\\,\\mathrm{A}=1000\\,\\mathrm{mA}$. Schreibe große Zahlen ohne Punkt, zum Beispiel 4700."
+  },
+  {
+   "id": "e3",
+   "typ": "zahl",
+   "frage": "Wandle um: $4{,}7\\,\\mathrm{k}\\Omega$ sind wie viel Ω?",
+   "richtig": 4700,
+   "toleranz": 0.1,
+   "einheit": "Ω",
+   "erklaerung": "$1\\,\\mathrm{k}\\Omega=1000\\,\\Omega$, also $4{,}7\\,\\mathrm{k}\\Omega=4700\\,\\Omega$.",
+   "hinweis": "Kilo bedeutet tausend: $1\\,\\mathrm{k}\\Omega=1000\\,\\Omega$. Schreibe große Zahlen ohne Punkt, zum Beispiel 4700."
+  },
+  {
+   "id": "e4",
+   "typ": "zahl",
+   "frage": "Wandle um: $680\\,\\Omega$ sind wie viel kΩ?",
+   "richtig": 0.68,
+   "toleranz": 0.001,
+   "einheit": "kΩ",
+   "erklaerung": "$680\\,\\Omega=680:1000\\,\\mathrm{k}\\Omega=0{,}68\\,\\mathrm{k}\\Omega$.",
+   "hinweis": "$1\\,\\mathrm{k}\\Omega=1000\\,\\Omega$"
+  },
+  {
+   "id": "e5",
+   "typ": "zahl",
+   "frage": "Wandle um: $45\\,\\mathrm{mA}$ sind wie viel A?",
+   "richtig": 0.045,
+   "toleranz": 0.0001,
+   "einheit": "A",
+   "erklaerung": "$45\\,\\mathrm{mA}=0{,}045\\,\\mathrm{A}$.",
+   "hinweis": "$1\\,\\mathrm{mA}=0{,}001\\,\\mathrm{A}$"
+  },
+  {
+   "id": "e6",
+   "typ": "zahl",
+   "frage": "Wandle um: $1{,}2\\,\\mathrm{A}$ sind wie viel mA?",
+   "richtig": 1200,
+   "toleranz": 0.01,
+   "einheit": "mA",
+   "erklaerung": "$1{,}2\\,\\mathrm{A}=1200\\,\\mathrm{mA}$.",
+   "hinweis": "$1\\,\\mathrm{A}=1000\\,\\mathrm{mA}$. Schreibe große Zahlen ohne Punkt, zum Beispiel 4700."
+  },
+  {
+   "id": "u1",
+   "typ": "auswahl",
+   "frage": "Die Gleichung $R=\\dfrac{U}{I}$ wird nach $U$ umgestellt. Wie lautet sie?",
+   "optionen": [
+    "$U=R\\cdot I$",
+    "$U=\\dfrac{R}{I}$",
+    "$U=\\dfrac{I}{R}$",
+    "$U=R+I$"
+   ],
+   "richtig": 0,
+   "erklaerung": "Beide Seiten mit $I$ multiplizieren: $R\\cdot I=U$."
+  },
+  {
+   "id": "u2",
+   "typ": "auswahl",
+   "frage": "Die Gleichung $R=\\dfrac{U}{I}$ wird nach $I$ umgestellt. Wie lautet sie?",
+   "optionen": [
+    "$I=\\dfrac{U}{R}$",
+    "$I=U\\cdot R$",
+    "$I=\\dfrac{R}{U}$",
+    "$I=U-R$"
+   ],
+   "richtig": 0,
+   "erklaerung": "Erst mit $I$ multiplizieren: $R\\cdot I=U$. Dann durch $R$ teilen: $I=\\dfrac{U}{R}$."
+  },
+  {
+   "id": "u3",
+   "typ": "auswahl",
+   "frage": "Welche Einheit entsteht bei $\\dfrac{\\mathrm{V}}{\\mathrm{A}}$?",
+   "optionen": [
+    "Ohm ($\\Omega$)",
+    "Volt (V)",
+    "Ampere (A)",
+    "Sekunde (s)"
+   ],
+   "richtig": 0,
+   "erklaerung": "Das ist die Definition der Einheit Ohm: $1\\,\\Omega=1\\,\\dfrac{\\mathrm{V}}{\\mathrm{A}}$."
+  },
+  {
+   "id": "u4",
+   "typ": "auswahl",
+   "frage": "Welche Einheit entsteht bei $\\dfrac{\\mathrm{V}}{\\mathrm{mA}}$?",
+   "optionen": [
+    "Kiloohm ($\\mathrm{k}\\Omega$)",
+    "Ohm ($\\Omega$)",
+    "Milliohm ($\\mathrm{m}\\Omega$)",
+    "Ampere (A)"
+   ],
+   "richtig": 0,
+   "erklaerung": "$1\\,\\dfrac{\\mathrm{V}}{\\mathrm{mA}}=\\dfrac{1\\,\\mathrm{V}}{0{,}001\\,\\mathrm{A}}=1000\\,\\Omega=1\\,\\mathrm{k}\\Omega$. Wer Spannung in V und Stromstärke in mA einsetzt, erhält den Widerstand in kΩ."
+  },
+  {
+   "id": "c1",
+   "typ": "zahl",
+   "frage": "An einem Widerstand liegen $6\\,\\mathrm{V}$, es fließen $0{,}2\\,\\mathrm{A}$. Berechne $R$ in Ω.",
+   "richtig": 30.0,
+   "toleranz": 0.15,
+   "einheit": "Ω",
+   "erklaerung": "$R=\\dfrac{U}{I}=\\dfrac{6\\,\\mathrm{V}}{0{,}2\\,\\mathrm{A}}=30\\,\\Omega$",
+   "hinweis": "$R=\\dfrac{U}{I}$"
+  },
+  {
+   "id": "c2",
+   "typ": "zahl",
+   "frage": "An einem Widerstand liegen $12\\,\\mathrm{V}$, es fließen $0{,}05\\,\\mathrm{A}$. Berechne $R$ in Ω.",
+   "richtig": 240.0,
+   "toleranz": 1.2,
+   "einheit": "Ω",
+   "erklaerung": "$R=\\dfrac{U}{I}=\\dfrac{12\\,\\mathrm{V}}{0{,}05\\,\\mathrm{A}}=240\\,\\Omega$",
+   "hinweis": "$R=\\dfrac{U}{I}$"
+  },
+  {
+   "id": "c3",
+   "typ": "zahl",
+   "frage": "Ein Lämpchen liegt an $3\\,\\mathrm{V}$, es fließen $25\\,\\mathrm{mA}$. Berechne $R$ in Ω.",
+   "richtig": 120.0,
+   "toleranz": 0.6,
+   "einheit": "Ω",
+   "erklaerung": "$25\\,\\mathrm{mA}=0{,}025\\,\\mathrm{A}$, also $R=\\dfrac{3\\,\\mathrm{V}}{0{,}025\\,\\mathrm{A}}=120\\,\\Omega$",
+   "hinweis": "Wandle zuerst die Stromstärke in A um: $1\\,\\mathrm{mA}=0{,}001\\,\\mathrm{A}$."
+  },
+  {
+   "id": "c4",
+   "typ": "zahl",
+   "frage": "Ein Toaster liegt an der Netzspannung von $230\\,\\mathrm{V}$, es fließen $4{,}6\\,\\mathrm{A}$. Berechne $R$ in Ω.",
+   "richtig": 50.0,
+   "toleranz": 0.25,
+   "einheit": "Ω",
+   "erklaerung": "$R=\\dfrac{U}{I}=\\dfrac{230\\,\\mathrm{V}}{4{,}6\\,\\mathrm{A}}=50\\,\\Omega$",
+   "hinweis": "$R=\\dfrac{U}{I}$"
+  },
+  {
+   "id": "c5",
+   "typ": "zahl",
+   "frage": "An einem Widerstand liegen $9\\,\\mathrm{V}$, es fließen $3\\,\\mathrm{mA}$. Berechne $R$ in kΩ.",
+   "richtig": 3.0,
+   "toleranz": 0.015,
+   "einheit": "kΩ",
+   "erklaerung": "$R=\\dfrac{9\\,\\mathrm{V}}{3\\,\\mathrm{mA}}=3\\,\\mathrm{k}\\Omega$. Mit V und mA kommt der Widerstand direkt in kΩ heraus.",
+   "hinweis": "Rechne ohne Umwandlung: $\\dfrac{\\mathrm{V}}{\\mathrm{mA}}$ ergibt kΩ."
+  },
+  {
+   "id": "c6",
+   "typ": "zahl",
+   "frage": "Ein Spielzeugmotor liegt an $4{,}5\\,\\mathrm{V}$, es fließen $90\\,\\mathrm{mA}$. Berechne $R$ in Ω.",
+   "richtig": 50.0,
+   "toleranz": 0.25,
+   "einheit": "Ω",
+   "erklaerung": "$90\\,\\mathrm{mA}=0{,}09\\,\\mathrm{A}$, also $R=\\dfrac{4{,}5\\,\\mathrm{V}}{0{,}09\\,\\mathrm{A}}=50\\,\\Omega$",
+   "hinweis": "Wandle zuerst $90\\,\\mathrm{mA}$ in A um."
+  },
+  {
+   "id": "i1",
+   "typ": "zahl",
+   "frage": "An einem Widerstand von $40\\,\\Omega$ liegen $12\\,\\mathrm{V}$. Berechne $I$ in A.",
+   "richtig": 0.3,
+   "toleranz": 0.0015,
+   "einheit": "A",
+   "erklaerung": "$I=\\dfrac{U}{R}=\\dfrac{12\\,\\mathrm{V}}{40\\,\\Omega}=0{,}3\\,\\mathrm{A}$",
+   "hinweis": "$I=\\dfrac{U}{R}$"
+  },
+  {
+   "id": "i2",
+   "typ": "zahl",
+   "frage": "An einem Widerstand von $2{,}2\\,\\mathrm{k}\\Omega$ liegen $9\\,\\mathrm{V}$. Berechne $I$ in mA, auf eine Nachkommastelle gerundet.",
+   "richtig": 4.1,
+   "toleranz": 0.06,
+   "einheit": "mA",
+   "erklaerung": "$I=\\dfrac{U}{R}=\\dfrac{9\\,\\mathrm{V}}{2{,}2\\,\\mathrm{k}\\Omega}\\approx4{,}1\\,\\mathrm{mA}$ (Taschenrechner: 4,0909 mA)",
+   "hinweis": "Mit V und kΩ kommt die Stromstärke direkt in mA heraus."
+  },
+  {
+   "id": "i3",
+   "typ": "zahl",
+   "frage": "Eine Glühlampe hat den Widerstand $1150\\,\\Omega$ und liegt an der Netzspannung von $230\\,\\mathrm{V}$. Berechne $I$ in A.",
+   "richtig": 0.2,
+   "toleranz": 0.001,
+   "einheit": "A",
+   "erklaerung": "$I=\\dfrac{U}{R}=\\dfrac{230\\,\\mathrm{V}}{1150\\,\\Omega}=0{,}2\\,\\mathrm{A}$",
+   "hinweis": "$I=\\dfrac{U}{R}$ Schreibe große Zahlen ohne Punkt, zum Beispiel 4700."
+  },
+  {
+   "id": "i4",
+   "typ": "zahl",
+   "frage": "An einem Widerstand von $150\\,\\Omega$ liegen $6\\,\\mathrm{V}$. Berechne $I$ in mA.",
+   "richtig": 40.0,
+   "toleranz": 0.2,
+   "einheit": "mA",
+   "erklaerung": "$I=\\dfrac{U}{R}=\\dfrac{6\\,\\mathrm{V}}{150\\,\\Omega}=0{,}04\\,\\mathrm{A}=40\\,\\mathrm{mA}$",
+   "hinweis": "Berechne zuerst $I$ in A und wandle dann um: $1\\,\\mathrm{A}=1000\\,\\mathrm{mA}$."
+  },
+  {
+   "id": "i5",
+   "typ": "zahl",
+   "frage": "Ein Spielzeugmotor hat den Widerstand $12\\,\\Omega$ und liegt an $3\\,\\mathrm{V}$. Berechne $I$ in A.",
+   "richtig": 0.25,
+   "toleranz": 0.00125,
+   "einheit": "A",
+   "erklaerung": "$I=\\dfrac{U}{R}=\\dfrac{3\\,\\mathrm{V}}{12\\,\\Omega}=0{,}25\\,\\mathrm{A}$",
+   "hinweis": "$I=\\dfrac{U}{R}$"
+  },
+  {
+   "id": "v1",
+   "typ": "zahl",
+   "frage": "Durch einen Widerstand von $470\\,\\Omega$ fließen $20\\,\\mathrm{mA}$. Berechne $U$ in V.",
+   "richtig": 9.4,
+   "toleranz": 0.05,
+   "einheit": "V",
+   "erklaerung": "$20\\,\\mathrm{mA}=0{,}02\\,\\mathrm{A}$, also $U=R\\cdot I=470\\,\\Omega\\cdot0{,}02\\,\\mathrm{A}=9{,}4\\,\\mathrm{V}$",
+   "hinweis": "$U=R\\cdot I$ Wandle zuerst die Stromstärke in A um."
+  },
+  {
+   "id": "v2",
+   "typ": "zahl",
+   "frage": "Durch einen Widerstand von $100\\,\\Omega$ fließen $0{,}06\\,\\mathrm{A}$. Berechne $U$ in V.",
+   "richtig": 6.0,
+   "toleranz": 0.03,
+   "einheit": "V",
+   "erklaerung": "$U=R\\cdot I=100\\,\\Omega\\cdot0{,}06\\,\\mathrm{A}=6\\,\\mathrm{V}$",
+   "hinweis": "$U=R\\cdot I$"
+  },
+  {
+   "id": "v3",
+   "typ": "zahl",
+   "frage": "Durch einen Widerstand von $1{,}5\\,\\mathrm{k}\\Omega$ fließen $4\\,\\mathrm{mA}$. Berechne $U$ in V.",
+   "richtig": 6.0,
+   "toleranz": 0.03,
+   "einheit": "V",
+   "erklaerung": "$U=R\\cdot I=1{,}5\\,\\mathrm{k}\\Omega\\cdot4\\,\\mathrm{mA}=6\\,\\mathrm{V}$. Mit kΩ und mA kommt die Spannung direkt in V heraus.",
+   "hinweis": "$U=R\\cdot I$ Mit kΩ und mA brauchst du nicht umzurechnen."
+  },
+  {
+   "id": "v4",
+   "typ": "zahl",
+   "frage": "Durch einen Widerstand von $22\\,\\Omega$ fließen $0{,}15\\,\\mathrm{A}$. Berechne $U$ in V.",
+   "richtig": 3.3,
+   "toleranz": 0.05,
+   "einheit": "V",
+   "erklaerung": "$U=R\\cdot I=22\\,\\Omega\\cdot0{,}15\\,\\mathrm{A}=3{,}3\\,\\mathrm{V}$",
+   "hinweis": "$U=R\\cdot I$"
+  },
+  {
+   "id": "g1",
+   "typ": "zahl",
+   "frage": "An einem Widerstand liegen $4{,}5\\,\\mathrm{V}$ (zwei gültige Ziffern), es fließen $0{,}032\\,\\mathrm{A}$ (zwei gültige Ziffern). Berechne $R$ in Ω und gib das Ergebnis mit zwei gültigen Ziffern an.",
+   "richtig": 140,
+   "toleranz": 1,
+   "einheit": "Ω",
+   "erklaerung": "Der Taschenrechner zeigt $140{,}625\\,\\Omega$. Das Ergebnis darf nicht genauer sein als die Messwerte: Mit zwei gültigen Ziffern ist $R\\approx140\\,\\Omega$.",
+   "hinweis": "Zwei gültige Ziffern bei $140{,}625$ sind „1“ und „4“. Die Größenordnung bleibt erhalten."
+  },
+  {
+   "id": "g2",
+   "typ": "auswahl",
+   "frage": "Du berechnest $R=\\dfrac{7{,}5\\,\\mathrm{V}}{0{,}018\\,\\mathrm{A}}$. Der Taschenrechner zeigt $416{,}666667$. Spannung und Stromstärke sind auf zwei gültige Ziffern gemessen. Welche Angabe ist sinnvoll?",
+   "optionen": [
+    "$R\\approx420\\,\\Omega$",
+    "$R=416{,}666667\\,\\Omega$",
+    "$R=416{,}7\\,\\Omega$",
+    "$R\\approx400\\,\\Omega$"
+   ],
+   "richtig": 0,
+   "erklaerung": "Das Ergebnis darf nicht genauer angegeben werden als die Messwerte. Mit zwei gültigen Ziffern: $R\\approx420\\,\\Omega$. Alle weiteren Stellen auf dem Taschenrechner sind nicht aussagekräftig."
+  },
+  {
+   "id": "g3",
+   "typ": "auswahl",
+   "frage": "Jemand rechnet $R=\\dfrac{12\\,\\mathrm{V}}{20\\,\\mathrm{mA}}=0{,}6\\,\\Omega$. Was ist falsch?",
+   "optionen": [
+    "Die Stromstärke wurde nicht in A umgerechnet. Richtig ist $R=\\dfrac{12\\,\\mathrm{V}}{0{,}02\\,\\mathrm{A}}=600\\,\\Omega$.",
+    "Die Formel muss $R=U\\cdot I$ lauten.",
+    "Man darf die Stromstärke nicht in die Formel einsetzen.",
+    "Nichts, die Rechnung stimmt."
+   ],
+   "richtig": 0,
+   "erklaerung": "Die Einheit $\\dfrac{\\mathrm{V}}{\\mathrm{mA}}$ ergibt kΩ: $\\dfrac{12}{20}\\,\\mathrm{k}\\Omega=0{,}6\\,\\mathrm{k}\\Omega=600\\,\\Omega$. Der Fehler: Es wurde mit mA gerechnet, aber das Ergebnis in Ω angegeben."
+  },
+  {
+   "id": "g4",
+   "typ": "auswahl",
+   "frage": "Eine Taschenlampenbirne hat bei $4{,}5\\,\\mathrm{V}$ eine Stromstärke von $0{,}3\\,\\mathrm{A}$. Welcher Widerstand ist plausibel?",
+   "optionen": [
+    "etwa $15\\,\\Omega$",
+    "etwa $1{,}5\\,\\Omega$",
+    "etwa $150\\,\\Omega$",
+    "etwa $1350\\,\\Omega$"
+   ],
+   "richtig": 0,
+   "erklaerung": "Überschlag: $\\dfrac{4{,}5\\,\\mathrm{V}}{0{,}3\\,\\mathrm{A}}=15\\,\\Omega$. Prüfe Ergebnisse immer auf ihre Größenordnung."
+  },
+  {
+   "id": "p1",
+   "typ": "zahl",
+   "frage": "Durch einen ohmschen Widerstand fließen bei $6\\,\\mathrm{V}$ genau $0{,}3\\,\\mathrm{A}$. Welche Stromstärke fließt bei $9\\,\\mathrm{V}$? Gib sie in A an.",
+   "richtig": 0.45,
+   "toleranz": 0.00225,
+   "einheit": "A",
+   "erklaerung": "Der Widerstand ist konstant: $R=\\dfrac{6\\,\\mathrm{V}}{0{,}3\\,\\mathrm{A}}=20\\,\\Omega$. Dann ist $I=\\dfrac{9\\,\\mathrm{V}}{20\\,\\Omega}=0{,}45\\,\\mathrm{A}$. Oder: Die Spannung wird um das 1,5-Fache größer, also auch die Stromstärke.",
+   "hinweis": "Berechne zuerst den Widerstand."
+  },
+  {
+   "id": "p2",
+   "typ": "zahl",
+   "frage": "Durch einen ohmschen Widerstand fließen bei $5\\,\\mathrm{V}$ genau $0{,}1\\,\\mathrm{A}$. Bei welcher Spannung fließen $0{,}3\\,\\mathrm{A}$? Gib sie in V an.",
+   "richtig": 15,
+   "toleranz": 0.05,
+   "einheit": "V",
+   "erklaerung": "$R=\\dfrac{5\\,\\mathrm{V}}{0{,}1\\,\\mathrm{A}}=50\\,\\Omega$ und $U=R\\cdot I=50\\,\\Omega\\cdot0{,}3\\,\\mathrm{A}=15\\,\\mathrm{V}$.",
+   "hinweis": "Berechne zuerst den Widerstand."
+  },
+  {
+   "id": "h1",
+   "typ": "zahl",
+   "frage": "Ein Heizgerät hat den Widerstand $46\\,\\Omega$ und liegt an der Netzspannung von $230\\,\\mathrm{V}$. Berechne die Stromstärke in A.",
+   "richtig": 5,
+   "toleranz": 0.025,
+   "einheit": "A",
+   "erklaerung": "$I=\\dfrac{U}{R}=\\dfrac{230\\,\\mathrm{V}}{46\\,\\Omega}=5\\,\\mathrm{A}$",
+   "hinweis": "$I=\\dfrac{U}{R}$"
+  },
+  {
+   "id": "h2",
+   "typ": "zahl",
+   "frage": "Jedes Heizgerät aus der letzten Aufgabe benötigt $5\\,\\mathrm{A}$. Wie viele solcher Geräte dürfen höchstens gleichzeitig an einem Stromkreis mit einer $16\\,\\mathrm{A}$-Sicherung betrieben werden? Die Geräte sind parallel geschaltet.",
+   "richtig": 3,
+   "toleranz": 0.001,
+   "einheit": "Geräte",
+   "erklaerung": "Die Stromstärken der parallelen Zweige addieren sich: $3\\cdot5\\,\\mathrm{A}=15\\,\\mathrm{A}<16\\,\\mathrm{A}$. Bei vier Geräten wären es $20\\,\\mathrm{A}$, die Sicherung würde auslösen.",
+   "hinweis": "Die Gesamtstromstärke ist die Summe der Stromstärken in den Zweigen."
+  }
+ ]
+}

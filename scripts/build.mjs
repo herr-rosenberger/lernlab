@@ -1,4 +1,4 @@
-// Sammelt alle meta.json -> data/apps.json und erzeugt README.md. Aufruf: node scripts/build.mjs
+// Listet alle App-Ordner mit meta.json in data/apps.json und erzeugt README.md. Aufruf: node scripts/build.mjs
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
@@ -11,7 +11,8 @@ for (const typ of Object.keys(typen)) for (const kl of dirs(typ)) for (const app
   const m = join(typ, kl, app, 'meta.json'); if (!existsSync(m)) continue;
   apps.push({ ...JSON.parse(readFileSync(m, 'utf8')), typ, klasse: Number(kl), pfad: `${typ}/${kl}/${app}/` });
 }
-writeFileSync('data/apps.json', JSON.stringify(apps, null, 2) + '\n');
+// data/apps.json ist nur die Liste der App-Ordner; Titel, Fach usw. liest die Startseite aus der meta.json jeder App (keine doppelte Pflege).
+writeFileSync('data/apps.json', JSON.stringify(apps.map(a => a.pfad.replace(/\/$/, '')), null, 2) + '\n');
 let md = `# ${site.name}\n\n${site.claim}. Live: <${site.baseUrl}>\n\n`;
 md += `Gesamtübersicht mit Suche und Filtern: **[Zur Startseite](${site.baseUrl})**\n\n`;
 for (const [typ, label] of Object.entries(typen)) {
@@ -42,7 +43,7 @@ const dateien = alle().filter(f => f !== 'sw.js').sort();
 const hash = createHash('sha1');
 for (const f of dateien) hash.update(f).update(readFileSync(f));
 const shell = ['./', 'index.html', 'impressum.html', 'datenschutz.html', 'manifest.webmanifest', 'data/apps.json',
-  ...dateien.filter(f => /^(css|js|assets)\//.test(f))];
+  ...dateien.filter(f => /^(css|js|assets)\//.test(f)), ...dateien.filter(f => /(^|\/)meta\.json$/.test(f) && !f.startsWith('templates/'))];
 const sw = readFileSync('sw.js', 'utf8')
   .replace(/^const V = .*$/m, `const V = 'lernlab-${hash.digest('hex').slice(0, 10)}'; // build`)
   .replace(/^const SHELL = .*$/m, `const SHELL = ${JSON.stringify(shell)}; // build`);

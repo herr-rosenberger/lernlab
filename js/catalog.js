@@ -1,4 +1,4 @@
-// Lädt data/apps.json und baut die filterbare Übersicht.
+// Lädt die Liste der App-Ordner (data/apps.json), liest je App die meta.json und baut die filterbare Übersicht.
 const state={q:'',typ:'alle',klasse:'',fach:''};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -14,8 +14,12 @@ function render(){
     <span class="chip">${a.typ==='simulationen'?'Simulation':'Lern-App'}</span>${a.dauerMin?`<span class="chip">${a.dauerMin} min</span>`:''}</div></a></li>`).join('')
     :'<li class="empty">Keine Treffer. Setze einen Filter zurück oder suche nach einem anderen Begriff.</li>';
 }
-fetch('data/apps.json').then(r=>r.json()).then(d=>{
-  apps=d;
+fetch('data/apps.json').then(r=>r.json()).then(async liste=>{
+  apps=(await Promise.all(liste.map(async e=>{
+    if(typeof e!=='string')return e;                       // altes Format (komplette Einträge) bleibt lesbar
+    const pfad=e.replace(/\/$/,''),m=pfad.match(/^(simulationen|lernapps)\/(\d+)\//);if(!m)return null;
+    try{const meta=await (await fetch(pfad+'/meta.json')).json();return {...meta,typ:m[1],klasse:Number(m[2]),pfad:pfad+'/'}}catch(err){return null}
+  }))).filter(Boolean);
   for(const f of [...new Set(apps.map(a=>a.fach))].sort())$('#fach').add(new Option(f,f));
   for(const k of [...new Set(apps.map(a=>a.klasse))].sort((a,b)=>a-b))$('#klasse').add(new Option('Klasse '+k,k));
   render();

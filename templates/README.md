@@ -15,3 +15,5 @@ Diagramme in Simulationen: `js/plot.js` (Koordinatensystem, Kurven, Flächen, Th
 Canvas-Farben nie direkt aus `getPropertyValue` lesen (liefert `light-dark(…)` als Text), sondern `P.farbe('--accent')` nutzen.
 Grafiken mit Werten: Zusätzlich zu `bildAlt` kann `bildText` die Werte der Grafik als Text enthalten. Er erscheint aufklappbar unter dem Bild („Grafik als Text beschreiben“).
 Kennlinien-Diagramme und Aufgaben von lernapps/8/kennlinien-deuten entstehen mit `tools/kennlinien_erzeugen.py`.
+Die Aufgaben von lernapps/8/widerstand-berechnen entstehen mit `tools/rechnen_erzeugen.py`.
+Katalog: `data/apps.json` enthält nur die Liste der App-Ordner. Titel, Fach, Beschreibung usw. stehen ausschließlich in der `meta.json` der jeweiligen App. Nach dem Anlegen einer App `node scripts/build.mjs` ausführen und `data/apps.json` mit hochladen.

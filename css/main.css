@@ -268,3 +268,12 @@ code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:
 
 /* Grafikbeschreibung als Text */
 .bildtext{margin-top:.5rem}.bildtext summary{cursor:pointer;color:var(--accent);font-weight:600}.bildtext p{margin:.4rem 0 0}
+
+/* QR-Code anklickbar, Vollbild */
+.ld-qr{display:block;border:0;cursor:zoom-in}
+.qr-voll{border:0;padding:0;margin:0;max-width:none;max-height:none;width:100vw;height:100vh;background:#fff;color:#1a2436}
+.qr-voll[open]{display:grid;grid-template-rows:1fr auto auto;justify-items:center;align-items:center;padding:2vmin}
+.qv-btn{border:0;background:#fff;padding:0;cursor:zoom-out;width:min(74vh,92vw);height:min(74vh,92vw)}
+.qv-bild{display:block;width:100%;height:100%}.qv-bild svg{display:block;width:100%;height:100%}
+.qv-url{max-width:none;margin:1vmin 0 0;font-size:clamp(1.2rem,3.4vmin,2.6rem);font-weight:700;text-align:center;word-break:break-all}
+.qv-hinweis{margin:.5vmin 0 0;color:#51627a;font-size:clamp(.9rem,1.8vmin,1.2rem)}
