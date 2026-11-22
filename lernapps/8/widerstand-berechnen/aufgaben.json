@@ -1,4 +1,8 @@
 {
+ "generator": {
+  "skript": "generator.js",
+  "anteil": 0.5
+ },
  "aufgaben": [
   {
    "id": "e1",

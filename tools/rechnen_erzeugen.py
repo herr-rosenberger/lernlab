@@ -77,5 +77,5 @@ t += [
  Z('h2', r'Jedes Heizgerät aus der letzten Aufgabe benötigt $5\,\mathrm{A}$. Wie viele solcher Geräte dürfen höchstens gleichzeitig an einem Stromkreis mit einer $16\,\mathrm{A}$-Sicherung betrieben werden? Die Geräte sind parallel geschaltet.', 3, 'Geräte', r'Die Stromstärken der parallelen Zweige addieren sich: $3\cdot5\,\mathrm{A}=15\,\mathrm{A}<16\,\mathrm{A}$. Bei vier Geräten wären es $20\,\mathrm{A}$, die Sicherung würde auslösen.', r'Die Gesamtstromstärke ist die Summe der Stromstärken in den Zweigen.', 0.001),
 ]
 ids = [x['id'] for x in t]; assert len(ids) == len(set(ids))
-json.dump({'aufgaben': t}, open(D + 'aufgaben.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+json.dump({'generator': {'skript': 'generator.js', 'anteil': 0.5}, 'aufgaben': t}, open(D + 'aufgaben.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print(len(t), 'Aufgaben')

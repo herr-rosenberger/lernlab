@@ -3,7 +3,11 @@
 // · "term" {richtig:"x^2/2", f:"x", punkte?[]}: Stammfunktion eintippen, geprüft bis auf +C (braucht js/term.js). loesungTeX? überschreibt die angezeigte Lösung.
 // Optional je Aufgabe: hinweis, erklaerung, bild + bildAlt (Alternativtext Pflicht), optional bildText (Werte der Grafik als Text, aufklappbar für Screenreader). Formeln: $…$ (KaTeX). Arbeitsblatt: ?arbeitsblatt bzw. ?arbeitsblatt&loesung.
 // Falsch beantwortete Aufgaben kommen in der nächsten Runde bevorzugt wieder (nur im Speicher, es wird nichts gespeichert).
+// Aufgabengenerator (optional): "generator": {"skript": "generator.js", "anteil": 0.5} in aufgaben.json. Das Skript setzt LernLab.generatoren = [{id, erzeuge()}];
+//   erzeuge() liefert eine Aufgabe im selben Format, dazu optional diagnosen: [{wert, text}] (typische Fehler bei Zahlenaufgaben)
+//   oder optionHinweise: [Text je Antwortoption]. Erzeugte Aufgaben werden unter die festen gemischt; nichts davon wird gespeichert.
 (() => {
+  const SRC = document.currentScript && document.currentScript.src;
   const root = document.getElementById('quiz');
   const RUNDE = 10;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -15,7 +19,8 @@
   const hilfe = t => t.typ === 'term' ? '<p class="muted">Schreibweise: x^2, e^(2x), ln|x|, sin(3x), Brüche mit /. Setze Klammern, wenn der Nenner oder Exponent aus mehreren Zeichen besteht. Ein +C darfst du anhängen.</p>'
     : t.typ === 'zahl' && t.exakt ? '<p class="muted">Gib den exakten Wert (z. B. ln(2), e-1, pi/2) oder eine Dezimalzahl mit zwei Nachkommastellen ein.</p>' : '';
   const q = new URLSearchParams(location.search);
-  let tasks = [], schwach = new Set(), run = null;
+  let tasks = [], schwach = new Set(), run = null, gen = [], genAnteil = 0.5, schwachGen = new Set(), genZaehler = 0;
+  const skript = url => new Promise((ok, fehler) => { const s = document.createElement('script'); s.src = url; s.onload = ok; s.onerror = fehler; document.head.append(s); });
 
   const korrekt = (t, v) => t.typ === 'auswahl' ? +v === t.richtig
     : t.typ === 'term' ? LernLab.term.istStammfunktion(v, t.richtig, t.punkte)
@@ -25,9 +30,23 @@
     : t.typ === 'term' ? t.richtig
     : t.typ === 'zahl' ? String(t.richtig).replace('.', ',') + (t.einheit ? ' ' + t.einheit : '') : t.richtig[0];
 
+  // Erzeugte Aufgaben: Familien, in denen zuletzt Fehler passiert sind, kommen zuerst; doppelte Fragetexte werden vermieden.
+  function erzeugeAufgaben(n) {
+    const reihe = shuffle(gen).sort((a, b) => schwachGen.has(b.id) - schwachGen.has(a.id)), out = [], gesehen = new Set();
+    for (let i = 0, versuche = 0; out.length < n && versuche < n * 12; versuche++) {
+      const f = reihe[i++ % reihe.length]; let t = null;
+      try { t = f.erzeuge(); } catch (e) { t = null; }
+      if (!t || !t.frage || gesehen.has(t.frage)) continue;
+      gesehen.add(t.frage); t.id = 'gen:' + f.id + ':' + (++genZaehler); t.familie = f.id; t.erzeugt = true; out.push(t);
+    }
+    return out;
+  }
   function neueRunde() {
-    const sortiert = shuffle(tasks).sort((a, b) => schwach.has(b.id) - schwach.has(a.id));
-    run = { liste: shuffle(sortiert.slice(0, RUNDE)), i: 0, punkte: 0, falsch: [], beantwortet: false };
+    const nG = gen.length ? Math.min(RUNDE, Math.round(RUNDE * genAnteil)) : 0;
+    const fest = shuffle(tasks).sort((a, b) => schwach.has(b.id) - schwach.has(a.id)).slice(0, RUNDE - nG);
+    const erzeugt = nG ? erzeugeAufgaben(nG) : [];
+    const rest = shuffle(tasks).filter(t => !fest.includes(t)).slice(0, RUNDE - fest.length - erzeugt.length);   // falls zu wenig erzeugt wurde
+    run = { liste: shuffle([...fest, ...erzeugt, ...rest]), i: 0, punkte: 0, falsch: [], beantwortet: false };
     frage();
   }
 
@@ -58,10 +77,13 @@
     if (t.typ === 'zahl' && isNaN(num(v))) { fb.innerHTML = '<p class="feedback nok">Das ist keine Zahl. Schreibe zum Beispiel 3,5.</p>'; return; }
     if (t.typ === 'term') { try { LernLab.term.parse(v); } catch (e) { fb.innerHTML = `<p class="feedback nok">Das kann ich nicht lesen: ${esc(e.message)}. Prüfe Klammern und Schreibweise.</p>`; return; } }
     const ok = korrekt(t, t.typ === 'auswahl' ? v : v);
-    ok ? schwach.delete(t.id) : schwach.add(t.id);
+    if (t.erzeugt) ok ? schwachGen.delete(t.familie) : schwachGen.add(t.familie); else ok ? schwach.delete(t.id) : schwach.add(t.id);
     if (ok) run.punkte++; else run.falsch.push(t);
     f.querySelectorAll('input').forEach(i => i.disabled = true);
-    fb.innerHTML = `<p class="feedback ${ok ? 'ok' : 'nok'}"><strong>${ok ? 'Richtig.' : 'Nicht ganz.'}</strong>${ok ? '' : ' Richtig ist: ' + esc(loesung(t)) + '.'}</p>${t.erklaerung ? `<p class="muted">${esc(t.erklaerung)}</p>` : ''}`;
+    let diag = '';   // typischer Fehler erkannt?
+    if (!ok && t.typ === 'zahl' && t.diagnosen) { const w = num(v), h = t.diagnosen.find(x => Math.abs(w - x.wert) <= Math.max(1e-9, Math.abs(x.wert) * 0.01)); if (h) diag = `<p class="muted"><strong>Möglicher Fehler:</strong> ${esc(h.text)}</p>`; }
+    else if (!ok && t.typ === 'auswahl' && t.optionHinweise && t.optionHinweise[+v]) diag = `<p class="muted"><strong>Zu deiner Antwort:</strong> ${esc(t.optionHinweise[+v])}</p>`;
+    fb.innerHTML = `<p class="feedback ${ok ? 'ok' : 'nok'}"><strong>${ok ? 'Richtig.' : 'Nicht ganz.'}</strong>${ok ? '' : ' Richtig ist: ' + esc(loesung(t)) + '.'}</p>${diag}${t.erklaerung ? `<p class="muted">${esc(t.erklaerung)}</p>` : ''}`;
     const b = document.getElementById('ok'); b.textContent = run.i + 1 < run.liste.length ? 'Weiter' : 'Ergebnis'; b.focus();
     run.beantwortet = true; mathe(fb);
   }
@@ -85,7 +107,12 @@
   }
 
   fetch('aufgaben.json').then(r => r.json()).then(d => { tasks = d.aufgaben; const merk = document.querySelector('.merk'); if (merk) mathe(merk); if (q.has('arbeitsblatt')) return arbeitsblatt(q.has('loesung'));
+      return (async () => {
+        if (d.generator) { try { if (!(window.LernLab && LernLab.gen)) await skript(new URL('generator.js', SRC)); await skript(new URL(d.generator.skript, location.href)); gen = LernLab.generatoren || []; genAnteil = d.generator.anteil == null ? 0.5 : d.generator.anteil; } catch (e) { gen = []; } }
+        start(); })();
+    function start() {
       root.insertAdjacentHTML('afterend', '<p class="muted noprint">Für den Unterricht: <a href="?arbeitsblatt">Arbeitsblatt drucken</a> oder <a href="?arbeitsblatt&amp;loesung">Arbeitsblatt mit Lösungen</a>.</p>');
-      neueRunde(); })
+      neueRunde(); }
+    })
     .catch(() => { root.innerHTML = '<p class="feedback nok">Die Aufgaben konnten nicht geladen werden. Lade die Seite neu.</p>'; });
 })();

@@ -4,6 +4,7 @@ import { join, dirname, resolve, basename } from 'node:path';
 import { createRequire } from 'node:module';
 const term = createRequire(import.meta.url)('../js/term.js');
 const textcheck = createRequire(import.meta.url)('../js/textcheck.js');
+const require_ = createRequire(import.meta.url);
 let fehler = 0;
 const err = (f, m) => { console.error(`✗ ${f}: ${m}`); fehler++; };
 const walk = (d, out = []) => { for (const e of readdirSync(d, { withFileTypes: true })) {
@@ -37,6 +38,36 @@ for (const f of dateien.filter(f => f.endsWith('aufgaben.json'))) {
     else if (t.typ === 'text') { if (!Array.isArray(t.richtig) || !t.richtig.length) err(w, '"richtig" muss eine Liste sein'); }
     else err(w, `Unbekannter typ "${t.typ}"`);
     if (t.bild) { if (!t.bildAlt) err(w, 'bildAlt (Alternativtext) fehlt'); if (!existsSync(join(dirname(f), t.bild))) err(w, `Bild fehlt: ${t.bild}`); }
+  }
+}
+// Aufgabengeneratoren: viele Zufallsaufgaben erzeugen und prüfen (Aufbau, Zahlen, Formeln, Fehlerdiagnosen)
+for (const f of dateien.filter(f => f.endsWith('aufgaben.json'))) {
+  const d = json(f); if (!d || !d.generator) continue;
+  const gp = resolve(dirname(f), d.generator.skript), katex = require_('../assets/katex/katex.min.js');
+  globalThis.LernLab = {}; delete require_.cache[require_.resolve('../js/generator.js')]; delete require_.cache[gp];
+  require_('../js/generator.js'); require_(gp);
+  const fam = globalThis.LernLab.generatoren || []; if (!fam.length) { err(f, 'Generator liefert keine Aufgabenfamilien'); continue; }
+  for (const g of fam) {
+    let n = 0, leer = 0; const fragen = new Set();
+    for (let i = 0; i < 400; i++) {
+      let t; try { t = g.erzeuge(); } catch (e) { err(f, `Generator "${g.id}" wirft einen Fehler: ${e.message}`); break; }
+      if (!t) { leer++; continue; } n++; fragen.add(t.frage);
+      const w = `${f} [${g.id}]`, texte = [t.frage, t.erklaerung, t.hinweis || '', ...(t.optionen || []), ...(t.optionHinweise || []), ...(t.diagnosen || []).map(x => x.text)];
+      if (!t.frage || !t.erklaerung) err(w, 'frage oder erklaerung fehlt');
+      for (const x of texte) { if (/undefined|NaN|null|Infinity/.test(x)) { err(w, 'Text enthält undefined/NaN: ' + x.slice(0, 80)); break; }
+        for (const m of x.matchAll(/\$([^$]+)\$/g)) { try { katex.renderToString(m[1], { throwOnError: true }); } catch (e) { err(w, 'Formelfehler: ' + m[1].slice(0, 60) + ' (' + e.message.slice(0, 50) + ')'); } } }
+      if (t.typ === 'zahl') {
+        if (!Number.isFinite(t.richtig) || !(t.toleranz > 0) || !t.einheit) err(w, 'Zahlaufgabe unvollständig');
+        for (const x of t.diagnosen || []) if (!Number.isFinite(x.wert) || !x.text) err(w, 'ungültige Diagnose');
+        for (const x of t.diagnosen || []) if (Math.abs(x.wert - t.richtig) <= Math.max(t.toleranz, Math.abs(t.richtig) * 0.01)) err(w, `Diagnose liegt bei der richtigen Lösung (${x.wert})`);
+      } else if (t.typ === 'auswahl') {
+        if (!Array.isArray(t.optionen) || t.optionen.length < 3 || new Set(t.optionen).size !== t.optionen.length) err(w, 'Optionen fehlen oder doppelt: ' + JSON.stringify(t.optionen));
+        if (!Number.isInteger(t.richtig) || t.richtig < 0 || t.richtig >= (t.optionen || []).length) err(w, 'richtig ist kein gültiger Index');
+        if (t.optionHinweise && t.optionHinweise.length !== t.optionen.length) err(w, 'optionHinweise passt nicht zu optionen');
+      } else err(w, 'Typ nicht erlaubt: ' + t.typ);
+    }
+    if (n < 100) err(f, `Generator "${g.id}" liefert zu selten eine Aufgabe (${n} von 400)`);
+    if (fragen.size < 12) err(f, `Generator "${g.id}" erzeugt zu wenig verschiedene Aufgaben (${fragen.size})`);
   }
 }
 // Erwartungshorizont (Aussagen-Check): Aufbau prüfen, Musterantwort muss alles erfüllen, leerer Text nichts
