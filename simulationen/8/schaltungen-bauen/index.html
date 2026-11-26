@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Schaltungen bauen – LernLab</title>
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="../../../css/main.css">
+<link rel="stylesheet" href="../../../css/print.css" media="print">
+<link rel="manifest" href="../../../manifest.webmanifest">
+<link rel="icon" href="../../../assets/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../../../assets/icon-180.png">
+<meta name="theme-color" content="#e6eaf0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+<script src="../../../js/common.js"></script>
+<script src="../../../js/qr.js"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="brand" href="../../../"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1" y="1" width="30" height="30" rx="9" fill="none" stroke="currentColor" stroke-opacity=".25" stroke-width="2"/><path class="l1" d="M5 18c3-9 6-9 9 0s6 9 9 0 3-5 4-6" fill="none" stroke-width="2.6" stroke-linecap="round"/><circle class="l2" cx="27" cy="12" r="2.4"/></svg> LernLab</a><span class="spacer"></span>
+  <button class="icon-btn" id="theme-toggle" type="button" aria-label="Design wechseln (hell/dunkel)"><svg class="moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 13A9 9 0 1 1 11 3a7 7 0 0 0 10 10z"/></svg><svg class="sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg></button>
+</div></header>
+<main class="wrap">
+  <div class="app-head">
+    <div class="qr" data-qr></div>
+    <a class="back" href="../../../">Zur Übersicht</a>
+    <h1>Schaltungen bauen</h1>
+    <p>Baue Schaltungen aus Batterien, Widerständen, Kabeln und Messgeräten, sieh das Schaltbild und die Berechnungen. Lehrplanbezug: Elektrischer Strom.</p>
+  </div>
+  <div class="app-layout">
+    <section class="panel stage" aria-label="Baukasten für Schaltungen">
+      <div class="pad">
+        <p id="meldung" class="meldung" role="status" hidden></p>
+        <h2>Aufbau</h2>
+        <p class="muted">Wähle links ein Werkzeug und klicke auf eine Verbindung zwischen zwei Punkten. Mit der Tastatur: Pfeiltasten wählen die Verbindung, Eingabetaste setzt das Bauteil.</p>
+        <div id="brettwrap" class="brett"></div>
+        <h2>Schaltbild</h2>
+        <div id="schaltbild" class="bild schaltbildbox"></div>
+        <h2>Ergebnisse</h2>
+        <div id="kennzahlen" class="kennzahlen"></div>
+        <div id="tabelle"></div>
+        <h2>Rechenweg</h2>
+        <div id="weg"></div>
+      </div>
+    </section>
+    <aside class="panel" aria-label="Werkzeuge und Einstellungen">
+      <h2>Werkzeug</h2>
+      <div class="auftraege" id="werkzeuge" role="group" aria-label="Werkzeug wählen">
+        <button type="button" class="auf" data-wz="waehlen" aria-pressed="false">Auswählen und ändern</button>
+        <button type="button" class="auf" data-wz="W" aria-pressed="true">Kabel</button>
+        <button type="button" class="auf" data-wz="B" aria-pressed="false">Batterie</button>
+        <button type="button" class="auf" data-wz="R" aria-pressed="false">Widerstand</button>
+        <button type="button" class="auf" data-wz="A" aria-pressed="false">Amperemeter</button>
+        <button type="button" class="auf" data-wz="V" aria-pressed="false">Voltmeter</button>
+        <button type="button" class="auf" data-wz="loeschen" aria-pressed="false">Entfernen</button>
+      </div>
+      <div class="aktionen"><button class="btn ghost" type="button" id="rueck">Rückgängig</button><button class="btn ghost" type="button" id="leer">Alles löschen</button></div>
+      <h2>Beispiele</h2>
+      <div class="aktionen"><button class="btn ghost" type="button" data-beispiel="reihe">Reihenschaltung</button><button class="btn ghost" type="button" data-beispiel="parallel">Parallelschaltung</button><button class="btn ghost" type="button" data-beispiel="gemischt">Gemischte Schaltung</button><button class="btn ghost" type="button" data-beispiel="messung">Mit Messgeräten</button></div>
+      <h2>Ausgewähltes Bauteil</h2>
+      <p class="muted" id="eigenLeer">Wähle ein Bauteil mit „Auswählen und ändern“. Neu gesetzte Widerstände und Batterien sind sofort ausgewählt.</p>
+      <div id="eigenBox" hidden>
+        <p><strong id="eigTitel"></strong></p>
+        <div class="field" id="eigFeld"><label for="wert" id="wertLabel">Wert</label><input id="wert" type="text" inputmode="decimal" autocomplete="off"><p class="muted" id="wertFehler" role="status"></p></div>
+        <div class="aktionen"><button class="btn ghost" type="button" id="drehen">Batterie umdrehen</button><button class="btn ghost" type="button" id="entf">Bauteil entfernen</button></div>
+      </div>
+      <h2>Voreinstellung für neue Bauteile</h2>
+      <div class="field"><label for="vorB">Neue Batterie in V</label><input id="vorB" type="text" inputmode="decimal" value="6" autocomplete="off"></div>
+      <div class="field"><label for="vorR">Neuer Widerstand in Ω</label><input id="vorR" type="text" inputmode="decimal" value="100" autocomplete="off"><p class="muted" id="vorFehler" role="status"></p></div>
+      <label class="check"><input type="checkbox" id="hide"><span>Ergebnisse ausblenden (erst selbst rechnen)</span></label>
+      <p class="muted">Die Bauteile sind ideal: Batterie ohne Innenwiderstand, Amperemeter fast ohne Widerstand, Voltmeter mit sehr großem Widerstand.</p>
+    </aside>
+    <script src="../../../js/math.js"></script>
+    <script src="../../../js/schaltung.js"></script>
+    <script src="app.js"></script>
+  </div>
+</main>
+<footer class="site-foot"><div class="wrap"><span>Inhalte CC BY-SA 4.0 · Code MIT</span><a href="../../../impressum.html">Impressum</a><a href="../../../datenschutz.html">Datenschutz</a><a href="https://github.com/BENUTZERNAME/REPO/issues/new/choose">Fehler melden</a></div></footer>
+</body></html>

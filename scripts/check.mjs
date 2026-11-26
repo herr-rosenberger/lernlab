@@ -40,6 +40,13 @@ for (const f of dateien.filter(f => f.endsWith('aufgaben.json'))) {
     if (t.bild) { if (!t.bildAlt) err(w, 'bildAlt (Alternativtext) fehlt'); if (!existsSync(join(dirname(f), t.bild))) err(w, `Bild fehlt: ${t.bild}`); }
   }
 }
+// Rechenkern für Schaltungen: Beispiele mit bekannten Ergebnissen
+{
+  const sch = require_('../js/schaltung.js'), B = { key: 'B1', t: 'B', v: 6, rev: false, a: 'T1', b: 'T2', seq: 1 }, R = (key, v, a, b) => ({ key, t: 'R', v, a, b });
+  const faelle = [['Reihe 100+220 Ω', [B, R('R1', 100, 'T1', 'x'), R('R2', 220, 'x', 'T2')], 320], ['Parallel 200∥300 Ω', [B, R('R1', 200, 'T1', 'T2'), R('R2', 300, 'T1', 'T2')], 120],
+    ['Gemischt 100+(300∥600) Ω', [B, R('R1', 100, 'T1', 'x'), R('R2', 300, 'x', 'T2'), R('R3', 600, 'x', 'T2')], 300]];
+  for (const [name, netz, soll] of faelle) { const e = sch.analysiereNetz(netz); if (!e.baum || Math.abs(e.rges - soll) > 1e-9 || Math.abs(e.iges - 6 / soll) > 1e-9) err('js/schaltung.js', `Beispiel "${name}": R_ges=${e.rges}, I_ges=${e.iges}, erwartet ${soll}`); }
+}
 // Aufgabengeneratoren: viele Zufallsaufgaben erzeugen und prüfen (Aufbau, Zahlen, Formeln, Fehlerdiagnosen)
 for (const f of dateien.filter(f => f.endsWith('aufgaben.json'))) {
   const d = json(f); if (!d || !d.generator) continue;

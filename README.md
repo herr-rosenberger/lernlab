@@ -17,6 +17,7 @@ Gesamtübersicht mit Suche und Filtern: **[Zur Startseite](https://BENUTZERNAME.
 | App | Fach | Lehrplanbezug |
 |---|---|---|
 | [Messlabor: Kennlinien](https://BENUTZERNAME.github.io/REPO/simulationen/8/messlabor-kennlinien/) | Physik | Elektrischer Strom: Messgeräte richtig anschließen, Kennlinien aufnehmen und auswerten, Sicherheit beim Experimentieren |
+| [Schaltungen bauen](https://BENUTZERNAME.github.io/REPO/simulationen/8/schaltungen-bauen/) | Physik | Elektrischer Strom: Schaltungen aus Widerständen aufbauen, Schaltbild zeichnen, Gesamtwiderstand, Stromstärke und Spannung bestimmen |
 | [Schaltungen mit bis zu drei Widerständen](https://BENUTZERNAME.github.io/REPO/simulationen/8/schaltungen-drei-widerstaende/) | Physik | Elektrischer Strom: Stromstärken und Spannungen in Reihen-, Parallel- und gemischten Schaltungen mit maximal drei Widerständen |
 
 ### Klasse 13
